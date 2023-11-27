@@ -2,14 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/register/textfield_pass.dart';
 import 'package:motherly_moments/ui/register/textfirld_wedget.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+   RegisterScreen({super.key});
   static const String regroutename ='regname';
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  GlobalKey formkey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
+        key: formkey,
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 28,horizontal: 20),
           child: Column(
@@ -18,11 +26,11 @@ class RegisterScreen extends StatelessWidget {
                Center(child: Image(image:AssetImage('assets/images/logpicture.png'),)),
                Center(child: Image(image:AssetImage('assets/images/NEWBORN.png'))),
                SizedBox(height: 10,),
-               Textform(title: 'Full Name', hint: 'name'),
-               Textform(title: 'Email adress', hint: 'you@example.com'),
-               Textform(title: 'Phone number', hint: '0111111111'),
-               Textformpass(title: 'Password', hint: 'Your password',iconpath: 'assets/images/eye password logo.png'),
-               Textformpass(title: 'Confirm password', hint: 'confirm',iconpath: 'assets/images/eye password logo.png'),
+               Textform(title: 'Full Name', hint: 'name',valiedstring: "your name can't be empty"),
+               Textform(title: 'Email adress', hint: 'you@example.com',valiedstring: "e-mail can't be empty"),
+               Textform(title: 'Phone number', hint: '0111111111',valiedstring: "your phone number can't be empty"),
+               Textformpass(title: 'Password', hint: 'Your password',iconpath: 'assets/images/eye password logo.png',valiedstring: "password can't be empty"),
+               Textformpass(title: 'Confirm password', hint: 'confirm',iconpath: 'assets/images/eye password logo.png',valiedstring: "password can't be empty"),
                Container(
                  width: MediaQuery.sizeOf(context).width*0.9,
                   height:MediaQuery.sizeOf(context).width*0.15 ,

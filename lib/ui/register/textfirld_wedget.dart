@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class Textform extends StatelessWidget {
   late  String title ;
   late  String hint ;
-   Textform({super.key, required this.title,required this.hint});
+  late  String valiedstring ;
+   Textform({super.key, required this.title,required this.hint,required this.valiedstring});
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +15,11 @@ class Textform extends StatelessWidget {
         Container(
           height: 48,
           child: TextFormField(
+            validator: (value) {
+              if (value! .isEmpty ){
+                return valiedstring;
+              }
+            },
             decoration: InputDecoration(
                 errorBorder:  OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
