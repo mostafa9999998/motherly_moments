@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/login/login_screen.dart';
 import 'package:motherly_moments/ui/register/register_screen.dart';
 
 void main() {
@@ -15,9 +16,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         RegisterScreen.regroutename : (_)=> RegisterScreen(),
-
+        Loginscreen.loginroutename : (_)=> Loginscreen(),
       },
-      initialRoute: RegisterScreen.regroutename,
+      initialRoute: Loginscreen.loginroutename,
 
     );
   }
