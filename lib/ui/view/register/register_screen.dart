@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:motherly_moments/ui/register/textfield_pass.dart';
-import 'package:motherly_moments/ui/register/textfirld_wedget.dart';
+import 'package:motherly_moments/ui/view/register/textfield_pass.dart';
+import 'package:motherly_moments/ui/view/register/textfirld_wedget.dart';
 
 class RegisterScreen extends StatefulWidget {
    RegisterScreen({super.key});

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:motherly_moments/ui/register/register_screen.dart';
+
+import '../register/register_screen.dart';
+
 
 class Loginscreen extends StatelessWidget {
    Loginscreen({super.key});
