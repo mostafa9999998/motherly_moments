@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/first_screens/first.dart';
 import 'package:motherly_moments/ui/view/first_screens/second.dart';
 import 'package:motherly_moments/ui/view/first_screens/third.dart';
+import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
+import 'package:motherly_moments/ui/view/forgetpassword/screen_newpass.dart';
+import 'package:motherly_moments/ui/view/forgetpassword/screen_otp.dart';
 import 'package:motherly_moments/ui/view/login/login_screen.dart';
 import 'package:motherly_moments/ui/view/register/register_screen.dart';
 
@@ -23,6 +26,9 @@ class MyApp extends StatelessWidget {
         Welcomescreen1.welcom1name : (_) => Welcomescreen1(),
         Welcomescreen2.welcom2name : (_) => Welcomescreen2(),
         Welcomescreen3.welcom3name : (_) => Welcomescreen3(),
+        Emailscreen.emailroutename : (_) => Emailscreen(),
+        Otpscreen.otproutename : (_) => Otpscreen(),
+        Newpassscreen.newpassroutename : (_) => Newpassscreen(),
       },
       initialRoute: Welcomescreen1.welcom1name,
 
