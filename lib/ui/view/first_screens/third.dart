@@ -22,7 +22,7 @@ class Welcomescreen3 extends StatelessWidget {
               ],
             ),
             SizedBox(height: 25,),
-            Center(child: Image(image:AssetImage('assets/images/intropic3.png'),)),
+            Center(child:Image.asset('assets/images/intropic2.png',height:MediaQuery.of(context).size.height*.3 )),
             SizedBox(height: 60,),
             Text('''Tracking Tools The app will provide tracking tools to help users monitor their pregnancy and postpartum progress,including weight tracking, contraction timing, and breastfeeding tracker.'''
             ,style: TextStyle(fontSize: 18), textAlign: TextAlign.center
@@ -43,7 +43,7 @@ class Welcomescreen3 extends StatelessWidget {
               ),
             ),
                 SizedBox( height: 20,),
-                Center(child: Image(image:AssetImage('assets/images/dots3.png'))),
+                Center(child: Image.asset('assets/images/dots3.png',height:MediaQuery.of(context).size.height*.02)),
           ],
         ),
       ),

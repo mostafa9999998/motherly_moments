@@ -120,7 +120,7 @@ class Loginscreen extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Image(image:AssetImage('assets/images/Logo.png')),
+                        Image.asset('assets/images/Logo.png',height:MediaQuery.of(context).size.height*.03 ),
                         SizedBox(width: 10,),
                         Text('sign up with google',style: TextStyle(fontSize: 16,color: Colors.black))
                       ],

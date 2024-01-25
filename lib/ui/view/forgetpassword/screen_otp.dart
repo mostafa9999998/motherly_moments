@@ -68,7 +68,6 @@ class Otpscreen extends StatelessWidget {
                 Text("Didn’t get the code?", style: TextStyle(fontSize: 18),textAlign: TextAlign.center),
                 SizedBox(height: 15,),
                 Text('Resend Code', style: TextStyle(fontSize: 18,color: Color(0xff8362D7)),textAlign: TextAlign.center),
-
               ],
             ),
           ),

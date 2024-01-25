@@ -16,7 +16,7 @@ class Welcomescreen1 extends StatelessWidget {
             SizedBox(height: 70,),
             Center(child: Image(image:AssetImage('assets/images/NEWBORN.png'),)),
             SizedBox(height: 40,),
-            Center(child: Image(image:AssetImage('assets/images/intropic1.png'),)),
+            Center(child: Image.asset('assets/images/intropic1.png',height:MediaQuery.of(context).size.height*.3 )),
             SizedBox(height: 80,),
             Center(child: Text('Welcome',style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600),)),
             SizedBox(height: 20,),
@@ -31,7 +31,7 @@ class Welcomescreen1 extends StatelessWidget {
                       Navigator.pushReplacementNamed(context, Loginscreen.loginroutename);
                     },
                     child: Text('  SKIP',style: TextStyle(fontSize:18 ,color: Color(0xff271E4A)))),
-                Image(image:AssetImage('assets/images/dots1.png')),
+                Image.asset('assets/images/dots1.png',height:MediaQuery.of(context).size.height*.02  ),
                 InkWell(
                   onTap: (){
                     Navigator.pushReplacementNamed(context,Welcomescreen2.welcom2name);

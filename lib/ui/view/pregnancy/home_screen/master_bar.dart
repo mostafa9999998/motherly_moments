@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/category.dart';
+import 'package:motherly_moments/ui/view/pregnancy/home_screen/home/home.dart';
+import 'package:motherly_moments/ui/view/pregnancy/home_screen/todo/todo_screen.dart';
 
 class Masterscreen extends StatefulWidget {
   const Masterscreen({super.key});
@@ -42,4 +45,4 @@ class _MasterscreenState extends State<Masterscreen> {
     );
   }
 }
-List pages =[];
+List pages =[Category(),Weekscalculate(),Todoscreen()];
