@@ -53,7 +53,7 @@ class Calculatingscreen extends StatelessWidget {
               height: MediaQuery.sizeOf(context).width * 0.15,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, Babyweeksscreen.babyweeksname);
+                  Navigator.pushReplacementNamed(context, Babyweeksscreen.babyweeksname);
                 },
                 child: Text(
                   'Next',

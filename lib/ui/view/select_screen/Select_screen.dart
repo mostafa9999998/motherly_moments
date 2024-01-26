@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/calculating.dart';
+import 'package:motherly_moments/ui/view/befor_prgnancy/date_biker/date%20piker%20screen.dart';
 import 'package:motherly_moments/ui/view/select_screen/seiectmodel.dart';
 import '../pregnancy/home_screen/master_bar.dart';
 
@@ -17,7 +18,7 @@ class Selectscreen extends StatelessWidget {
             SizedBox(height:  MediaQuery.of(context).size.height*.17,),
             Row(
               children: [
-                Expanded(child: Selectitem(id: 'bregnancy', title: 'Bregnancy', imagepath: 'assets/images/pregnant.png', screenname: Calculatingscreen.calculatetname)),
+                Expanded(child: Selectitem(id: 'bregnancy', title: 'Bregnancy', imagepath: 'assets/images/pregnant.png', screenname: Datebikerscreen.datepikername)),
                 Expanded(child: Selectitem(id: 'birth', title: 'Birth', imagepath: 'assets/images/mother.png', screenname: Masterscreen.mastername)),
               ],
             )

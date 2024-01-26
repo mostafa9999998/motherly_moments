@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/baby_weeks.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/calculating.dart';
+import 'package:motherly_moments/ui/view/befor_prgnancy/date_biker/date%20piker%20screen.dart';
 import 'package:motherly_moments/ui/view/first_screens/first.dart';
 import 'package:motherly_moments/ui/view/first_screens/second.dart';
 import 'package:motherly_moments/ui/view/first_screens/third.dart';
@@ -48,7 +49,8 @@ class MyApp extends StatelessWidget {
         Food_screen.foodname : (_) => Food_screen(),
         Selectscreen.selectname : (_) => Selectscreen(),
         Calculatingscreen.calculatetname : (_) => Calculatingscreen(),
-        Babyweeksscreen.babyweeksname : (_) => Babyweeksscreen()
+        Babyweeksscreen.babyweeksname : (_) => Babyweeksscreen(),
+        Datebikerscreen.datepikername : (_) => Datebikerscreen()
       },
       initialRoute: Selectscreen.selectname,
 

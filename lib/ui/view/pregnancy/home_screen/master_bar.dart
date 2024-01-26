@@ -45,4 +45,4 @@ class _MasterscreenState extends State<Masterscreen> {
     );
   }
 }
-List pages =[Category(),Weekscalculate(),Todoscreen()];
+List pages =[Weekscalculate(),Category(),Todoscreen()];

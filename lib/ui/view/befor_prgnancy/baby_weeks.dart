@@ -43,7 +43,7 @@ class Babyweeksscreen extends StatelessWidget {
               height: MediaQuery.sizeOf(context).width * 0.15,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, Masterscreen.mastername);
+                  Navigator.pushReplacementNamed(context, Masterscreen.mastername);
                 },
                 child: Text(
                   'See my baby milestones',
