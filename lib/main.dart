@@ -9,6 +9,7 @@ import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_newpass.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_otp.dart';
 import 'package:motherly_moments/ui/view/login/login_screen.dart';
+import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/selected%20month/groth%20month%20screen.dart';
 import 'package:motherly_moments/ui/view/register/register_screen.dart';
 import 'package:motherly_moments/ui/view/select_screen/Select_screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babyGroth_screen.dart';
@@ -45,14 +46,16 @@ class MyApp extends StatelessWidget {
         Babygroth.babagrothname : (_) => Babygroth(),
         Courses_screen.coursesename :(_) => Courses_screen(),
         Vitamines_screen.vitaminename :(_) => Vitamines_screen(),
-        Exercises_creen.exercisname : (_) => Exercises_creen(),
+        Exercises_screen.exercisname : (_) => Exercises_screen(),
         Food_screen.foodname : (_) => Food_screen(),
         Selectscreen.selectname : (_) => Selectscreen(),
         Calculatingscreen.calculatetname : (_) => Calculatingscreen(),
         Babyweeksscreen.babyweeksname : (_) => Babyweeksscreen(),
-        Datebikerscreen.datepikername : (_) => Datebikerscreen()
+        Datebikerscreen.datepikername : (_) => Datebikerscreen(),
+        Babygroth.babagrothname : (_) => Babygroth(),
+        Selecctedgrothmonthscreen.selectedmonthname : (_) => Selecctedgrothmonthscreen(),
       },
-      initialRoute: Selectscreen.selectname,
+      initialRoute: Selectscreen.selectname ,
 
     );
   }

@@ -18,7 +18,7 @@ class Categoryl {
      Categoryl(id: 'body changes', title: 'Body changes', imagepath: 'assets/images/female-body 1.png',screenname: Bodychange.bodychangename),
      Categoryl(id: 'food', title: 'Food', imagepath: 'assets/images/Food.png',screenname: Food_screen.foodname),
      Categoryl(id: 'vitamines', title: 'Vitamines', imagepath: 'assets/images/vitamine.png',screenname: Vitamines_screen.vitaminename ),
-     Categoryl(id: 'excircises', title: 'Exercises', imagepath: 'assets/images/exercise.png',screenname: Exercises_creen.exercisname),
+     Categoryl(id: 'excircises', title: 'Exercises', imagepath: 'assets/images/exercise.png',screenname: Exercises_screen.exercisname),
      Categoryl(id: 'courses', title: 'Courses', imagepath: 'assets/images/course.png',screenname: Courses_screen.coursesename)
    ];
   }
