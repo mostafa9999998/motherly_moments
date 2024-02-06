@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babygroth%20months%20model.dart';
 
+import '../selected month/selected month screen.dart';
+
 class Babygrothmonths extends StatelessWidget {
   Babygrothmonths({super.key, required this.babygrothlist});
   Babygrothlist babygrothlist;
@@ -9,7 +11,9 @@ class Babygrothmonths extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, babygrothlist.screenname);
+        Selecctedmonthscreen.month = babygrothlist.id ;
+        Selecctedmonthscreen.categ = babygrothlist.screenname ;
+        Navigator.pushNamed(context, Selecctedmonthscreen.selectedmonthname);
       },
       child: Container(
         //color: Color(0xff515165),

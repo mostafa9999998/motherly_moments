@@ -9,7 +9,6 @@ import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_newpass.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_otp.dart';
 import 'package:motherly_moments/ui/view/login/login_screen.dart';
-import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/selected%20month/groth%20month%20screen.dart';
 import 'package:motherly_moments/ui/view/register/register_screen.dart';
 import 'package:motherly_moments/ui/view/select_screen/Select_screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babyGroth_screen.dart';
@@ -17,6 +16,7 @@ import 'ui/view/pregnancy/home_screen/category_screen/categories/bodychange/body
 import 'ui/view/pregnancy/home_screen/category_screen/categories/courses/course_screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/exercise/excercise_screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/food/foodscreen.dart';
+import 'ui/view/pregnancy/home_screen/category_screen/categories/selected month/selected month screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitaminesscreen.dart';
 import 'ui/view/pregnancy/home_screen/master_bar.dart';
 
@@ -52,10 +52,9 @@ class MyApp extends StatelessWidget {
         Calculatingscreen.calculatetname : (_) => Calculatingscreen(),
         Babyweeksscreen.babyweeksname : (_) => Babyweeksscreen(),
         Datebikerscreen.datepikername : (_) => Datebikerscreen(),
-        Babygroth.babagrothname : (_) => Babygroth(),
-        Selecctedgrothmonthscreen.selectedmonthname : (_) => Selecctedgrothmonthscreen(),
+        Selecctedmonthscreen.selectedmonthname : (_) => Selecctedmonthscreen(),
       },
-      initialRoute: Selectscreen.selectname ,
+      initialRoute:  Selectscreen.selectname ,
 
     );
   }

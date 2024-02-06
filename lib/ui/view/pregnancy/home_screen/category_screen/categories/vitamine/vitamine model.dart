@@ -1,9 +1,9 @@
-import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/selected%20month/groth%20month%20screen.dart';
+import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/selected%20month/selected%20month%20screen.dart';
 
 import '../../../../../select_screen/Select_screen.dart';
 
 class Vitaminelist {
-  String id;
+  int  id;
   String title;
   String imagepath;
   String screenname;
@@ -17,28 +17,28 @@ class Vitaminelist {
   static List<Vitaminelist> vitaminelist() {
     return [
       Vitaminelist(
-          id: '1',
+          id: 1,
           title: 'zinc helps in you in 1 month',
           imagepath: 'assets/images/vitamine month1.png',
-          screenname: Selecctedgrothmonthscreen.selectedmonthname,
+          screenname: Selecctedmonthscreen.selectedmonthname,
           desc: 'The first thrimester is the time when\n the baby'),
       Vitaminelist(
-          id: '2',
+          id: 2,
           title: 'viitamin c helps in you in 2 month',
           imagepath: 'assets/images/vitamine c.png',
-          screenname: Selecctedgrothmonthscreen.selectedmonthname,
+          screenname: Selecctedmonthscreen.selectedmonthname,
           desc: 'The first thrimester is the time when\n the baby'),
       Vitaminelist(
-          id: '3',
+          id: 3,
           title: 'omega3 helps in you in 1 month',
           imagepath: 'assets/images/omega3.png',
-          screenname: Selecctedgrothmonthscreen.selectedmonthname,
+          screenname: Selecctedmonthscreen.selectedmonthname,
           desc: 'The first thrimester is the time when\n the baby'),
       Vitaminelist(
-          id: '4',
+          id: 4,
           title: 'iron helps in you in 2 month',
           imagepath: 'assets/images/irons.png',
-          screenname: Selecctedgrothmonthscreen.selectedmonthname,
+          screenname: Selecctedmonthscreen.selectedmonthname,
           desc: 'The first thrimester is the time when\n the baby'),
 
     ];

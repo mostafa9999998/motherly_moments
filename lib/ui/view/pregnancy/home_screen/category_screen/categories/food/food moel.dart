@@ -1,9 +1,9 @@
-import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/selected%20month/groth%20month%20screen.dart';
+import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/selected%20month/selected%20month%20screen.dart';
 
 import '../../../../../select_screen/Select_screen.dart';
 
 class Foodlist {
-  String id;
+  int id;
   String title;
   String imagepath;
   String screenname;
@@ -17,22 +17,22 @@ class Foodlist {
   static List<Foodlist> foodlist() {
     return [
       Foodlist(
-          id: '1',
+          id: 1,
           title: 'Healthy eating in first 3 months',
           imagepath: 'assets/images/foodmonth1.png',
-          screenname: Selecctedgrothmonthscreen.selectedmonthname,
+          screenname: Selecctedmonthscreen.selectedmonthname,
           desc: 'The first thrimester is the time when\n the baby'),
       Foodlist(
-          id: '2',
+          id: 2,
           title: 'Healthy eating in Second 3 months',
           imagepath: 'assets/images/foodmonth1.png',
-          screenname: Selecctedgrothmonthscreen.selectedmonthname,
+          screenname: Selecctedmonthscreen.selectedmonthname,
           desc: 'The second thrimester is the time when\n the baby'),
       Foodlist(
-          id: '3',
+          id: 3,
           title: 'Healthy eating in Last 3 months',
           imagepath: 'assets/images/foodmonth1.png',
-          screenname: Selecctedgrothmonthscreen.selectedmonthname,
+          screenname: Selecctedmonthscreen.selectedmonthname,
           desc: 'The last thrimester is the time when\n the baby'),
     ];
   }

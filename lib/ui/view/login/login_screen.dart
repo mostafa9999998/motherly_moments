@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
-
+import 'package:motherly_moments/ui/view/select_screen/Select_screen.dart';
 import '../register/register_screen.dart';
 
 
@@ -85,7 +85,9 @@ class Loginscreen extends StatelessWidget {
                 Container(
                   width: MediaQuery.sizeOf(context).width*0.9,
                   height:MediaQuery.sizeOf(context).width*0.15 ,
-                  child: ElevatedButton(onPressed: (){},
+                  child: ElevatedButton(onPressed: (){
+                    Navigator.pushReplacementNamed(context, Selectscreen.selectname);
+                  },
                     child: Text('Sign In',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26,color: Colors.white),),
                     style: ElevatedButton.styleFrom(
                         backgroundColor:Color(0xff8461D5),
@@ -135,3 +137,4 @@ class Loginscreen extends StatelessWidget {
     );
   }
 }
+//build\app\outputs\flutter-apk\app-release.apk

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/bodychange/bodychange%20model.dart';
 
+import '../selected month/selected month screen.dart';
+
 
 class Bodychangemonths extends StatelessWidget {
   Bodychangemonths({super.key, required this.bodychangehlist});
@@ -9,7 +11,9 @@ class Bodychangemonths extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, bodychangehlist.screenname);
+        Selecctedmonthscreen.month = bodychangehlist.id ;
+        Selecctedmonthscreen.categ = bodychangehlist.screenname ;
+        Navigator.pushNamed(context, Selecctedmonthscreen.selectedmonthname);
       },
       child: Container(
         //color: Color(0xff515165),
