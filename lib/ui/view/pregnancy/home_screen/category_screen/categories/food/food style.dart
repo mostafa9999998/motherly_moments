@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/food/food%20moel.dart';
 
+import '../selected month/selected month screen.dart';
+
 class Foodsstyle extends StatelessWidget {
   Foodsstyle({super.key, required this.foodlist});
   Foodlist foodlist;
@@ -9,7 +11,9 @@ class Foodsstyle extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, foodlist.screenname);
+        Selecctedmonthscreen.month = foodlist.id ;
+        Selecctedmonthscreen.categ = foodlist.screenname ;
+        Navigator.pushNamed(context, Selecctedmonthscreen.selectedmonthname);
       },
       child: Container(
         //color: Color(0xff515165),

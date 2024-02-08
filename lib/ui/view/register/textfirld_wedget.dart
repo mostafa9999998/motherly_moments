@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Textform extends StatelessWidget {
-  late  String title ;
-  late  String hint ;
-  late  String valiedstring ;
-   Textform({super.key, required this.title,required this.hint,required this.valiedstring});
+   String title ;
+   String hint ;
+   TextInputType keyboardtype ;
+   TextEditingController controller;
+   String? Function(String?) validator ;
+   Textform({super.key, required this.title,required this.hint,
+     this.keyboardtype= TextInputType.text ,required this.controller, required this.validator});
 
   @override
   Widget build(BuildContext context) {
@@ -13,13 +16,14 @@ class Textform extends StatelessWidget {
       children: [
         Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),),
         Container(
-          height: 48,
           child: TextFormField(
-            validator: (value) {
-              if (value! .isEmpty ){
+            validator: validator
+            /*(value) {
+              if (value!.isEmpty || value.trim().isEmpty){
                 return valiedstring;
               }
-            },
+            },*/,
+            keyboardType:keyboardtype ,
             decoration: InputDecoration(
                 errorBorder:  OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
@@ -32,6 +36,8 @@ class Textform extends StatelessWidget {
                 ),
                 hintText: hint ,
             ),
+            controller: controller,
+
           ),
         ),
         SizedBox(height: 14,)

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babygroth%20months%20model.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitamine%20model.dart';
 
+import '../selected month/selected month screen.dart';
+
 class Vitaminestyle extends StatelessWidget {
   Vitaminestyle({super.key, required this.vitaminelist});
   Vitaminelist vitaminelist;
@@ -10,8 +12,9 @@ class Vitaminestyle extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, vitaminelist.screenname);
-      },
+        Selecctedmonthscreen.month = vitaminelist.id ;
+        Selecctedmonthscreen.categ = vitaminelist.screenname ;
+        Navigator.pushNamed(context, Selecctedmonthscreen.selectedmonthname);      },
       child: Container(
         //color: Color(0xff515165),
         height:  MediaQuery.of(context).size.height * 0.14,

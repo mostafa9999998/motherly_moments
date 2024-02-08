@@ -1,13 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
 import 'package:motherly_moments/ui/view/select_screen/Select_screen.dart';
+import '../../../data/repo/apis/baby groth/Api manager.dart';
+import '../../utils/loading.dart';
 import '../register/register_screen.dart';
 
 
-class Loginscreen extends StatelessWidget {
+class Loginscreen extends StatefulWidget {
    Loginscreen({super.key});
   static const String loginroutename ='login';
-  GlobalKey formk = GlobalKey();
+
+  @override
+  State<Loginscreen> createState() => _LoginscreenState();
+}
+
+class _LoginscreenState extends State<Loginscreen> {
+   TextEditingController emailcontroller = TextEditingController();
+
+   TextEditingController passwordcontroller = TextEditingController();
+
+  GlobalKey<FormState> formk = GlobalKey();
+   bool obscure = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,13 +38,19 @@ class Loginscreen extends StatelessWidget {
                 SizedBox(height: 27,),
                 Text('Email address',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),),
                 Container(
-                  height: 50,
                   child: TextFormField(
                     validator: (value) {
-                      if (value! .isEmpty ){
-                        return "email address can't be empty";
+                      if (value!.isEmpty || value.trim().isEmpty){
+                        return "e-mail can't be empty";
+                      }
+                      bool emailValid =
+                      RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                          .hasMatch(value);
+                      if (!emailValid){
+                        return 'please enter valid e-mail';
                       }
                     },
+                    controller: emailcontroller,
                     decoration: InputDecoration(
                       errorBorder:  OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
@@ -42,6 +61,7 @@ class Loginscreen extends StatelessWidget {
                       focusedBorder:  OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
+
                       hintText: 'You@Example.com' ,
                     ),
                   ),
@@ -49,13 +69,15 @@ class Loginscreen extends StatelessWidget {
                 SizedBox(height: 15,),
                 Text('Password',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),),
                 Container(
-                  height: 50,
                   child: TextFormField(
                     validator: (value) {
-                      if (value! .isEmpty ){
+                      if (value! .isEmpty || value.trim().isEmpty){
                         return "password can't be empty";
+                      }else if (value.length < 8){
+                        return'password shoud be at least 8 Characters';
                       }
                     },
+                    controller: passwordcontroller,
                     decoration: InputDecoration(
                       errorBorder:  OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
@@ -67,8 +89,19 @@ class Loginscreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                       ),
                       hintText: 'your Password' ,
-                      suffixIcon: ImageIcon(AssetImage('assets/images/eye password logo.png')),
+                      suffixIcon: InkWell(
+                          onTap: () {
+                            if(obscure==true){
+                              obscure = false ;
+                            }
+                            else {
+                              obscure = true ;
+                            }
+                            setState(() {});
+                          },
+                          child: ImageIcon(AssetImage('assets/images/eye password logo.png'))),
                     ),
+                    obscureText: obscure,
                   ),
                 ),
                 SizedBox(
@@ -82,11 +115,12 @@ class Loginscreen extends StatelessWidget {
                 SizedBox(
                   height: 25,
                 ),
-                Container(
+                 Container(
                   width: MediaQuery.sizeOf(context).width*0.9,
                   height:MediaQuery.sizeOf(context).width*0.15 ,
                   child: ElevatedButton(onPressed: (){
-                    Navigator.pushReplacementNamed(context, Selectscreen.selectname);
+                    login();
+                  //  Navigator.pushReplacementNamed(context, Selectscreen.selectname);
                   },
                     child: Text('Sign In',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 26,color: Colors.white),),
                     style: ElevatedButton.styleFrom(
@@ -135,6 +169,28 @@ class Loginscreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void login() async {
+    if (formk.currentState?.validate()==true){
+      try{
+        showLoading(context);
+        var R = Apimanager.login(emailcontroller.text,passwordcontroller.text);
+
+        if(await R){
+          hideLoading(context);
+          showerror(context, 'Login successful');
+          Navigator.pushReplacementNamed(context, Selectscreen.selectname);
+        } else{
+          hideLoading(context);
+          showerror(context, 'Email or Password is incorrect');
+        }
+      }
+      catch(e){
+        hideLoading(context);
+        showerror(context, 'Some thing went wrong');
+      }
+    }
   }
 }
 //build\app\outputs\flutter-apk\app-release.apk

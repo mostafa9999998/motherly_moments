@@ -20,25 +20,25 @@ class Vitaminelist {
           id: 1,
           title: 'zinc helps in you in 1 month',
           imagepath: 'assets/images/vitamine month1.png',
-          screenname: Selecctedmonthscreen.selectedmonthname,
+          screenname: 'vitamin',
           desc: 'The first thrimester is the time when\n the baby'),
       Vitaminelist(
           id: 2,
           title: 'viitamin c helps in you in 2 month',
           imagepath: 'assets/images/vitamine c.png',
-          screenname: Selecctedmonthscreen.selectedmonthname,
+          screenname: 'vitamin',
           desc: 'The first thrimester is the time when\n the baby'),
       Vitaminelist(
           id: 3,
           title: 'omega3 helps in you in 1 month',
           imagepath: 'assets/images/omega3.png',
-          screenname: Selecctedmonthscreen.selectedmonthname,
+          screenname: 'vitamin',
           desc: 'The first thrimester is the time when\n the baby'),
       Vitaminelist(
           id: 4,
           title: 'iron helps in you in 2 month',
           imagepath: 'assets/images/irons.png',
-          screenname: Selecctedmonthscreen.selectedmonthname,
+          screenname: 'vitamin',
           desc: 'The first thrimester is the time when\n the baby'),
 
     ];

@@ -20,19 +20,19 @@ class Foodlist {
           id: 1,
           title: 'Healthy eating in first 3 months',
           imagepath: 'assets/images/foodmonth1.png',
-          screenname: Selecctedmonthscreen.selectedmonthname,
+          screenname: 'Food',
           desc: 'The first thrimester is the time when\n the baby'),
       Foodlist(
           id: 2,
           title: 'Healthy eating in Second 3 months',
           imagepath: 'assets/images/foodmonth1.png',
-          screenname: Selecctedmonthscreen.selectedmonthname,
+          screenname: 'Food',
           desc: 'The second thrimester is the time when\n the baby'),
       Foodlist(
           id: 3,
           title: 'Healthy eating in Last 3 months',
           imagepath: 'assets/images/foodmonth1.png',
-          screenname: Selecctedmonthscreen.selectedmonthname,
+          screenname: 'Food',
           desc: 'The last thrimester is the time when\n the baby'),
     ];
   }

@@ -2,13 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/data/repo/apis/baby%20groth/Api%20manager.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babygroth%20months%20model.dart';
-import '../../../../../../../data/repo/moduls/baby groth/BabygrothResponse.dart';
+import ''
+    '../../../../../../../data/repo/moduls/baby groth/categoriesResponse.dart';
 
 
 class Selecctedmonthscreen extends StatelessWidget {
   Selecctedmonthscreen({super.key,});
-  static late int month;
-  static late String categ;
+  static  int month =1;
+  static  String categ = 'babygrowth';
 
   static String selectedmonthname = 'selectedmonthname';
   var babygrothlist = Babygrothlist.categrylist();
@@ -24,7 +25,7 @@ class Selecctedmonthscreen extends StatelessWidget {
         backgroundColor: Color(0xff8362D7),
       ),
       body: FutureBuilder<BabygrothResponse>(
-        future: BabygrothApimanager.getbabygroth(month,categ),
+        future: Apimanager.getcategorydesc(month,categ),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
@@ -32,11 +33,22 @@ class Selecctedmonthscreen extends StatelessWidget {
             );
           }
           else if (snapshot.hasError) {
-            return Column(
-              children: [
-                Text(snapshot.error.toString()),
-                ElevatedButton(onPressed: () {}, child: Text('Try Again'))
-              ],
+            return Center(
+              child: Column(
+                children:[ Container(
+                  margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height*.03,
+                      horizontal:MediaQuery.of(context).size.width*.1 ),
+                  padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*.03 ,
+                    vertical: MediaQuery.of(context).size.height*.006,),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Colors.yellow,
+                  ),
+                  child: Text(snapshot.error.toString()),
+                ),
+                  ElevatedButton(onPressed: () {}, child: Text('Try Again'))
+                ]
+              ),
             );
           }
           else{
@@ -50,14 +62,14 @@ class Selecctedmonthscreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      snapshot.data?.title??'',
+                      snapshot.data?.title??'null',
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(
                       height: MediaQuery.of(context).size.height * .02,
                     ),
-                    Image.network(snapshot.data?.fullSrc??'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.toppr.com%2Fguides%2Fprinciples-and-practice-of-accounting%2Frectification-of-errors%2Ftypes-of-errors%2F&psig=AOvVaw2v9J3ZzkuS7pVk6cZ6l7uG&ust=1707185818961000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCMCbpfSQk4QDFQAAAAAdAAAAABAE',
+                    Image.network(snapshot.data?.fullSrc??'https://static.s4be.cochrane.org/app/uploads/2017/04/shutterstock_531145954.jpg',
                         fit: BoxFit.fill,
                         height: MediaQuery.of(context).size.height * .28,
                         width: double.infinity),
@@ -65,7 +77,7 @@ class Selecctedmonthscreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * .02,
                     ),
                     Text(
-                      snapshot.data?.title??'',
+                      snapshot.data?.title??'null',
                       style:
                           TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
                     ),
@@ -73,7 +85,7 @@ class Selecctedmonthscreen extends StatelessWidget {
                       height: MediaQuery.of(context).size.height * .02,
                     ),
                     Text(
-                          snapshot.data?.description??'',
+                          snapshot.data?.description??'null',
                       style:
                           TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                     ),

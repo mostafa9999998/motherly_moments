@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/calculating.dart';
+import 'package:provider/provider.dart';
+
+import '../../../view_model/provider/select calender.dart';
 
 class Datebikerscreen extends StatefulWidget {
   const Datebikerscreen({super.key});
@@ -9,9 +12,11 @@ class Datebikerscreen extends StatefulWidget {
 }
 
 class _DatebikerscreenState extends State<Datebikerscreen> {
-DateTime selectdate = DateTime.now();
+ DateTime selectdate = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
+    Selectcalendr provider = Provider.of(context);
     return Scaffold(
       body: Container(
         padding: EdgeInsets.symmetric(
@@ -36,7 +41,8 @@ DateTime selectdate = DateTime.now();
             ),
             InkWell(
               onTap: () {
-                selectcalender();
+                selectcalender(context ,provider);
+
               },
               child: Text(
                   'Select the dates of your cycle to log them',
@@ -77,13 +83,14 @@ DateTime selectdate = DateTime.now();
     );
   }
 
-  void selectcalender() async{
+  void selectcalender(BuildContext context ,Selectcalendr provider ) async{
    var chosendate = await showDatePicker(context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime.now().subtract(Duration(days: 270)),
         lastDate: DateTime.now().add(Duration(days: 270)));
    if (chosendate!= null){
     selectdate = chosendate;
+    provider.setdate(chosendate);
    }
   }
 }

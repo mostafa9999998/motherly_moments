@@ -1,23 +1,34 @@
 import 'package:flutter/material.dart';
 
-class Textformpass extends StatelessWidget {
-   Textformpass({super.key, required this.title,required this.hint,required this.iconpath, required this.valiedstring});
-  late  String title ;
-  late  String hint ;
-   late  String iconpath ;
-   late  String valiedstring ;
+class Textformpass extends StatefulWidget {
+   Textformpass({super.key, required this.title,required this.hint,required this.iconpath, required this.valiedstring,
+   required this.controller});
+    String title ;
+    String hint ;
+     String iconpath ;
+     String valiedstring ;
+   TextEditingController controller;
+
+  @override
+  State<Textformpass> createState() => _TextformpassState();
+}
+
+class _TextformpassState extends State<Textformpass> {
+   bool obscure = true;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),),
+        Text(widget.title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),),
         Container(
-          height: 48,
           child: TextFormField(
             validator: (value) {
-              if (value! .isEmpty ){
-                return valiedstring;
+              if (value! .isEmpty || value.trim().isEmpty){
+                return widget.valiedstring;
+              }else if (value.length < 8){
+                return'password shoud be at least 8 Characters';
               }
             },
             decoration: InputDecoration(
@@ -30,13 +41,25 @@ class Textformpass extends StatelessWidget {
               focusedBorder:  OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
-              hintText: hint ,
-              suffixIcon: ImageIcon(AssetImage(iconpath)),
+              hintText: widget.hint ,
+              suffixIcon: InkWell(
+                  onTap: () {
+                    if(obscure==true){
+                      obscure = false ;
+                    }
+                    else {
+                      obscure = true ;
+                    }
+                   setState(() {});
+                  } ,
+                  child: ImageIcon(AssetImage(widget.iconpath))),
             ),
+            controller: widget.controller,
+            obscureText: obscure,
           ),
         ),
         SizedBox(height: 14,)
       ],
-    );;
+    );
   }
 }

@@ -11,6 +11,8 @@ import 'package:motherly_moments/ui/view/forgetpassword/screen_otp.dart';
 import 'package:motherly_moments/ui/view/login/login_screen.dart';
 import 'package:motherly_moments/ui/view/register/register_screen.dart';
 import 'package:motherly_moments/ui/view/select_screen/Select_screen.dart';
+import 'package:motherly_moments/ui/view_model/provider/select%20calender.dart';
+import 'package:provider/provider.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babyGroth_screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/bodychange/bodychange_screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/courses/course_screen.dart';
@@ -21,7 +23,10 @@ import 'ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitami
 import 'ui/view/pregnancy/home_screen/master_bar.dart';
 
 void main() {
-  runApp(const MyApp());
+  Selectcalendr provider = Selectcalendr();
+  runApp(ChangeNotifierProvider(
+    create:(context) =>provider,
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -54,7 +59,7 @@ class MyApp extends StatelessWidget {
         Datebikerscreen.datepikername : (_) => Datebikerscreen(),
         Selecctedmonthscreen.selectedmonthname : (_) => Selecctedmonthscreen(),
       },
-      initialRoute:  Selectscreen.selectname ,
+      initialRoute: Welcomescreen1.welcom1name,
 
     );
   }
