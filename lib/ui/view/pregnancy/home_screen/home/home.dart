@@ -11,9 +11,8 @@ class Weekscalculate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Selectcalendr provider = Provider.of(context);
+    Mainprovider provider = Provider.of(context);
    var date = provider.getdate();
-   print( '${date.day}.................................................');
     return FutureBuilder(
         future: Apimanager.Weeks(date.day, date.month, date.year),
         builder: (context, snapshot) {

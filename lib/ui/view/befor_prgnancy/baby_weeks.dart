@@ -10,7 +10,7 @@ class Babyweeksscreen extends StatelessWidget {
   static const String babyweeksname = 'babyweeksname';
   @override
   Widget build(BuildContext context) {
-    Selectcalendr provider = Provider.of(context);
+    Mainprovider provider = Provider.of(context);
     var date = provider.getdate();
     return FutureBuilder(
       future:  Apimanager.Weeks(date.day, date.month, date.year),

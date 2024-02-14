@@ -16,7 +16,7 @@ class _DatebikerscreenState extends State<Datebikerscreen> {
 
   @override
   Widget build(BuildContext context) {
-    Selectcalendr provider = Provider.of(context);
+    Mainprovider provider = Provider.of(context);
     return Scaffold(
       body: Container(
         padding: EdgeInsets.symmetric(
@@ -83,7 +83,7 @@ class _DatebikerscreenState extends State<Datebikerscreen> {
     );
   }
 
-  void selectcalender(BuildContext context ,Selectcalendr provider ) async{
+  void selectcalender(BuildContext context ,Mainprovider provider ) async{
    var chosendate = await showDatePicker(context: context,
         initialDate: DateTime.now(),
         firstDate: DateTime.now().subtract(Duration(days: 270)),

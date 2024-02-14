@@ -5,9 +5,11 @@ import 'package:motherly_moments/data/repo/moduls/baby%20groth/categoriesRespons
 import 'package:motherly_moments/data/repo/moduls/login/LoginResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/pregnancy%20weeks/WeeksResponse.dart';
 
+import '../../moduls/category_video/ExerciseResponse.dart';
 import '../../moduls/login/LoginBody.dart';
 import '../../moduls/register/RegisterBody.dart';
 import '../../moduls/register/RegisterResponse.dart';
+import '../../moduls/todo/TaskResponse.dart';
 
 
 class Apimanager{
@@ -25,6 +27,20 @@ class Apimanager{
      throw e ;
    }
   }
+
+ static Future<ExerciseResponse> getcategoryvediodesc(int month ,String categ) async{
+   try{
+     Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_${categ}_${month}");
+     Response response = await get(url);
+     print(response.body[0]);
+     Map json   = jsonDecode(response.body);
+     ExerciseResponse exerciseResponse= ExerciseResponse.fromJson(json);
+     return exerciseResponse;
+
+   } catch(e){
+     throw e ;
+   }
+ }
 
 
  static Future<bool> register(String name,String email,String phone,String password) async {
@@ -82,4 +98,16 @@ class Apimanager{
    }
  }
 
+ static Future<List<TaskResponse>> gettasks(int userid) async{
+   try{
+     Uri url = Uri.parse("https://gradhub.hwnix.com/api/getListById/$userid");
+     Response response = await get(url);
+     List<dynamic> jsonResponse = jsonDecode(response.body);
+     List<TaskResponse> taskList = jsonResponse.map((json) => TaskResponse.fromJson(json)).toList();
+     return taskList;
+
+   } catch(e){
+     throw e ;
+   }
+ }
 }

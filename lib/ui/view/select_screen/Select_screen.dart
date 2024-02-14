@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/calculating.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/date_biker/date%20piker%20screen.dart';
-import 'package:motherly_moments/ui/view/select_screen/seiectmodel.dart';
+import 'package:motherly_moments/ui/view/select_screen/selectmodel.dart';
 import '../pregnancy/home_screen/master_bar.dart';
 
 class Selectscreen extends StatelessWidget {

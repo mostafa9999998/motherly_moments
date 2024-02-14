@@ -12,7 +12,7 @@ class Selecctedmonthscreen extends StatelessWidget {
   static  String categ = 'babygrowth';
 
   static String selectedmonthname = 'selectedmonthname';
-  var babygrothlist = Babygrothlist.categrylist();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
