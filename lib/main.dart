@@ -61,7 +61,7 @@ class MyApp extends StatelessWidget {
         Selecctedmonthscreen.selectedmonthname : (_) => Selecctedmonthscreen(),
         SelectmonthscreenV.selectedmonthvname : (_) => SelectmonthscreenV()
       },
-      initialRoute:Masterscreen.mastername,
+      initialRoute:Loginscreen.loginroutename,
     );
   }
 }

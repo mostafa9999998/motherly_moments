@@ -14,6 +14,7 @@ class TaskWedget extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         color:  tasknum % 2 == 0 ? Color(0x54ee4964): Color(0x4a4cd964)
       ),
+      margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height*.02),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
@@ -28,14 +29,19 @@ class TaskWedget extends StatelessWidget {
           SizedBox(
             width: MediaQuery.of(context).size.width*.008,
           ),
-          Column(
-            children: [
-              Text(task.title??'' ,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w600,color:tasknum % 2 == 0 ? Color(0xffEE4964) : Color(0xff4CD964))),
-              Text(task.content??'',style: TextStyle(fontSize: 16,color:tasknum % 2 == 0 ? Color(0xffEE4964) : Color(0xff4CD964))),
-            ],
+          Container(
+            width: MediaQuery.of(context).size.width*.75,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height*.01,),
+                Text(task.title??'' ,style: TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color:tasknum % 2 == 0 ? Color(0xffEE4964) : Color(0xff4CD964))),
+                Text(task.content??'',style: TextStyle(fontSize: 18,color:tasknum % 2 == 0 ? Color(0xffEE4964) : Color(0xff4CD964))),
+              ],
+            ),
           ),
-          Spacer(),
-          Icon(Icons.delete)
+          //Spacer(),
+          Icon(Icons.mode)
         ],
       ),
     );

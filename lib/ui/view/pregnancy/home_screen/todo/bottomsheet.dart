@@ -99,7 +99,7 @@ if (formkey.currentState!.validate()){
     if(await R){
       hideLoading(context);
       showerror(context, 'Task added successfully');
-
+      setState(() {});
     } else{
       hideLoading(context);
       showerror(context, 'some thing went wrong');

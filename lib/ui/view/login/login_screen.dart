@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
 import 'package:motherly_moments/ui/view/select_screen/Select_screen.dart';
+import 'package:motherly_moments/ui/view_model/provider/main%20provider.dart';
+import 'package:provider/provider.dart';
 import '../../../data/repo/apis/baby groth/Api manager.dart';
 import '../../utils/loading.dart';
 import '../register/register_screen.dart';
@@ -176,7 +178,8 @@ class _LoginscreenState extends State<Loginscreen> {
       try{
         showLoading(context);
         var R = Apimanager.login(emailcontroller.text,passwordcontroller.text);
-
+            Mainprovider providr = Provider.of<Mainprovider>(context,listen: false);
+           providr.fgetuserid(emailcontroller.text,passwordcontroller.text);
         if(await R){
           hideLoading(context);
           showerror(context, 'Login successful');
@@ -188,7 +191,7 @@ class _LoginscreenState extends State<Loginscreen> {
       }
       catch(e){
         hideLoading(context);
-        showerror(context, 'Some thing went wrong');
+        showerror(context, e.toString());
       }
     }
   }

@@ -1,7 +1,10 @@
 import 'dart:convert';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import '../../../data/repo/moduls/login/LoginBody.dart';
+import '../../../data/repo/moduls/login/LoginResponse.dart';
 import '../../../data/repo/moduls/todo/TaskResponse.dart';
 
 class Mainprovider extends ChangeNotifier{
@@ -9,7 +12,8 @@ class Mainprovider extends ChangeNotifier{
   int month =1;
   String categ = 'exercise';
   DateTime selectdate = DateTime.now() ;
-  //List <TaskResponse> tasklist =[];
+  List <TaskResponse> tasklist =[];
+  int userid =1;
 
  void setdate(DateTime selecteddate) {
    date = selecteddate ;
@@ -24,6 +28,13 @@ class Mainprovider extends ChangeNotifier{
  int getmonth(){
    return month;
  }
+  void setuserid (int userid){
+    userid = userid;
+  }
+
+  int getuserid(){
+    return month;
+  }
 
   void setcateg (String category){
     categ = category;
@@ -38,7 +49,7 @@ class Mainprovider extends ChangeNotifier{
     notifyListeners();
   }
 
-  Future<List<TaskResponse>> tasklistS(int userid) async {
+  void tasklistS(int userid) async {
     try {
       Uri url = Uri.parse("https://gradhub.hwnix.com/api/getListById/$userid");
       Response response = await get(url);
@@ -57,9 +68,27 @@ class Mainprovider extends ChangeNotifier{
 
       notifyListeners();
 
-      return taskList;
+   tasklist= taskList;
     } catch (e) {
       throw e;
+    }
+  }
+
+   Future<int> fgetuserid(String email,String password) async {
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/login");
+    final connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi ) {
+      // I am connected to a mobile network.
+      LoginBody loginBody = LoginBody(
+        email: email,
+        password: password,
+      ) ;
+      var response = await post(url,body: loginBody.toJson());
+      var b = LoginResponse.fromJson(jsonDecode(response.body));
+      userid = await b.user!.id! ;
+      return b.user!.id! ;
+    } else {
+      throw Exception('network failed') ;
     }
   }
 
