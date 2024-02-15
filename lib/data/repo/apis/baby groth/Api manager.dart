@@ -4,11 +4,13 @@ import 'package:http/http.dart';
 import 'package:motherly_moments/data/repo/moduls/baby%20groth/categoriesResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/login/LoginResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/pregnancy%20weeks/WeeksResponse.dart';
+import 'package:motherly_moments/data/repo/moduls/todo/AddtaskResponse.dart';
 
 import '../../moduls/category_video/ExerciseResponse.dart';
 import '../../moduls/login/LoginBody.dart';
 import '../../moduls/register/RegisterBody.dart';
 import '../../moduls/register/RegisterResponse.dart';
+import '../../moduls/todo/TaskBody.dart';
 import '../../moduls/todo/TaskResponse.dart';
 
 
@@ -98,7 +100,7 @@ class Apimanager{
    }
  }
 
- static Future<List<TaskResponse>> gettasks(int userid) async{
+/* static Future<List<TaskResponse>> gettasks(int userid) async{
    try{
      Uri url = Uri.parse("https://gradhub.hwnix.com/api/getListById/$userid");
      Response response = await get(url);
@@ -108,6 +110,27 @@ class Apimanager{
 
    } catch(e){
      throw e ;
+   }
+ }*/
+
+ static Future<bool> addtask( String title,String content,String userId,DateTime dueDate) async {
+   Uri url = Uri.parse("https://gradhub.hwnix.com/api/addList");
+   final connectivityResult = await (Connectivity().checkConnectivity());
+   if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi ) {
+     // I am connected to a mobile network.
+     TaskBody taskBody = TaskBody(content:content ,dueDate:dueDate ,title:title ,userId:userId ) ;
+     var response = await post(url,body: taskBody.toJson());
+     if (response.statusCode >=200 || response.statusCode<300 ){
+       var b = AddtaskResponse.fromJson(jsonDecode(response.body));
+       print(b.result);
+       if (b.result =='Data has been saved'){
+         print(b.result);
+         return true;
+       }else{ return false;}
+     }else{
+       return false;}
+   } else {
+     throw Exception('network failed') ;
    }
  }
 }

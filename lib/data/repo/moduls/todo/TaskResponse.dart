@@ -13,7 +13,7 @@ class TaskResponse {
     title = json['title'];
     content = json['content'];
     userId = json['user_id'];
-    due = json['due'];
+    due =  DateTime.parse(json['due_date']);
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
   }
@@ -21,7 +21,7 @@ class TaskResponse {
   String? title;
   String? content;
   int? userId;
-  String? due;
+  DateTime? due;
   String? createdAt;
   String? updatedAt;
 
@@ -31,7 +31,7 @@ class TaskResponse {
     map['title'] = title;
     map['content'] = content;
     map['user_id'] = userId;
-    map['due'] = due;
+    map['due'] = due?.toIso8601String();
     map['created_at'] = createdAt;
     map['updated_at'] = updatedAt;
     return map;
