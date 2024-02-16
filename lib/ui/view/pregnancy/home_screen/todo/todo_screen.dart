@@ -67,6 +67,7 @@ class _TodoscreenState extends State<Todoscreen> {
                               DateTime.now().add(const Duration(days: 500)),
                           onDateSelected: (date) {
                             provider.changeselecteddate(date);
+                            provider.tasklistS(provider.userid);
                           },
                           leftMargin: 20,
                           monthColor: Colors.black,
@@ -89,46 +90,6 @@ class _TodoscreenState extends State<Todoscreen> {
                             itemCount: provider.tasklist.length,
                           ),
                         )
-
-                        /* FutureBuilder(
-                            future: provider.tasklistS(34),
-                            builder:(context, snapshot) {
-                              if(snapshot.hasData){
-                              return  Expanded(
-                                child: ListView.builder(
-                                  itemBuilder: (context, index) {
-                                    return TaskWedget(task: snapshot.data![index],tasknum: index, );
-                                  },
-                                  itemCount: snapshot.data!.length,
-                                ),
-                              );
-                              }
-                              else if (snapshot.hasError){
-                                return Center(
-                                  child: Column(
-                                      children:[ Container(
-                                        margin: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height*.03,
-                                            horizontal:MediaQuery.of(context).size.width*.1 ),
-                                        padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width*.03 ,
-                                          vertical: MediaQuery.of(context).size.height*.006,),
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(25),
-                                          color: Color(0x4d8362d7),
-                                        ),
-                                        child: Text('This list Would be empty'),
-                                      ),
-
-                                      ]
-                                  ),
-                                );
-                              }
-                              else {
-                                return Center(
-                                  child: CircularProgressIndicator(),
-                                );
-                              }
-                            },
-                          )*/
                       ],
                     ),
                   ),

@@ -41,6 +41,9 @@ class _TextformpassState extends State<Textformpass> {
               focusedBorder:  OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
               hintText: widget.hint ,
               suffixIcon: InkWell(
                   onTap: () {

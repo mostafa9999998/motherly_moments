@@ -6,16 +6,15 @@ import 'package:provider/provider.dart';
 
 import '../../../../utils/loading.dart';
 
-class Showbottomsheet extends StatefulWidget {
-  Showbottomsheet({super.key});
+class ShowUpdatebottomsheet extends StatefulWidget {
+  ShowUpdatebottomsheet({super.key,});
 
   @override
-  State<Showbottomsheet> createState() => _ShowbottomsheetState();
+  State<ShowUpdatebottomsheet> createState() => _ShowUpdatebottomsheetState();
 }
 
-class _ShowbottomsheetState extends State<Showbottomsheet> {
+class _ShowUpdatebottomsheetState extends State<ShowUpdatebottomsheet> {
   GlobalKey<FormState>  formkey = GlobalKey();
-  DateTime date =DateTime.now();
   String? title ;
   String? content;
   @override
@@ -28,15 +27,16 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
         children: [
           Center(
               child: Text(
-            'Add New Task',
-                style:TextStyle(fontSize: 20,fontWeight: FontWeight.w800),
+            'Update the Task',
+            style:TextStyle(fontSize: 20,fontWeight: FontWeight.w800),
           )),
           Form(
               key: formkey,
               child: Column(
                 children: [
+                  SizedBox(height:MediaQuery.of(context).size.height*.03 ,),
                   TextFormField(
-                    decoration: InputDecoration(hintText: 'Enter Task Title'),
+                    decoration: InputDecoration(hintText: 'Enter New Task Title'),
                     validator: (text) {
                       if (text == null || text.isEmpty) {
                         return 'please enter title';
@@ -50,7 +50,7 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
                   ),
                   TextFormField(
                     decoration: InputDecoration(
-                      hintText: 'Enter Task Description',
+                      hintText: 'Enter New Task Description',
                     ),
                     validator: (text) {
                       if (text == null || text.isEmpty) {
@@ -68,38 +68,28 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
 
           ),
           SizedBox(height: 20),
-          Text('Select Date',style: Theme.of(context).textTheme.titleSmall,),
-          SizedBox(height: 20),
-          InkWell(
-            onTap: () {
-              showselectatae();
-              setState(() {});
-            },
-            child: Center(
-              child: Text('${date.year}/${date.month}/${date.day}',style:TextStyle(fontSize: 18,)),
-            ),
-          ),
+
           SizedBox(height: 30),
           ElevatedButton(onPressed: (){
-            addthetask();
+            updatethetask();
           },
-              child:Text('Add',style: TextStyle(fontWeight: FontWeight.bold,color:Colors.black,fontSize: 22  ),)
+              child:Text('Update',style: TextStyle(fontWeight: FontWeight.bold,color:Colors.black,fontSize: 22  ),)
           )
         ],
       ),
     );
   }
 
-  void addthetask() async {
+  void updatethetask() async {
 
 if (formkey.currentState!.validate()){
   try{
     showLoading(context);
     Mainprovider provider = Provider.of<Mainprovider>(context,listen: false);
-    var R = Apimanager.addtask(title!,content!,provider.userid.toString() , date);
+    var R = Apimanager.updatetask(provider.taskid,title!,content!);
     if(await R){
       hideLoading(context);
-      showerror(context, 'Task added successfully');
+      showerror(context, 'Task Updated successfully');
       provider.notifyListeners();
     } else{
       hideLoading(context);
@@ -108,20 +98,9 @@ if (formkey.currentState!.validate()){
   }
   catch(e){
     hideLoading(context);
-    showerror(context, 'some thing went wrong try another words');
+    showerror(context, 'some thing went wrong');
   }
 }
   }
 
-  void showselectatae() async{
-    var chosendate = await showDatePicker(
-        context: context,
-        initialDate: DateTime.now(),
-        firstDate: DateTime.now(),
-        lastDate: DateTime.now().add(Duration(days: 365))
-    );
-    if (chosendate !=null){
-    date = chosendate;
-    }
-  }
 }

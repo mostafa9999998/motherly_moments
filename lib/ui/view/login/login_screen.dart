@@ -63,7 +63,9 @@ class _LoginscreenState extends State<Loginscreen> {
                       focusedBorder:  OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
-
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
                       hintText: 'You@Example.com' ,
                     ),
                   ),
@@ -88,6 +90,9 @@ class _LoginscreenState extends State<Loginscreen> {
                         borderRadius: BorderRadius.circular(15),
                       ),
                       focusedBorder:  OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
                       hintText: 'your Password' ,
@@ -182,7 +187,7 @@ class _LoginscreenState extends State<Loginscreen> {
            providr.fgetuserid(emailcontroller.text,passwordcontroller.text);
         if(await R){
           hideLoading(context);
-          showerror(context, 'Login successful');
+          //showerror(context, 'Login successful');
           Navigator.pushReplacementNamed(context, Selectscreen.selectname);
         } else{
           hideLoading(context);
@@ -196,4 +201,3 @@ class _LoginscreenState extends State<Loginscreen> {
     }
   }
 }
-//build\app\outputs\flutter-apk\app-release.apk

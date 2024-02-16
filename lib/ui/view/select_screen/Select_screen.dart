@@ -10,19 +10,24 @@ class Selectscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.symmetric(vertical:  MediaQuery.of(context).size.height*.17,horizontal:  MediaQuery.of(context).size.width*.05),
-        child: Column(
-          children: [
-            Text('Select',style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
-            SizedBox(height:  MediaQuery.of(context).size.height*.17,),
-            Row(
-              children: [
-                Expanded(child: Selectitem(id: 'bregnancy', title: 'Bregnancy', imagepath: 'assets/images/pregnant.png', screenname: Datebikerscreen.datepikername)),
-                Expanded(child: Selectitem(id: 'birth', title: 'Birth', imagepath: 'assets/images/mother.png', screenname: Masterscreen.mastername)),
-              ],
-            )
-          ],
+      body: WillPopScope(
+        onWillPop: ()async {
+          return false ;
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical:  MediaQuery.of(context).size.height*.17,horizontal:  MediaQuery.of(context).size.width*.05),
+          child: Column(
+            children: [
+              Text('Select',style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
+              SizedBox(height:  MediaQuery.of(context).size.height*.17,),
+              Row(
+                children: [
+                  Expanded(child: Selectitem(id: 'bregnancy', title: 'Bregnancy', imagepath: 'assets/images/pregnant.png', screenname: Datebikerscreen.datepikername)),
+                  Expanded(child: Selectitem(id: 'birth', title: 'Birth', imagepath: 'assets/images/mother.png', screenname: Masterscreen.mastername)),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

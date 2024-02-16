@@ -6,12 +6,15 @@ import 'package:motherly_moments/data/repo/moduls/login/LoginResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/pregnancy%20weeks/WeeksResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/todo/AddtaskResponse.dart';
 
+import '../../../../ui/view/pregnancy/home_screen/todo/DeleteResponse.dart';
 import '../../moduls/category_video/ExerciseResponse.dart';
 import '../../moduls/login/LoginBody.dart';
 import '../../moduls/register/RegisterBody.dart';
 import '../../moduls/register/RegisterResponse.dart';
 import '../../moduls/todo/TaskBody.dart';
 import '../../moduls/todo/TaskResponse.dart';
+import '../../moduls/todo/UpdateBody.dart';
+import '../../moduls/todo/UpdateResponse.dart';
 
 
 class Apimanager{
@@ -104,18 +107,7 @@ class Apimanager{
    }
  }
 
-/* static Future<List<TaskResponse>> gettasks(int userid) async{
-   try{
-     Uri url = Uri.parse("https://gradhub.hwnix.com/api/getListById/$userid");
-     Response response = await get(url);
-     List<dynamic> jsonResponse = jsonDecode(response.body);
-     List<TaskResponse> taskList = jsonResponse.map((json) => TaskResponse.fromJson(json)).toList();
-     return taskList;
 
-   } catch(e){
-     throw e ;
-   }
- }*/
 
  static Future<bool> addtask( String title,String content,String userId,DateTime dueDate) async {
    Uri url = Uri.parse("https://gradhub.hwnix.com/api/addList");
@@ -137,4 +129,57 @@ class Apimanager{
      throw Exception('network failed') ;
    }
  }
+ static Future<bool> updatetask( int taskid, String title,String content) async {
+   Uri url = Uri.parse("https://gradhub.hwnix.com/api/updatellist/$taskid");
+   final connectivityResult = await (Connectivity().checkConnectivity());
+   if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi ) {
+     // I am connected to a mobile network.
+     UpdateBody updateBody = UpdateBody(title: title,content:content ) ;
+     var response = await put(url,body: updateBody.toJson());
+     if (response.statusCode >=200 || response.statusCode<300 ){
+       var b = UpdateResponse.fromJson(jsonDecode(response.body));
+       print(b.result);
+       if (b.result =='Updated successfully'){
+         print(b.result);
+         return true;
+       }else{ return false;}
+     }else{
+       return false;}
+   } else {
+     throw Exception('network failed') ;
+   }
+ }
+
+
+
+
+
+ static Future<bool> deletetask(int taskid) async{
+   try{
+     Uri url = Uri.parse("https://gradhub.hwnix.com/api/deleteList/$taskid");
+     Response response = await delete(url);
+     Map json   = jsonDecode(response.body);
+     DeleteResponse deleteResponse= DeleteResponse.fromJson(json);
+     if (deleteResponse.result == 'Deleted successfully'){
+     return true;}else{ return false;}
+   } catch(e){
+     throw e ;
+   }
+ }
+
 }
+
+
+
+/* static Future<List<TaskResponse>> gettasks(int userid) async{
+   try{
+     Uri url = Uri.parse("https://gradhub.hwnix.com/api/getListById/$userid");
+     Response response = await get(url);
+     List<dynamic> jsonResponse = jsonDecode(response.body);
+     List<TaskResponse> taskList = jsonResponse.map((json) => TaskResponse.fromJson(json)).toList();
+     return taskList;
+
+   } catch(e){
+     throw e ;
+   }
+ }*/

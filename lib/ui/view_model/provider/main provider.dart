@@ -14,6 +14,7 @@ class Mainprovider extends ChangeNotifier{
   DateTime selectdate = DateTime.now() ;
   List <TaskResponse> tasklist =[];
   int userid =1;
+  late int taskid  ;
 
  void setdate(DateTime selecteddate) {
    date = selecteddate ;
@@ -35,6 +36,14 @@ class Mainprovider extends ChangeNotifier{
   int getuserid(){
     return month;
   }
+  void settaskid (int task){
+    taskid = task;
+  }
+
+  int gettaskid(){
+    return taskid;
+  }
+
 
   void setcateg (String category){
     categ = category;

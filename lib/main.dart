@@ -55,7 +55,6 @@ class MyApp extends StatelessWidget {
         Exercises_screen.exercisname : (_) => Exercises_screen(),
         Food_screen.foodname : (_) => Food_screen(),
         Selectscreen.selectname : (_) => Selectscreen(),
-        Calculatingscreen.calculatetname : (_) => Calculatingscreen(),
         Babyweeksscreen.babyweeksname : (_) => Babyweeksscreen(),
         Datebikerscreen.datepikername : (_) => Datebikerscreen(),
         Selecctedmonthscreen.selectedmonthname : (_) => Selecctedmonthscreen(),

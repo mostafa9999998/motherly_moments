@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/view/befor_prgnancy/baby_weeks.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/calculating.dart';
 import 'package:provider/provider.dart';
 
@@ -62,7 +63,7 @@ class _DatebikerscreenState extends State<Datebikerscreen> {
               height: MediaQuery.sizeOf(context).width * 0.15,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, Calculatingscreen.calculatetname);
+                  Navigator.pushReplacementNamed(context,Babyweeksscreen.babyweeksname);
                 },
                 child: Text(
                   'Next',

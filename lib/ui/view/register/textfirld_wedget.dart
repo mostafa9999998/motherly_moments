@@ -34,6 +34,9 @@ class Textform extends StatelessWidget {
                 focusedBorder:  OutlineInputBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
                 hintText: hint ,
             ),
             controller: controller,
