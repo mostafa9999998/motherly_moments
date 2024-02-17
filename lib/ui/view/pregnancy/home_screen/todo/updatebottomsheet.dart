@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:motherly_moments/data/repo/apis/baby%20groth/Api%20manager.dart';
-import 'package:motherly_moments/data/repo/moduls/todo/TaskBody.dart';
 import 'package:motherly_moments/ui/view_model/provider/main%20provider.dart';
 import 'package:provider/provider.dart';
-
+import '../../../../../data/repo/apis/Api manager/Api manager.dart';
 import '../../../../utils/loading.dart';
 
 class ShowUpdatebottomsheet extends StatefulWidget {
@@ -73,7 +71,11 @@ class _ShowUpdatebottomsheetState extends State<ShowUpdatebottomsheet> {
           ElevatedButton(onPressed: (){
             updatethetask();
           },
-              child:Text('Update',style: TextStyle(fontWeight: FontWeight.bold,color:Colors.black,fontSize: 22  ),)
+              child:Text('Update',style: TextStyle(fontWeight: FontWeight.bold,color:Colors.white,fontSize: 22  ),),
+            style: ElevatedButton.styleFrom(
+                backgroundColor:Color(0xff8461D5),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15))),
           )
         ],
       ),
@@ -89,7 +91,7 @@ if (formkey.currentState!.validate()){
     var R = Apimanager.updatetask(provider.taskid,title!,content!);
     if(await R){
       hideLoading(context);
-      showerror(context, 'Task Updated successfully');
+      showsucsses(context, 'Task Updated successfully');
       provider.notifyListeners();
     } else{
       hideLoading(context);

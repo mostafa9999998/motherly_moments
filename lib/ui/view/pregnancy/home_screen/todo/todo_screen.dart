@@ -36,7 +36,7 @@ class _TodoscreenState extends State<Todoscreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * .23,
+                  height: MediaQuery.of(context).size.height * .2,
                 ),
                 Text(
                   ' Your to do list',

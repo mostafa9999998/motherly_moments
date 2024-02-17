@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:motherly_moments/data/repo/apis/baby%20groth/Api%20manager.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/master_bar.dart';
 import 'package:provider/provider.dart';
-
+import '../../../data/repo/apis/Api manager/Api manager.dart';
 import '../../view_model/provider/main provider.dart';
 
 class Babyweeksscreen extends StatelessWidget {
@@ -18,6 +17,7 @@ class Babyweeksscreen extends StatelessWidget {
         if (snapshot.hasData){
           return Scaffold(
             body: Container(
+              height:MediaQuery.of(context).size.height * 1 ,
               padding: EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.width * .05,
                   vertical: MediaQuery.of(context).size.height * .05),

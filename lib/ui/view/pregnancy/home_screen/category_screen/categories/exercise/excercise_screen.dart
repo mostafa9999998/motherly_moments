@@ -48,11 +48,11 @@ class Exercises_screen extends StatelessWidget {
                       showwedjetmonth(1),
                       showwedjetmonth(2),
                       showwedjetmonth(3),
-                      showwedjetmonth(4),
+                      /*showwedjetmonth(4),
                       showwedjetmonth(5),
                       showwedjetmonth(6),
                       showwedjetmonth(7),
-                      showwedjetmonth(8),
+                      showwedjetmonth(8),*/
                     ],
                   ),
                 ),

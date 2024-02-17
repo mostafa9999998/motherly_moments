@@ -40,7 +40,7 @@ class Exerciseslist {
           imagepath: 'assets/images/exercisemonth1.png',
           screenname: 'exercise',
           desc: 'The first thrimester is the time when\n the baby'),
-      Exerciseslist(
+     /* Exerciseslist(
           id: 5,
           title: 'Yoga helps in you in 5 month',
           imagepath: 'assets/images/exercisemonth1.png',
@@ -69,7 +69,7 @@ class Exerciseslist {
           title: 'Yoga helps in you in 9 month',
           imagepath: 'assets/images/exercisemonth1.png',
           screenname: 'exercise',
-          desc: 'The first thrimester is the time when\n the baby'),
+          desc: 'The first thrimester is the time when\n the baby'),*/
     ];
   }
 }

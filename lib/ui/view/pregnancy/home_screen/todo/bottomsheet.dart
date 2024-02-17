@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:motherly_moments/data/repo/apis/baby%20groth/Api%20manager.dart';
-import 'package:motherly_moments/data/repo/moduls/todo/TaskBody.dart';
 import 'package:motherly_moments/ui/view_model/provider/main%20provider.dart';
 import 'package:provider/provider.dart';
-
+import '../../../../../data/repo/apis/Api manager/Api manager.dart';
 import '../../../../utils/loading.dart';
+
 
 class Showbottomsheet extends StatefulWidget {
   Showbottomsheet({super.key});
@@ -76,14 +75,19 @@ class _ShowbottomsheetState extends State<Showbottomsheet> {
               setState(() {});
             },
             child: Center(
-              child: Text('${date.year}/${date.month}/${date.day}',style:TextStyle(fontSize: 18,)),
+              child: Text('${date.year}/${date.month}/${date.day}',style:TextStyle(fontSize: 20,fontWeight: FontWeight.w600,color: Colors.blue)),
             ),
           ),
           SizedBox(height: 30),
-          ElevatedButton(onPressed: (){
+          ElevatedButton(
+              onPressed: (){
             addthetask();
           },
-              child:Text('Add',style: TextStyle(fontWeight: FontWeight.bold,color:Colors.black,fontSize: 22  ),)
+              child:Text('Add',style: TextStyle(fontWeight: FontWeight.bold,color:Colors.white,fontSize: 22  ),),
+            style: ElevatedButton.styleFrom(
+                backgroundColor:Color(0xff8461D5),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15))),
           )
         ],
       ),
@@ -99,7 +103,7 @@ if (formkey.currentState!.validate()){
     var R = Apimanager.addtask(title!,content!,provider.userid.toString() , date);
     if(await R){
       hideLoading(context);
-      showerror(context, 'Task added successfully');
+      showsucsses(context, 'Task added successfully');
       provider.notifyListeners();
     } else{
       hideLoading(context);
@@ -108,7 +112,7 @@ if (formkey.currentState!.validate()){
   }
   catch(e){
     hideLoading(context);
-    showerror(context, 'some thing went wrong try another words');
+    showerror(context, 'some thing went wrong try again in a few moments');
   }
 }
   }

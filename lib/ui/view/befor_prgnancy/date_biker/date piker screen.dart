@@ -20,13 +20,14 @@ class _DatebikerscreenState extends State<Datebikerscreen> {
     Mainprovider provider = Provider.of(context);
     return Scaffold(
       body: Container(
+        height: MediaQuery.of(context).size.height * 1,
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * .05,
             vertical: MediaQuery.of(context).size.height * .07),
         child: Column(
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.07,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             Text('Period Tracker',
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 21),textAlign: TextAlign.center),
@@ -47,13 +48,14 @@ class _DatebikerscreenState extends State<Datebikerscreen> {
               },
               child: Text(
                   'Select the dates of your cycle to log them',
-                  style: TextStyle(fontSize: 14,color: Colors.blue),
+                  style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600,color: Colors.blue),
                   textAlign: TextAlign.center),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.04,
+              height: MediaQuery.of(context).size.height * 0.03,
             ),
             Container(
+              height: MediaQuery.of(context).size.height * 0.45,
               padding:EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.03) ,
               child: Image.asset('assets/images/pregnant.png',color: Colors.black,fit: BoxFit.fill),
             ),

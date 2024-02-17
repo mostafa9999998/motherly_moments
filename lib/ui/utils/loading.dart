@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:motherly_moments/data/repo/apis/baby%20groth/Api%20manager.dart';
+//import 'package:motherly_moments/data/repo/apis/baby%20groth/Api%20manager.dart';
 
 import '../../data/repo/moduls/register/RegisterResponse.dart';
 
@@ -22,12 +22,30 @@ showDialog(context: context,
 void hideLoading(BuildContext context){
   Navigator.pop(context);
 }
-void showerror(BuildContext context,String errormessage){
+void showerror(BuildContext context,String errormessage,){
   showDialog(context: context,
     barrierDismissible: false,
     builder: (context) {
-      return  AlertDialog(title:Text('Error!') ,
+      return  AlertDialog(
+        title:Text('Error!') ,
         content: Text(errormessage) ,
+        actions: [
+          TextButton(onPressed: () {
+            Navigator.pop(context);
+          },
+              child:Text('Ok') )
+        ],
+      );
+    },
+  );
+}
+
+void showsucsses(BuildContext context,String message,){
+  showDialog(context: context,
+    barrierDismissible: false,
+    builder: (context) {
+      return  AlertDialog(
+        content: Text(message,style: TextStyle(fontSize: 20)) ,
         actions: [
           TextButton(onPressed: () {
             Navigator.pop(context);

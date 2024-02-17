@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:motherly_moments/data/repo/apis/baby%20groth/Api%20manager.dart';
 import 'package:motherly_moments/ui/utils/loading.dart';
 import 'package:motherly_moments/ui/view/register/textfield_pass.dart';
 import 'package:motherly_moments/ui/view/register/textfirld_wedget.dart';
 
+import '../../../data/repo/apis/Api manager/Api manager.dart';
 import '../login/login_screen.dart';
 class RegisterScreen extends StatefulWidget {
    RegisterScreen({super.key});
@@ -77,18 +77,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                    ),
                  ),
                  SizedBox(
-                   height: 8,
+                   height: 20,
                  ),
                  Row(
                    mainAxisAlignment: MainAxisAlignment.center,
                    children: [
-                     Text('Already have account',style: TextStyle(fontSize: 16)),
+                     Text('Already have account',style: TextStyle(fontSize: 18)),
                      InkWell(onTap:() {
                        Navigator.pushReplacementNamed(context, Loginscreen.loginroutename);
-                     },child: Text('  sign in ',style: TextStyle(color: Color(0xff8362D7),fontSize: 16)))
+                     },child: Text('  sign in ',style: TextStyle(color: Color(0xff8362D7),fontSize: 18)))
                    ],
                  ),
-                 Text('OR',textAlign: TextAlign.center),
+                /* Text('OR',textAlign: TextAlign.center),
                  Container(
                    height: 35,
                    child: ElevatedButton(
@@ -106,7 +106,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                        ],
                      ),
                    ),
-                 ),
+                 ),*/
                ],
             ),
           ),
@@ -123,7 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
       if(await R){
         hideLoading(context);
-        showerror(context, 'User added successfully');
+        showsucsses(context, 'User added successfully');
       } else{
         hideLoading(context);
         showerror(context, 'Email already exists');

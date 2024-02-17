@@ -20,25 +20,25 @@ class Courseslist {
           id: 1,
           title: 'course in 1 month',
           imagepath: 'assets/images/exercisemonth1.png',
-          screenname: 'exercise',
+          screenname: 'course',
           desc: 'The first thrimester is the time when\n the baby'),
       Courseslist(
           id: 2,
           title: 'course in 2 month',
           imagepath: 'assets/images/exercisemonth1.png',
-          screenname: 'exercise',
+          screenname: 'course',
           desc: 'The first thrimester is the time when\n the baby'),
       Courseslist(
           id: 3,
           title: 'course in 3 month',
           imagepath: 'assets/images/exercisemonth1.png',
-          screenname: 'exercise',
+          screenname: 'course',
           desc: 'The first thrimester is the time when\n the baby'),
       Courseslist(
           id: 4,
           title: 'course in 4 month',
           imagepath: 'assets/images/exercisemonth1.png',
-          screenname: 'exercise',
+          screenname: 'course',
           desc: 'The first thrimester is the time when\n the baby'),
 
     ];

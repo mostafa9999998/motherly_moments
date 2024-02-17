@@ -35,7 +35,7 @@ class Apimanager{
 
  static Future<ExerciseResponse> getcategoryvediodesc(int month ,String categ) async{
    try{
-     Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_${categ}_${month}");
+     Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_${categ}/${month}");
      Response response = await get(url);
      print(response.body[0]);
      Map json   = jsonDecode(response.body);

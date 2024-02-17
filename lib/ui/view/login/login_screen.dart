@@ -3,9 +3,9 @@ import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
 import 'package:motherly_moments/ui/view/select_screen/Select_screen.dart';
 import 'package:motherly_moments/ui/view_model/provider/main%20provider.dart';
 import 'package:provider/provider.dart';
-import '../../../data/repo/apis/baby groth/Api manager.dart';
 import '../../utils/loading.dart';
 import '../register/register_screen.dart';
+import '../../../data/repo/apis/Api manager/Api manager.dart';
 
 
 class Loginscreen extends StatefulWidget {
@@ -137,19 +137,19 @@ class _LoginscreenState extends State<Loginscreen> {
                   ),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 35,
                 ),
                 Row(
                   children: [
                     Text("     Don't have account  ",style: TextStyle(fontSize: 20),textAlign: TextAlign.center),
                     InkWell(
                         onTap: (){
-                          Navigator.pushNamed(context, RegisterScreen.regroutename);
+                          Navigator.pushReplacementNamed(context, RegisterScreen.regroutename);
                         },
                         child: Text('Sign Up',style: TextStyle(fontWeight: FontWeight.w300,fontSize: 20, color: Color(0xff8362D7)),)),
                   ],
                 ),
-                SizedBox(height: 20,),
+                /*SizedBox(height: 20,),
                 Text('OR',textAlign: TextAlign.center),
                 SizedBox(height: 20,),
                 Container(
@@ -169,7 +169,7 @@ class _LoginscreenState extends State<Loginscreen> {
                       ],
                     ),
                   ),
-                ),
+                ),*/
               ],
             ),
           ),
