@@ -15,6 +15,14 @@ class Mainprovider extends ChangeNotifier{
   List <TaskResponse> tasklist =[];
   int userid =1;
   late int taskid  ;
+  String babyname ='';
+
+  void setbabyname(String s){
+    babyname = s;
+  }
+  String getbabyname (){
+    return babyname ;
+  }
 
  void setdate(DateTime selecteddate) {
    date = selecteddate ;

@@ -1,18 +1,20 @@
 import 'dart:convert';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart';
+import 'package:intl/intl.dart';
 import 'package:motherly_moments/data/repo/moduls/baby%20groth/categoriesResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/login/LoginResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/pregnancy%20weeks/WeeksResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/todo/AddtaskResponse.dart';
 
 import '../../../../ui/view/pregnancy/home_screen/todo/DeleteResponse.dart';
+import '../../moduls/birth date/BirthDateBody.dart';
+import '../../moduls/birth date/BirthDateRespnse.dart';
 import '../../moduls/category_video/ExerciseResponse.dart';
 import '../../moduls/login/LoginBody.dart';
 import '../../moduls/register/RegisterBody.dart';
 import '../../moduls/register/RegisterResponse.dart';
 import '../../moduls/todo/TaskBody.dart';
-import '../../moduls/todo/TaskResponse.dart';
 import '../../moduls/todo/UpdateBody.dart';
 import '../../moduls/todo/UpdateResponse.dart';
 
@@ -140,7 +142,6 @@ class Apimanager{
        var b = UpdateResponse.fromJson(jsonDecode(response.body));
        print(b.result);
        if (b.result =='Updated successfully'){
-         print(b.result);
          return true;
        }else{ return false;}
      }else{
@@ -164,6 +165,29 @@ class Apimanager{
      return true;}else{ return false;}
    } catch(e){
      throw e ;
+   }
+ }
+
+
+ static Future<BirthDateRespnse> birthdate(DateTime birhday) async {
+   Uri url = Uri.parse("https://gradhub.hwnix.com/api/calculateAge");
+   final connectivityResult = await (Connectivity().checkConnectivity());
+   if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi ) {
+     // I am connected to a mobile network.
+     DateTime birthdayDateTime = birhday;
+
+     // Format the DateTime object into a string
+     String formattedBirthday = DateFormat('yyyy-MM-dd').format(birthdayDateTime);
+
+     BirthDateBody birthDateBody = BirthDateBody(
+      birthday: formattedBirthday
+     ) ;
+     var response = await post(url,body: birthDateBody.toJson());
+       var b = BirthDateRespnse.fromJson(jsonDecode(response.body));
+       print(b);
+       return b ;
+   } else {
+     throw Exception('network failed') ;
    }
  }
 

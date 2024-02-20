@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/baby_weeks.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/calculating.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/date_biker/date%20piker%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/before%20birth/baby%20info.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/issues/issues%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Nutrition%20screen.dart';
 import 'package:motherly_moments/ui/view/first_screens/first.dart';
 import 'package:motherly_moments/ui/view/first_screens/second.dart';
 import 'package:motherly_moments/ui/view/first_screens/third.dart';
@@ -14,6 +17,7 @@ import 'package:motherly_moments/ui/view/register/register_screen.dart';
 import 'package:motherly_moments/ui/view/select_screen/Select_screen.dart';
 import 'package:motherly_moments/ui/view_model/provider/main%20provider.dart';
 import 'package:provider/provider.dart';
+import 'ui/view/birth/BirthMaster_bar.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babyGroth_screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/bodychange/bodychange_screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/courses/course_screen.dart';
@@ -58,9 +62,13 @@ class MyApp extends StatelessWidget {
         Babyweeksscreen.babyweeksname : (_) => Babyweeksscreen(),
         Datebikerscreen.datepikername : (_) => Datebikerscreen(),
         Selecctedmonthscreen.selectedmonthname : (_) => Selecctedmonthscreen(),
-        SelectmonthscreenV.selectedmonthvname : (_) => SelectmonthscreenV()
+        SelectmonthscreenV.selectedmonthvname : (_) => SelectmonthscreenV(),
+        BirthMasterscreen.birthmastername : (_) => BirthMasterscreen(),
+        BabyInfoScreen.babyInfoScreenname : (_) => BabyInfoScreen(),
+        CommonIssuesScreen.issuesname :(_) => CommonIssuesScreen(),
+        NutritionScreen.nutritionname : (_)=> NutritionScreen()
       },
-      initialRoute:Loginscreen.loginroutename,
+      initialRoute:Selectscreen.selectname,
     );
   }
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:motherly_moments/ui/view/befor_prgnancy/calculating.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/date_biker/date%20piker%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/before%20birth/baby%20info.dart';
 import 'package:motherly_moments/ui/view/select_screen/selectmodel.dart';
-import '../pregnancy/home_screen/master_bar.dart';
 
 class Selectscreen extends StatelessWidget {
   const Selectscreen({super.key});
@@ -23,7 +22,7 @@ class Selectscreen extends StatelessWidget {
               Row(
                 children: [
                   Expanded(child: Selectitem(id: 'bregnancy', title: 'Bregnancy', imagepath: 'assets/images/pregnant.png', screenname: Datebikerscreen.datepikername)),
-                  Expanded(child: Selectitem(id: 'birth', title: 'Birth', imagepath: 'assets/images/mother.png', screenname: Masterscreen.mastername)),
+                  Expanded(child: Selectitem(id: 'birth', title: 'Birth', imagepath: 'assets/images/mother.png', screenname: BabyInfoScreen.babyInfoScreenname)),
                 ],
               )
             ],

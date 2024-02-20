@@ -76,7 +76,7 @@ class _TodoscreenState extends State<Todoscreen> {
                           activeDayColor: Colors.white,
                           activeBackgroundDayColor: Color(0xff8362D7),
                           dotsColor: Colors.white,
-                          selectableDayPredicate: (date) => date.day != 23,
+                          //selectableDayPredicate: (date) => date.day != 23,
                           //locale: 'en',
                         ),
                         Expanded(
