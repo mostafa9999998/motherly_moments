@@ -79,7 +79,7 @@ class MyApp extends StatelessWidget {
         TipsScreen.TipsScreenname : (_) => TipsScreen(),
         ChildGrothScreen.ChildGrothScreenname : (_)=> ChildGrothScreen()
       },
-      initialRoute:BirthMasterscreen.birthmastername,
+      initialRoute:Welcomescreen1.welcom1name ,
     );
   }
 }

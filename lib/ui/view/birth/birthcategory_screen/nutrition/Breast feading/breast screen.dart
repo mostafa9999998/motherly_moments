@@ -8,7 +8,7 @@ import '../../../../../view_model/provider/main provider.dart';
 class BreastScreen extends StatelessWidget {
   const BreastScreen({super.key});
 static String BreastScreenname ='BreastScreen';
-  @override
+@override
   Widget build(BuildContext context) {
     Mainprovider provider = Provider.of(context);
     return Scaffold(
@@ -57,7 +57,7 @@ static String BreastScreenname ='BreastScreen';
                 itemBuilder: (context, index) {
                   return BreastQuestionStyle(brestFeedingResponse:provider.brestlist[index]);
                 },
-                itemCount: provider.weninglist.length,
+                itemCount: provider.brestlist.length,
               )
 
               /*FutureBuilder(

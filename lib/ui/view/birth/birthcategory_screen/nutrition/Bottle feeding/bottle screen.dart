@@ -57,7 +57,7 @@ static String BottleScreenname ='BottleScreen';
                 itemBuilder: (context, index) {
                   return BottleQuestionStyle(bottleResponse: provider.bottlelist[index]);
                 },
-                itemCount: provider.weninglist.length,
+                itemCount: provider.bottlelist.length,
               )
             ),
           ],

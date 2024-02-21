@@ -57,7 +57,7 @@ static String ChildGrothScreenname ='ChildGrothScreen';
                 itemBuilder: (context, index) {
                   return ChildQuestionStyle(childGrothResponse:provider.childgrothlist[index]);
                 },
-                itemCount: provider.weninglist.length,
+                itemCount: provider.childgrothlist.length,
               )
             ),
           ],
