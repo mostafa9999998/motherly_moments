@@ -13,20 +13,20 @@ class Nutrition {
     return [
       Nutrition(
         id: 1,
-        title: 'Soring in children',
-        screenname: 'babyGrowth',
+        title: 'Weaning',
+        screenname: 'nutrition',
         //desc: 'It might sound starnge, but at 1th month\n pre..'
       ),
       Nutrition(
         id: 2,
-        title: 'Sleep Risks',
-        screenname: 'babyGrowth',
+        title: 'Breast Feeding',
+        screenname: 'nutrition',
         // desc: 'It might sound starnge, but at 1th month\n pre..'
       ),
       Nutrition(
         id: 3,
-        title: 'Vomiting in children',
-        screenname: 'babyGrowth',
+        title: 'Bottle Feeding',
+        screenname: 'nutrition',
         //desc: 'It might sound starnge, but at 1th month\n pre..'
       ),
     ];

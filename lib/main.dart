@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/baby_weeks.dart';
-import 'package:motherly_moments/ui/view/befor_prgnancy/calculating.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/date_biker/date%20piker%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/before%20birth/baby%20info.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/Child%20groth/child%20Groth%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/Tips/tips%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/issues/Issuse%20article/issuse%20article.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/issues/issues%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Bottle%20feeding/bottle%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Breast%20feading/breast%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Nutrition%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/weaning/weaning%20screen.dart';
 import 'package:motherly_moments/ui/view/first_screens/first.dart';
 import 'package:motherly_moments/ui/view/first_screens/second.dart';
 import 'package:motherly_moments/ui/view/first_screens/third.dart';
@@ -66,9 +71,15 @@ class MyApp extends StatelessWidget {
         BirthMasterscreen.birthmastername : (_) => BirthMasterscreen(),
         BabyInfoScreen.babyInfoScreenname : (_) => BabyInfoScreen(),
         CommonIssuesScreen.issuesname :(_) => CommonIssuesScreen(),
-        NutritionScreen.nutritionname : (_)=> NutritionScreen()
+        NutritionScreen.nutritionname : (_)=> NutritionScreen(),
+        IssuesArticle.issuearticlename : (_) => IssuesArticle(),
+        WeaningScreen.weaningScreenname :(_)=> WeaningScreen(),
+        BreastScreen.BreastScreenname : (_) => BreastScreen(),
+        BottleScreen.BottleScreenname : (_) => BottleScreen(),
+        TipsScreen.TipsScreenname : (_) => TipsScreen(),
+        ChildGrothScreen.ChildGrothScreenname : (_)=> ChildGrothScreen()
       },
-      initialRoute:Selectscreen.selectname,
+      initialRoute:BirthMasterscreen.birthmastername,
     );
   }
 }

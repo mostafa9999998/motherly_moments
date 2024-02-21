@@ -1,7 +1,7 @@
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/Child%20groth/child%20Groth%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/Tips/tips%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/issues/issues%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Nutrition%20screen.dart';
-import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babyGroth_screen.dart';
-import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/bodychange/bodychange_screen.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitaminesscreen.dart';
 
 class BirthCategoryl {
@@ -21,12 +21,12 @@ class BirthCategoryl {
           id: 'child groth',
           title: 'Child groth',
           imagepath: 'assets/images/footprints 1.png',
-          screenname: Babygroth.babagrothname),
+          screenname: ChildGrothScreen.ChildGrothScreenname),
       BirthCategoryl(
           id: 'tips and activities',
           title: 'Tips and activities',
           imagepath: 'assets/images/female-body 1.png',
-          screenname: Bodychange.bodychangename),
+          screenname: TipsScreen.TipsScreenname),
       BirthCategoryl(
           id: 'nutrition',
           title: 'Nutrition',

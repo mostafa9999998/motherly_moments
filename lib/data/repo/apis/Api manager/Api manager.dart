@@ -3,6 +3,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:motherly_moments/data/repo/moduls/baby%20groth/categoriesResponse.dart';
+import 'package:motherly_moments/data/repo/moduls/birth/IssuesResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/login/LoginResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/pregnancy%20weeks/WeeksResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/todo/AddtaskResponse.dart';
@@ -10,6 +11,7 @@ import 'package:motherly_moments/data/repo/moduls/todo/AddtaskResponse.dart';
 import '../../../../ui/view/pregnancy/home_screen/todo/DeleteResponse.dart';
 import '../../moduls/birth date/BirthDateBody.dart';
 import '../../moduls/birth date/BirthDateRespnse.dart';
+import '../../moduls/birth/nutrition/WeaningResponse.dart';
 import '../../moduls/category_video/ExerciseResponse.dart';
 import '../../moduls/login/LoginBody.dart';
 import '../../moduls/register/RegisterBody.dart';
@@ -189,6 +191,21 @@ class Apimanager{
    } else {
      throw Exception('network failed') ;
    }
+ }
+static Future<List<IssuesResponse>> getissues (int issue_id)async{
+  Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_issue/$issue_id");
+  Response response = await get(url);
+  List<dynamic> jsonResponse = jsonDecode(response.body);
+  List<IssuesResponse> issuesResponse = jsonResponse.map((json) => IssuesResponse.fromJson(json)).toList();
+  return issuesResponse ;
+}
+
+ static Future<List<WeaningResponse>> getweaning (int month)async{
+   Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_weaning/$month");
+   Response response = await get(url);
+   List<dynamic> jsonResponse = jsonDecode(response.body);
+   List<WeaningResponse> weaningResponse = jsonResponse.map((json) => WeaningResponse.fromJson(json)).toList();
+   return weaningResponse ;
  }
 
 }

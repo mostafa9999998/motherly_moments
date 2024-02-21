@@ -1,18 +1,22 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/issues/Issuse%20article/issuse%20article.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/issues/issues%20model.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../view_model/provider/main provider.dart';
 
 class CommonIssuestyle extends StatelessWidget {
   CommonIssuestyle({super.key, required this.issues});
    CommonIssues issues;
   @override
   Widget build(BuildContext context) {
+    Mainprovider provider = Provider.of(context);
     return InkWell(
       onTap: () {
-        //Selecctedmonthscreen.month = babygrothlist.id ;
-        //Selecctedmonthscreen.categ = babygrothlist.screenname ;
-        //Navigator.pushNamed(context, Selecctedmonthscreen.selectedmonthname);
+       provider.setissueid(issues.id);
+        Navigator.pushNamed(context, IssuesArticle.issuearticlename);
       },
       child: Container(
         decoration: BoxDecoration(

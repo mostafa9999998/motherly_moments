@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Bottle%20feeding/bottle%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Breast%20feading/breast%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Nutrition%20model.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/weaning/weaning%20screen.dart';
 
 class Nutritionstyle extends StatelessWidget {
   Nutritionstyle({super.key, required this.nutrition});
@@ -9,9 +12,13 @@ class Nutritionstyle extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //Selecctedmonthscreen.month = babygrothlist.id ;
-        //Selecctedmonthscreen.categ = babygrothlist.screenname ;
-        //Navigator.pushNamed(context, Selecctedmonthscreen.selectedmonthname);
+        if (nutrition.id == 1){
+          Navigator.pushNamed(context, WeaningScreen.weaningScreenname);
+        }else if(nutrition.id == 2){
+          Navigator.pushNamed(context, BreastScreen.BreastScreenname );
+        }else{
+          Navigator.pushNamed(context, BottleScreen.BottleScreenname );
+        }
       },
       child: Container(
         width:MediaQuery.of(context).size.width * 0.5 ,
