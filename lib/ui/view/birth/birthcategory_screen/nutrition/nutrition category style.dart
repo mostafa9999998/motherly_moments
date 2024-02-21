@@ -4,20 +4,30 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Bo
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Breast%20feading/breast%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Nutrition%20model.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/weaning/weaning%20screen.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../view_model/provider/main provider.dart';
 
 class Nutritionstyle extends StatelessWidget {
   Nutritionstyle({super.key, required this.nutrition});
   Nutrition nutrition;
   @override
   Widget build(BuildContext context) {
+    Mainprovider provider = Provider.of(context);
     return InkWell(
-      onTap: () {
+      onTap: () async{
         if (nutrition.id == 1){
           Navigator.pushNamed(context, WeaningScreen.weaningScreenname);
+          await provider.getweaning(1);
+          provider.notifyListeners();
         }else if(nutrition.id == 2){
           Navigator.pushNamed(context, BreastScreen.BreastScreenname );
+          await provider.getbrest(1);
+          provider.notifyListeners();
         }else{
           Navigator.pushNamed(context, BottleScreen.BottleScreenname );
+          await provider.getbottle(1);
+          provider.notifyListeners();
         }
       },
       child: Container(

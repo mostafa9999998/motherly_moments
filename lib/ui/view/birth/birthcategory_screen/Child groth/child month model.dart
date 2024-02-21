@@ -20,6 +20,22 @@ class ChildgrothMonthmodel{
           id:9 ,
           weekname:'9-12 months'
       ),
+      ChildgrothMonthmodel(
+          id:12 ,
+          weekname:'12-15 months'
+      ),
+      ChildgrothMonthmodel(
+          id:15 ,
+          weekname:'15-18 months'
+      ),
+      ChildgrothMonthmodel(
+          id:18 ,
+          weekname:'18-21 months'
+      ),
+      ChildgrothMonthmodel(
+          id:21 ,
+          weekname:'21-24 months'
+      ),
     ];
   }
 }

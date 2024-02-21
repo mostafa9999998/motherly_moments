@@ -20,6 +20,22 @@ class WeaningMonthmodel{
           id:9 ,
           weekname:'9-12 months'
       ),
+      WeaningMonthmodel(
+          id:12 ,
+          weekname:'12-15 months'
+      ),
+      WeaningMonthmodel(
+          id:15 ,
+          weekname:'15-18 months'
+      ),
+      WeaningMonthmodel(
+          id:18 ,
+          weekname:'18-21 months'
+      ),
+      WeaningMonthmodel(
+          id:21 ,
+          weekname:'21-24 months'
+      ),
     ];
   }
 }

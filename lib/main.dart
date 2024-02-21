@@ -10,6 +10,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Bo
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Breast%20feading/breast%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Nutrition%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/weaning/weaning%20screen.dart';
+import 'package:motherly_moments/ui/view/birth/birthcategory_screen/vaccinations/vaccination%20screen.dart';
 import 'package:motherly_moments/ui/view/first_screens/first.dart';
 import 'package:motherly_moments/ui/view/first_screens/second.dart';
 import 'package:motherly_moments/ui/view/first_screens/third.dart';
@@ -77,7 +78,8 @@ class MyApp extends StatelessWidget {
         BreastScreen.BreastScreenname : (_) => BreastScreen(),
         BottleScreen.BottleScreenname : (_) => BottleScreen(),
         TipsScreen.TipsScreenname : (_) => TipsScreen(),
-        ChildGrothScreen.ChildGrothScreenname : (_)=> ChildGrothScreen()
+        ChildGrothScreen.ChildGrothScreenname : (_) => ChildGrothScreen(),
+        VaccinationScreen.VaccinationScreenname :(_) => VaccinationScreen()
       },
       initialRoute:Welcomescreen1.welcom1name ,
     );

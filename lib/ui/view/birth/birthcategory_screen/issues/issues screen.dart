@@ -3,6 +3,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/issues/issue
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/issues/issues%20model.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babygroth%20months%20model.dart';
 import 'package:provider/provider.dart';
+import '../../../../../data/repo/apis/Api manager/Api manager.dart';
 import '../../../../view_model/provider/main provider.dart';
 
 class CommonIssuesScreen extends StatefulWidget {
@@ -58,14 +59,27 @@ class _CommonIssuesScreenState extends State<CommonIssuesScreen> {
               height: MediaQuery.of(context).size.height * .03,
             ),
             Expanded(
-              child: GridView.builder(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2
-                  ),
-                  itemBuilder: (context, index) {
-                    return CommonIssuestyle(issues: list[index]);
+              child: FutureBuilder(
+                  future: Apimanager.getissuesname(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData){
+                  return GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2
+                    ),
+                    itemBuilder: (context, index) {
+                      return CommonIssuestyle(issusesNameResponse: snapshot.data![index]);
+                    },
+                    itemCount: snapshot.data!.length,
+                  );
+                    }else if(snapshot.hasError){
+                      return Text('some thing went wrong');
+                    }else {
+                     return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
                   },
-                itemCount: list.length,
               ),
             )
           ],

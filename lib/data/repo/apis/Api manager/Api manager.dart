@@ -7,10 +7,10 @@ import 'package:motherly_moments/data/repo/moduls/birth/IssuesResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/login/LoginResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/pregnancy%20weeks/WeeksResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/todo/AddtaskResponse.dart';
-
 import '../../../../ui/view/pregnancy/home_screen/todo/DeleteResponse.dart';
 import '../../moduls/birth date/BirthDateBody.dart';
 import '../../moduls/birth date/BirthDateRespnse.dart';
+import '../../moduls/birth/IssusesNameResponse.dart';
 import '../../moduls/birth/nutrition/WeaningResponse.dart';
 import '../../moduls/category_video/ExerciseResponse.dart';
 import '../../moduls/login/LoginBody.dart';
@@ -206,6 +206,14 @@ static Future<List<IssuesResponse>> getissues (int issue_id)async{
    List<dynamic> jsonResponse = jsonDecode(response.body);
    List<WeaningResponse> weaningResponse = jsonResponse.map((json) => WeaningResponse.fromJson(json)).toList();
    return weaningResponse ;
+ }
+
+ static Future<List<IssusesNameResponse>> getissuesname ()async{
+   Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_issues");
+   Response response = await get(url);
+   List<dynamic> jsonResponse = jsonDecode(response.body);
+   List<IssusesNameResponse> issusesNameResponse = jsonResponse.map((json) => IssusesNameResponse.fromJson(json)).toList();
+   return issusesNameResponse ;
  }
 
 }

@@ -17,7 +17,7 @@ class IssuesArticle extends StatelessWidget {
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
-        title: Text("Welcome Back",
+        title: Text("Common issues",
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         leading: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(width: 15),
