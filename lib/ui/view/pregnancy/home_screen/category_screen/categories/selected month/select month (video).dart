@@ -77,13 +77,13 @@ class _SelectmonthscreenVState extends State<SelectmonthscreenV> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    /*Text(
                       snapshot.data?.title??'null',
                       style:
                       TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                    ),
+                    ),*/
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * .02,
+                      height: MediaQuery.of(context).size.height * .03,
                     ),
                     Container(
                       padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*.008),
@@ -92,16 +92,16 @@ class _SelectmonthscreenVState extends State<SelectmonthscreenV> {
                         showVideoProgressIndicator: true,
                       ),
                     ),
-                    SizedBox(
+                    /*SizedBox(
                       height: MediaQuery.of(context).size.height * .02,
                     ),
                     Text(
                       snapshot.data?.title??'null',
                       style:
                       TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
-                    ),
+                    ),*/
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * .02,
+                      height: MediaQuery.of(context).size.height * .03,
                     ),
                     Text(
                       snapshot.data?.description??'null',

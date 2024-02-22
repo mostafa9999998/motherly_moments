@@ -36,25 +36,33 @@ class Coursesstyle extends StatelessWidget {
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.015,
             ),
-            Column(
+            Center(
+              child: Text(
+                courseslist.title,
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+              ),
+            ),
+            /*Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                /*SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
+                ),*/
+                Center(
+                  child: Text(
+                    courseslist.title,
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),textAlign: TextAlign.center,
+                  ),
                 ),
-                Text(
-                  courseslist.title,
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
-                ),
-                SizedBox(
+                /*SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Text(
                   courseslist.desc,
                   style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
-                ),
+                ),*/
               ],
-            )
+            )*/
           ],
         ),
       ),

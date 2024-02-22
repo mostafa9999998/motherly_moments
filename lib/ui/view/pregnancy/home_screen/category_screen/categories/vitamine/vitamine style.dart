@@ -29,27 +29,35 @@ class Vitaminestyle extends StatelessWidget {
                   fit: BoxFit.fill,
                 )),
             SizedBox(
-               width: MediaQuery.of(context).size.width * 0.02,
+               width: MediaQuery.of(context).size.width * 0.03,
             ),
-            Column(
+            Center(
+              child: Text(
+                vitaminelist.title,
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+              ),
+            ),
+            /*Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                /*SizedBox(
                   height: MediaQuery.of(context).size.height * 0.03,
+                ),*/
+                Center(
+                  child: Text(
+                    vitaminelist.title,
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
+                  ),
                 ),
-                Text(
-                  vitaminelist.title,
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
-                ),
-                SizedBox(
+                /*SizedBox(
                   height: MediaQuery.of(context).size.height * 0.01,
                 ),
                 Text(
                   vitaminelist.desc,
                   style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
-                ),
+                ),*/
               ],
-            )
+            )*/
           ],
         ),
       ),

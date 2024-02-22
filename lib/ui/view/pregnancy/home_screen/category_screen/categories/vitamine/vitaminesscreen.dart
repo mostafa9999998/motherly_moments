@@ -28,7 +28,7 @@ class Vitamines_screen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * .28,
                 ),
                 Text(
-                  'Vitamines',
+                  '  Vitamines .',
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.white),
                 ),
                 SizedBox(

@@ -1,7 +1,3 @@
-import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/selected%20month/selected%20month%20screen.dart';
-
-import '../../../../../select_screen/Select_screen.dart';
-
 class Exerciseslist {
   int  id;
   String title;
@@ -18,25 +14,25 @@ class Exerciseslist {
     return [
       Exerciseslist(
           id: 1,
-          title: 'Yoga helps in you in 1 month',
+          title: 'Exercise for first Trimester ',
           imagepath: 'assets/images/exercisemonth1.png',
           screenname: 'exercise',
           desc: 'The first thrimester is the time when\n the baby'),
       Exerciseslist(
           id: 2,
-          title: 'Yoga helps in you in 2 month',
+          title: '10 min Exercise',
           imagepath: 'assets/images/exercisemonth1.png',
           screenname: 'exercise',
           desc: 'The first thrimester is the time when\n the baby'),
       Exerciseslist(
           id: 3,
-          title: 'Yoga helps in you in 3 month',
+          title: 'Yoga',
           imagepath: 'assets/images/exercisemonth1.png',
           screenname: 'exercise',
           desc: 'The first thrimester is the time when\n the baby'),
       Exerciseslist(
           id: 4,
-          title: 'Yoga helps in you in 4 month',
+          title: 'Exercise for secod Trimester',
           imagepath: 'assets/images/exercisemonth1.png',
           screenname: 'exercise',
           desc: 'The first thrimester is the time when\n the baby'),
