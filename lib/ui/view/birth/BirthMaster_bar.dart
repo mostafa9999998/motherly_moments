@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/view/Chat/Chat%20contact%20list/chat%20contact.dart';
+import 'package:motherly_moments/ui/view/Setting/setting%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/category.dart';
 import "package:motherly_moments/ui/view/birth/home/baby's_age.dart";
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/todo/todo_screen.dart';
@@ -58,6 +60,14 @@ class _BirthMasterscreenState extends State<BirthMasterscreen> {
             icon: ImageIcon(AssetImage('assets/images/todoicon.png')),
             label: 'To do list',
           ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage('assets/images/chaticon.png')),
+            label: 'Chating',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Setting',
+          ),
         ],
         onTap: (index){
           currentindex = index;
@@ -70,4 +80,4 @@ class _BirthMasterscreenState extends State<BirthMasterscreen> {
     );
   }
 }
-List pages =[BabyAge(),BirthCategory(),Todoscreen()];
+List pages =[BabyAge(),BirthCategory(),Todoscreen(),ChatContactScreen(),SettingScreen()];

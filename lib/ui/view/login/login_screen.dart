@@ -187,7 +187,6 @@ class _LoginscreenState extends State<Loginscreen> {
            providr.fgetuserid(emailcontroller.text,passwordcontroller.text);
         if(await R){
           hideLoading(context);
-          //showerror(context, 'Login successful');
           Navigator.pushReplacementNamed(context, Selectscreen.selectname);
         } else{
           hideLoading(context);

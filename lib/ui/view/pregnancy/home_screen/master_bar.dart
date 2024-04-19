@@ -3,6 +3,9 @@ import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/c
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/home/home.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/todo/todo_screen.dart';
 
+import '../../Chat/Chat contact list/chat contact.dart';
+import '../../Setting/setting screen.dart';
+
 class Masterscreen extends StatefulWidget {
   const Masterscreen({super.key});
   static const String mastername = 'mastername';
@@ -33,6 +36,15 @@ class _MasterscreenState extends State<Masterscreen> {
             icon: ImageIcon(AssetImage('assets/images/todoicon.png')),
             label: 'To do list',
           ),
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage('assets/images/chaticon.png')),
+            label: 'Chating',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Setting',
+          ),
+
         ],
         onTap: (index){
           currentindex = index;
@@ -45,4 +57,4 @@ class _MasterscreenState extends State<Masterscreen> {
     );
   }
 }
-List pages =[Weekscalculate(),Category(),Todoscreen()];
+List pages =[Weekscalculate(),Category(),Todoscreen(),ChatContactScreen(),SettingScreen()];

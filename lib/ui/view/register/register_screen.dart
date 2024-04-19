@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/utils/loading.dart';
 import 'package:motherly_moments/ui/view/register/textfield_pass.dart';
 import 'package:motherly_moments/ui/view/register/textfirld_wedget.dart';
-
 import '../../../data/repo/apis/Api manager/Api manager.dart';
 import '../login/login_screen.dart';
+
 class RegisterScreen extends StatefulWidget {
    RegisterScreen({super.key});
   static const String regroutename ='regname';
@@ -134,6 +134,5 @@ class _RegisterScreenState extends State<RegisterScreen> {
             showerror(context, 'Some thing went wrong');
           }
     }
-
   }
 }

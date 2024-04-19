@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/view/Chat/Chat%20screen/Chat%20screen.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/baby_weeks.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/date_biker/date%20piker%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/before%20birth/baby%20info.dart';
@@ -79,7 +80,8 @@ class MyApp extends StatelessWidget {
         BottleScreen.BottleScreenname : (_) => BottleScreen(),
         TipsScreen.TipsScreenname : (_) => TipsScreen(),
         ChildGrothScreen.ChildGrothScreenname : (_) => ChildGrothScreen(),
-        VaccinationScreen.VaccinationScreenname :(_) => VaccinationScreen()
+        VaccinationScreen.VaccinationScreenname :(_) => VaccinationScreen(),
+        ChatScreen.ChatScreenname : (_) => ChatScreen()
       },
       initialRoute:Welcomescreen1.welcom1name ,
     );
