@@ -28,7 +28,7 @@ class ChatScreen extends StatelessWidget {
             Container(
                 height: MediaQuery.of(context).size.height * .8,
                 color: Colors.orange,
-                child: StreamBuilder<QuerySnapshot>(
+                child: StreamBuilder<QuerySnapshot<MessageResponse>>(
                   stream: messageProvider.getMessage(
                       '${mainprovider.userid}', '36'),
                   builder: (context, asynSnapShot) {
@@ -47,7 +47,7 @@ class ChatScreen extends StatelessWidget {
                         //physics: const BouncingScrollPhysics(),
                         itemCount: messageslist.length, //messageList.length,
                         itemBuilder: (context, index) {
-                          return buildmessageitem(MessageResponse.fromJson(messageslist[index]));
+                          return buildmessageitem(messageslist[index]);
                         },
                         reverse: true,
                       );

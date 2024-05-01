@@ -21,7 +21,7 @@ static String c2 ='messages';
     List<String> ids = [userid,receverid ];
     ids.sort();
     String chatroomid = ids.join("_");
-      print("----$chatroomid");
+      print(chatroomid);
     await firestore
         .collection(c1)
         .doc(chatroomid)
@@ -29,25 +29,19 @@ static String c2 ='messages';
         .add(newMessage.toJson());
   }
 
-  Stream<QuerySnapshot> getMessage(String userid, String receverid) {
+  Stream<QuerySnapshot<MessageResponse>> getMessage(String userid, String receverid) {
     List<String> ids = [userid,receverid ];
     ids.sort();
     String chatroomid = ids.join("_");
     print(chatroomid);
-    FirebaseFirestore.instance
-        .collection(c1)
-        .doc(chatroomid)
-        .collection(c2).get().then((value) => print(value.docs.length));
     return  FirebaseFirestore.instance
         .collection(c1)
         .doc(chatroomid)
-        .collection(c2)
-        .orderBy('date', descending: false)
+        .collection(c2).withConverter(
+         fromFirestore: ((snapshot, options)=> MessageResponse.fromJson(snapshot.data()!)),
+        toFirestore: ((message, options) => message.toJson()),)
+        .orderBy('created_at', descending: false)
         .snapshots();
   }
 
 }
-
-//     .withConverter(
-// fromFirestore: ((snapshot, options)=> MessageResponse.fromJson(snapshot.data()!)),
-// toFirestore: ((message, options) => message.toJson()),)
