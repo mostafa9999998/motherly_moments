@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "175224878520",
+    "project_id": "motherly-chat",
+    "storage_bucket": "motherly-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:175224878520:android:a51e8ff5e74bd11667cb4d",
+        "android_client_info": {
+          "package_name": "com.example.motherly_moments"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCclxYljQrMjMyWqYLifRP0z3PHOJiUOiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

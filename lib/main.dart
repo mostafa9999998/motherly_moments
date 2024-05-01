@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/Chat/Chat%20screen/Chat%20screen.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/baby_weeks.dart';
@@ -34,7 +35,11 @@ import 'ui/view/pregnancy/home_screen/category_screen/categories/selected month/
 import 'ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitaminesscreen.dart';
 import 'ui/view/pregnancy/home_screen/master_bar.dart';
 
-void main() {
+
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
   Mainprovider provider = Mainprovider();
   runApp(ChangeNotifierProvider(
     create:(context) =>provider,
