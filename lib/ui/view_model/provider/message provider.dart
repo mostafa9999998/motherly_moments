@@ -40,7 +40,7 @@ static String c2 ='messages';
         .collection(c2).withConverter(
          fromFirestore: ((snapshot, options)=> MessageResponse.fromJson(snapshot.data()!)),
         toFirestore: ((message, options) => message.toJson()),)
-        .orderBy('created_at', descending: false)
+        .orderBy('created_at', descending: true)
         .snapshots();
   }
 

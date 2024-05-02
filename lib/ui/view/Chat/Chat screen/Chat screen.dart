@@ -16,21 +16,28 @@ class ChatScreen extends StatelessWidget {
     void sendmessage() async {
       if (messagecontroller.text.isNotEmpty) {
         await messageProvider.sendmessage(
-            messagecontroller.text, '${mainprovider.userid}', '36');
+            messagecontroller.text, '${mainprovider.userid}', '34');
         messagecontroller.clear();
       }
     }
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Chat Screen'),
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon:Icon( Icons.arrow_back,size: 40,),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-                height: MediaQuery.of(context).size.height * .8,
-                color: Colors.orange,
+                height: MediaQuery.of(context).size.height * .75,
+                //color: Colors.orange,
                 child: StreamBuilder<QuerySnapshot<MessageResponse>>(
                   stream: messageProvider.getMessage(
-                      '${mainprovider.userid}', '36'),
+                      '${mainprovider.userid}', '34'),
                   builder: (context, asynSnapShot) {
                     if (asynSnapShot.hasError) {
                       return Center(child: Text(asynSnapShot.error.toString()));
@@ -47,7 +54,7 @@ class ChatScreen extends StatelessWidget {
                         //physics: const BouncingScrollPhysics(),
                         itemCount: messageslist.length, //messageList.length,
                         itemBuilder: (context, index) {
-                          return buildmessageitem(messageslist[index]);
+                          return buildmessageitem(messageslist[index],'${mainprovider.userid}');
                         },
                         reverse: true,
                       );
@@ -57,8 +64,9 @@ class ChatScreen extends StatelessWidget {
             Container(
               padding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * .03,
+                vertical: MediaQuery.of(context).size.height * .03
               ),
-              height: MediaQuery.of(context).size.height * .2,
+             // height: MediaQuery.of(context).size.height * .1,
               child: Row(
                 children: [
                   Container(
@@ -92,7 +100,7 @@ class ChatScreen extends StatelessWidget {
                     onPressed: () {
                       sendmessage();
                     },
-                    icon: Icon(Icons.send),
+                    icon: Icon(Icons.send,color: Colors.blue,),
                   )
                 ],
               ),
@@ -104,84 +112,66 @@ class ChatScreen extends StatelessWidget {
   }
 
 
-  Widget buildmessageitem(MessageResponse msg) {
+  Widget buildmessageitem(MessageResponse msg, String userid) {
 
-    var alinment = (msg.senderId == "34")
-        ? Alignment.bottomRight
-        : Alignment.centerLeft;
-    return Container(
-      alignment: alinment,
-      child: Text(msg.message??'null'),
-    );
+     if (msg.senderId == userid ) {
+        return Container(
+          //width: 100,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                margin: const EdgeInsets.only(
+                    left: 8.0, right: 5.0, top: 8.0, bottom: 2.0),
+                padding: const EdgeInsets.only(
+                    left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
+                decoration: const BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Color(0xFF7CE994),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                child: Text(
+                  msg.message!,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              CircleAvatar(
+                child: Text(
+                    'S'
+                ),
+              ),
+            ],
+          ),
+        );
+      }else {
+       return Container(
+         //width: 100,
+         child: Row(
+           mainAxisAlignment: MainAxisAlignment.start,
+           children: [
+             CircleAvatar(
+               child: Text(
+                   'R'
+               ),
+             ),
+             Container(
+               margin: const EdgeInsets.only(
+                   left: 8.0, right: 5.0, top: 8.0, bottom: 2.0),
+               padding: const EdgeInsets.only(
+                   left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
+               decoration: const BoxDecoration(
+                   shape: BoxShape.rectangle,
+                   color: Color(0xFF7CE994),
+                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
+               child: Text(
+                 msg.message!,
+                 textAlign: TextAlign.center,
+               ),
+             ),
+
+           ],
+         ),
+       );
   }
-
-  // Widget buildmessageitem(DocumentSnapshot document) {
-  //   Map<String, dynamic> data = document.data() as Map<String, dynamic>;
-  //
-  //   var alinment = (data['sender_id'] == "34")
-  //       ? Alignment.bottomRight
-  //       : Alignment.centerLeft;
-  //   return Container(
-  //     alignment: alinment,
-  //     child: Text(data['message']),
-  //   );
-  //   // if (data['sender_id'] =="34" ) {
-  //   //   return Container(
-  //   //     width: 100,
-  //   //     child: Row(
-  //   //       mainAxisAlignment: MainAxisAlignment.end,
-  //   //       children: [
-  //   //         Container(
-  //   //           // margin: const EdgeInsets.only(
-  //   //           //     left: 8.0, right: 5.0, top: 8.0, bottom: 2.0),
-  //   //           // padding: const EdgeInsets.only(
-  //   //           //     left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
-  //   //           // decoration: const BoxDecoration(
-  //   //           //     shape: BoxShape.rectangle,
-  //   //           //     color: Color(0xFF7CE994),
-  //   //           //     borderRadius: BorderRadius.all(Radius.circular(10.0))),
-  //   //           child: Text(
-  //   //             data['message'],
-  //   //             textAlign: TextAlign.center,
-  //   //           ),
-  //   //         ),
-  //   //         CircleAvatar(
-  //   //           child: Text(
-  //   //               's'
-  //   //           ),
-  //   //         ),
-  //   //       ],
-  //   //     ),
-  //   //   );
-  //   // }else {
-  //   //   return Container(
-  //   //     width: 100,
-  //   //     child: Row(
-  //   //       mainAxisAlignment: MainAxisAlignment.start,
-  //   //       children: [
-  //   //         CircleAvatar(
-  //   //           child: Text(
-  //   //               'R'
-  //   //           ),
-  //   //         ),
-  //   //         Container(
-  //   //           // margin: const EdgeInsets.only(
-  //   //           //     left: 8.0, right: 5.0, top: 8.0, bottom: 2.0),
-  //   //           // padding: const EdgeInsets.only(
-  //   //           //     left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
-  //   //           // decoration: const BoxDecoration(
-  //   //           //     shape: BoxShape.rectangle,
-  //   //           //     color: Color(0xFF7CE994),
-  //   //           //     borderRadius: BorderRadius.all(Radius.circular(10.0))),
-  //   //           child: Text(
-  //   //             data['message'],
-  //   //             textAlign: TextAlign.center,
-  //   //           ),
-  //   //         ),
-  //   //
-  //   //       ],
-  //   //     ),
-  //   //   );
-  // }
+}
 }
 

@@ -16,8 +16,8 @@ class Welcomescreen2 extends StatelessWidget {
             SizedBox(height: 70,),
             Row(
               children: [
-                Text('Educational ',style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 30),),
-                Text('Resources',style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 30,color:Color(0xff8461D5) ),),
+                Text('Educational ',style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 29),),
+                Text('Resources',style: TextStyle(fontWeight:FontWeight.w600 ,fontSize: 29,color:Color(0xff8461D5) ),),
               ],
             ),
             SizedBox(height: 40,),

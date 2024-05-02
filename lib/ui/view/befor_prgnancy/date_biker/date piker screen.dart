@@ -20,10 +20,10 @@ class _DatebikerscreenState extends State<Datebikerscreen> {
     Mainprovider provider = Provider.of(context);
     return Scaffold(
       body: Container(
-        height: MediaQuery.of(context).size.height * 1,
+      //  height: MediaQuery.of(context).size.height * 1,
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * .05,
-            vertical: MediaQuery.of(context).size.height * .07),
+            vertical: MediaQuery.of(context).size.height * .06),
         child: Column(
           children: [
             SizedBox(

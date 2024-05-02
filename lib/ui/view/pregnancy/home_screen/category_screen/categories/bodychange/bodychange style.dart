@@ -17,7 +17,7 @@ class Bodychangemonths extends StatelessWidget {
       },
       child: Container(
         //color: Color(0xff515165),
-        height:  MediaQuery.of(context).size.height * 0.14,
+        height:  MediaQuery.of(context).size.height * 0.16,
         padding: EdgeInsets.symmetric( vertical:MediaQuery.of(context).size.height * 0.009 ,),
         child: Row(
           children: [
