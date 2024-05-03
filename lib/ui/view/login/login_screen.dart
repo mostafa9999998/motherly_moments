@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/data/repo/moduls/login/LoginResponse.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
 import 'package:motherly_moments/ui/view/select_screen/Select_screen.dart';
 import 'package:motherly_moments/ui/view_model/provider/main%20provider.dart';
@@ -183,10 +184,18 @@ class _LoginscreenState extends State<Loginscreen> {
       try{
         showLoading(context);
         var R = Apimanager.login(emailcontroller.text,passwordcontroller.text);
+        LoginResponse loginresponse = await Apimanager.loginresponse(emailcontroller.text,passwordcontroller.text);
             Mainprovider providr = Provider.of<Mainprovider>(context,listen: false);
            providr.fgetuserid(emailcontroller.text,passwordcontroller.text);
         if(await R){
           hideLoading(context);
+          providr.setloginid(loginresponse.user!.id!);
+          providr.setloginemail(loginresponse.user!.email!);
+          providr.setloginname(loginresponse.user!.name!);
+          providr.setloginmesage(loginresponse.message!);
+          providr.setloginupdated(loginresponse.user!.updatedAt!);
+          providr.setlogincreated(loginresponse.user!.createdAt!);
+          providr.setloginphone(loginresponse.user!.phone!);
           Navigator.pushReplacementNamed(context, Selectscreen.selectname);
         } else{
           hideLoading(context);

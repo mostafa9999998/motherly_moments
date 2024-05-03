@@ -13,6 +13,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Br
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Nutrition%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/weaning/weaning%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/vaccinations/vaccination%20screen.dart';
+import 'package:motherly_moments/ui/view/display%20wedget/display%20wedget.dart';
 import 'package:motherly_moments/ui/view/first_screens/first.dart';
 import 'package:motherly_moments/ui/view/first_screens/second.dart';
 import 'package:motherly_moments/ui/view/first_screens/third.dart';
@@ -86,9 +87,10 @@ class MyApp extends StatelessWidget {
         TipsScreen.TipsScreenname : (_) => TipsScreen(),
         ChildGrothScreen.ChildGrothScreenname : (_) => ChildGrothScreen(),
         VaccinationScreen.VaccinationScreenname :(_) => VaccinationScreen(),
-        ChatScreen.ChatScreenname : (_) => ChatScreen()
+        ChatScreen.ChatScreenname : (_) => ChatScreen(),
+        DisplayWedget.diplayname : (_) => DisplayWedget()
       },
-      initialRoute:Welcomescreen1.welcom1name ,
+      initialRoute:DisplayWedget.diplayname ,
     );
   }
 }

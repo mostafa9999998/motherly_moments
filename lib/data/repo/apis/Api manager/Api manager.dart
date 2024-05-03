@@ -51,6 +51,19 @@ class Apimanager{
    }
  }
 
+ static Future<LoginResponse> loginresponse(String email,String password) async {
+   Uri url = Uri.parse("https://gradhub.hwnix.com/api/login");
+   // I am connected to a mobile network.
+   LoginBody loginBody = LoginBody(
+     email: email,
+     password: password,
+   ) ;
+   var response = await post(url,body: loginBody.toJson());
+
+   var b = LoginResponse.fromJson(jsonDecode(response.body));
+   return b ;
+
+ }
 
  static Future<bool> register(String name,String email,String phone,String password) async {
    Uri url = Uri.parse("https://gradhub.hwnix.com/api/register");

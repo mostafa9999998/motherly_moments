@@ -3,7 +3,7 @@ import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/c
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/home/home.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/todo/todo_screen.dart';
 
-import '../../Chat/Chat contact list/chat contact.dart';
+import '../../Chat/Chat contact list/chat contact screen.dart';
 import '../../Setting/setting screen.dart';
 
 class Masterscreen extends StatefulWidget {
