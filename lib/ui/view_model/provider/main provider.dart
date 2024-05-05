@@ -59,8 +59,8 @@ class Mainprovider extends ChangeNotifier{
  int getmonth(){
    return month;
  }
-  void setuserid (int userid){
-    userid = userid;
+  void setuserid (int id){
+    userid = id;
   }
 
   int getuserid(){

@@ -13,6 +13,7 @@ import '../../moduls/birth date/BirthDateRespnse.dart';
 import '../../moduls/birth/IssusesNameResponse.dart';
 import '../../moduls/birth/nutrition/WeaningResponse.dart';
 import '../../moduls/category_video/ExerciseResponse.dart';
+import '../../moduls/chat/DoctorsResponse.dart';
 import '../../moduls/login/LoginBody.dart';
 import '../../moduls/register/RegisterBody.dart';
 import '../../moduls/register/RegisterResponse.dart';
@@ -228,6 +229,15 @@ static Future<List<IssuesResponse>> getissues (int issue_id)async{
    List<IssusesNameResponse> issusesNameResponse = jsonResponse.map((json) => IssusesNameResponse.fromJson(json)).toList();
    return issusesNameResponse ;
  }
+
+ static Future<List<DoctorsResponse>> getdoctors ()async{
+   Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_doc");
+   Response response = await get(url);
+   List<dynamic> jsonResponse = jsonDecode(response.body);
+   List<DoctorsResponse> doctorsResponse = jsonResponse.map((json) => DoctorsResponse.fromJson(json)).toList();
+   return doctorsResponse ;
+ }
+
 
 }
 

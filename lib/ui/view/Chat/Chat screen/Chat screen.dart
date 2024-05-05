@@ -11,12 +11,12 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     TextEditingController messagecontroller = TextEditingController();
-    MessageProvider messageProvider = MessageProvider();
+    MessageProvider messageProvider = Provider.of(context);
     Mainprovider mainprovider = Provider.of(context);
     void sendmessage() async {
       if (messagecontroller.text.isNotEmpty) {
         await messageProvider.sendmessage(
-            messagecontroller.text, '${mainprovider.userid}', '34');
+            messagecontroller.text, '${mainprovider.userid}', '${messageProvider.outheruserid}');
         messagecontroller.clear();
       }
     }
@@ -37,7 +37,7 @@ class ChatScreen extends StatelessWidget {
                 //color: Colors.orange,
                 child: StreamBuilder<QuerySnapshot<MessageResponse>>(
                   stream: messageProvider.getMessage(
-                      '${mainprovider.userid}', '34'),
+                      '${mainprovider.userid}', '${messageProvider.outheruserid}'),
                   builder: (context, asynSnapShot) {
                     if (asynSnapShot.hasError) {
                       return Center(child: Text(asynSnapShot.error.toString()));

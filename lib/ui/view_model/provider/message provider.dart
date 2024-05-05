@@ -5,9 +5,19 @@ import '../../../data/repo/moduls/chat/MessageResponse.dart';
 class MessageProvider extends ChangeNotifier {
   List<MessageResponse> messagelist = [];
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
+ late int outheruserid;
 static String c1 ='chatroom';
 static String c2 ='messages';
  late Stream<QuerySnapshot<MessageResponse>> msges ;
+
+ void setoutheruserid (int id){
+   outheruserid = id;
+ }
+
+ int getoutheruserid (){
+   return outheruserid;
+ }
+
   Future<void> sendmessage(
       String message, String userid, String receverid,) async {
     final int date = DateTime.now().microsecondsSinceEpoch;

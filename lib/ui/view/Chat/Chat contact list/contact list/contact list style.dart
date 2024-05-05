@@ -1,19 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:motherly_moments/ui/view/Chat/Chat%20contact%20list/contact%20list/contacts%20model.dart';
+import 'package:motherly_moments/data/repo/moduls/chat/DoctorsResponse.dart';
+import 'package:motherly_moments/ui/view/Chat/Chat%20screen/Chat%20screen.dart';
+import 'package:motherly_moments/ui/view_model/provider/message%20provider.dart';
+import 'package:provider/provider.dart';
 
 
 class ContactStyle extends StatelessWidget {
-  ContactStyle({super.key, required this.contacts});
-  Contacts contacts ;
+  ContactStyle({super.key, required this.doctorsResponse});
+  //Contacts contacts ;
+  DoctorsResponse doctorsResponse;
   @override
   Widget build(BuildContext context) {
+    MessageProvider messageProvider=Provider.of(context);
     return InkWell(
       onTap: () {
-        // Selecctedmonthscreen.month = babygrothlist.id ;
-        // Selecctedmonthscreen.categ = babygrothlist.screenname ;
-        // Navigator.pushNamed(context, Selecctedmonthscreen.selectedmonthname);
+        messageProvider.outheruserid = doctorsResponse.id! ;
+        Navigator.pushNamed(context, ChatScreen.ChatScreenname);
       },
       child: Container(
         //color: Color(0xff515165),
@@ -26,7 +30,7 @@ class ContactStyle extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(150),
                   //color: Colors.cyan,
-                  image:DecorationImage(image: AssetImage(contacts.imagepath,),fit: BoxFit.fill)
+                  image:DecorationImage(image: NetworkImage(doctorsResponse.fullSrc!,),fit: BoxFit.fill)
                 ),
                   width: MediaQuery.of(context).size.width * 0.18,
                   height: MediaQuery.of(context).size.width * 0.18,
@@ -46,14 +50,14 @@ class ContactStyle extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * 0.03,
                 ),
                 Text(
-                  contacts.title,
+                  doctorsResponse.name??'',
                   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18),
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.007,
                 ),
                 Text(
-                  contacts.desc,
+                  doctorsResponse.position??'',
                   style: TextStyle(fontWeight: FontWeight.w300, fontSize: 14),
                   maxLines: 2,
                 ),
