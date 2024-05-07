@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/view/Chat/chats%20menue/Chats%20menue.dart';
 import 'package:motherly_moments/ui/view/Setting/setting%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/category.dart';
 import "package:motherly_moments/ui/view/birth/home/baby's_age.dart";
@@ -6,7 +7,6 @@ import 'package:motherly_moments/ui/view/pregnancy/home_screen/todo/todo_screen.
 import 'package:provider/provider.dart';
 
 import '../../view_model/provider/main provider.dart';
-import '../Chat/Chat contact list/chat contact screen.dart';
 
 
 class BirthMasterscreen extends StatefulWidget {
@@ -80,4 +80,4 @@ class _BirthMasterscreenState extends State<BirthMasterscreen> {
     );
   }
 }
-List pages =[BabyAge(),BirthCategory(),Todoscreen(),ChatContactScreen(),SettingScreen()];
+List pages =[BabyAge(),BirthCategory(),Todoscreen(),ChatsMenue(),SettingScreen()];

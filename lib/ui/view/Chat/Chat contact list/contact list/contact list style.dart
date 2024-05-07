@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:motherly_moments/data/repo/moduls/chat/DoctorsResponse.dart';
 import 'package:motherly_moments/ui/view/Chat/Chat%20screen/Chat%20screen.dart';
+import 'package:motherly_moments/ui/view_model/provider/main%20provider.dart';
 import 'package:motherly_moments/ui/view_model/provider/message%20provider.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +14,7 @@ class ContactStyle extends StatelessWidget {
   DoctorsResponse doctorsResponse;
   @override
   Widget build(BuildContext context) {
-    MessageProvider messageProvider=Provider.of(context);
+    Mainprovider messageProvider=Provider.of(context);
     return InkWell(
       onTap: () {
         messageProvider.outheruserid = doctorsResponse.id! ;

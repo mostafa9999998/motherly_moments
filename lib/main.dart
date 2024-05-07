@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/view/Chat/Chat%20contact%20list/chat%20contact%20screen.dart';
 import 'package:motherly_moments/ui/view/Chat/Chat%20screen/Chat%20screen.dart';
+import 'package:motherly_moments/ui/view/Chat/chat%20bot/chatbotscreen.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/baby_weeks.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/date_biker/date%20piker%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/before%20birth/baby%20info.dart';
@@ -88,7 +90,9 @@ class MyApp extends StatelessWidget {
         ChildGrothScreen.ChildGrothScreenname : (_) => ChildGrothScreen(),
         VaccinationScreen.VaccinationScreenname :(_) => VaccinationScreen(),
         ChatScreen.ChatScreenname : (_) => ChatScreen(),
-        DisplayWedget.diplayname : (_) => DisplayWedget()
+        DisplayWedget.diplayname : (_) => DisplayWedget(),
+        ChatbotScreen.ChatbotScreenname : (_) => ChatbotScreen(),
+        ChatContactScreen.ChatContactScreenname : (_)=>ChatContactScreen()
       },
       initialRoute:DisplayWedget.diplayname ,
     );

@@ -29,6 +29,7 @@ class Mainprovider extends ChangeNotifier{
   List<ChildGrothResponse> childgrothlist=[];
   List<TipsResponse> tipslist=[];
   SharedPreferences? prefs;
+  static String lang = "/en";
   static String login_messagekey ='login1key';
   static String login_idkey ='login2key';
   static String login_namekey ='login3key';
@@ -37,6 +38,16 @@ class Mainprovider extends ChangeNotifier{
   static String login_createdkey ='login6key';
   static String login_updatedkey ='login7key';
   late LoginResponse loginResponse ;
+  late int outheruserid;
+
+
+  void setoutheruserid (int id){
+    outheruserid = id;
+  }
+
+  int getoutheruserid (){
+    return outheruserid;
+  }
 
 
   void setbabyname(String s){
@@ -138,7 +149,7 @@ class Mainprovider extends ChangeNotifier{
   }
 
    Future<List<WeaningResponse>> getweaning (int month)async{
-    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_weaning/$month");
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_weaning/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     List<WeaningResponse> weaningResponse = jsonResponse.map((json) => WeaningResponse.fromJson(json)).toList();
@@ -146,7 +157,7 @@ class Mainprovider extends ChangeNotifier{
     return weaningResponse ;
   }
   Future<List<BottleResponse>> getbottle (int month)async{
-    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_BottleFeeding/$month");
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_BottleFeeding/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     List<BottleResponse> bottleResponse = jsonResponse.map((json) => BottleResponse.fromJson(json)).toList();
@@ -154,7 +165,7 @@ class Mainprovider extends ChangeNotifier{
     return bottleResponse ;
   }
   Future<List<BrestFeedingResponse>> getbrest (int month)async{
-    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_BreastFeeding/$month");
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_BreastFeeding/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     List<BrestFeedingResponse> brestFeedingResponse = jsonResponse.map((json) => BrestFeedingResponse.fromJson(json)).toList();
@@ -163,7 +174,7 @@ class Mainprovider extends ChangeNotifier{
   }
 
   Future<List<ChildGrothResponse>> getchildgroth (int month)async{
-    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_ChildGrowth/$month");
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_ChildGrowth/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     List<ChildGrothResponse> childGrothResponse = jsonResponse.map((json) => ChildGrothResponse.fromJson(json)).toList();
@@ -172,7 +183,7 @@ class Mainprovider extends ChangeNotifier{
   }
 
   Future<List<TipsResponse>> gettips (int month)async{
-    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_tips/$month");
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_tips/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     List<TipsResponse> tipsResponse = jsonResponse.map((json) => TipsResponse.fromJson(json)).toList();
