@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:motherly_moments/ui/view/Chat/Chat%20contact%20list/chat%20contact%20screen.dart';
 import 'package:motherly_moments/ui/view/Chat/Chat%20screen/Chat%20screen.dart';
 import 'package:motherly_moments/ui/view/Chat/chat%20bot/chatbotscreen.dart';
@@ -37,6 +38,7 @@ import 'ui/view/pregnancy/home_screen/category_screen/categories/food/foodscreen
 import 'ui/view/pregnancy/home_screen/category_screen/categories/selected month/selected month screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitaminesscreen.dart';
 import 'ui/view/pregnancy/home_screen/master_bar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 void main() async{
