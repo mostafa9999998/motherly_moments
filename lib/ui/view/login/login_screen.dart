@@ -35,7 +35,7 @@ class _LoginscreenState extends State<Loginscreen> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(height: 100,),
-                Center(child: Image(image:AssetImage('assets/images/logpicture.png'),)),
+                Center(child: Image(image:AssetImage('assets/images/Logpicture.png'),)),
                 Center(child: Image(image:AssetImage('assets/images/NEWBORN.png'))),
                 SizedBox(height: 27,),
                 Text('Email address',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),),

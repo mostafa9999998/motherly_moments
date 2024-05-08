@@ -1,5 +1,4 @@
 class BabygrothResponse {
-
   int? id;
   int? categoryId;
   String? title;
@@ -9,13 +8,14 @@ class BabygrothResponse {
   String? fullSrc;
 
   BabygrothResponse({
-      this.id, 
-      this.categoryId, 
-      this.title,
-      this.description, 
-      this.image, 
-      this.month, 
-      this.fullSrc,});
+    this.id,
+    this.categoryId,
+    this.title,
+    this.description,
+    this.image,
+    this.month,
+    this.fullSrc,
+  });
 
   BabygrothResponse.fromJson(dynamic json) {
     id = json['id'];
@@ -26,7 +26,6 @@ class BabygrothResponse {
     month = json['month'];
     fullSrc = json['FullSrc'];
   }
-
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -39,5 +38,4 @@ class BabygrothResponse {
     map['FullSrc'] = fullSrc;
     return map;
   }
-
 }
