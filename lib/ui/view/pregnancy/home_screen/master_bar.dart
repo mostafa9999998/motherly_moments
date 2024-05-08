@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/view/Chat/chats%20menue/Chats%20menue.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/category.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/home/home.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/todo/todo_screen.dart';
 
-import '../../Chat/Chat contact list/chat contact.dart';
+import '../../Chat/Chat contact list/chat contact screen.dart';
 import '../../Setting/setting screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -59,4 +60,4 @@ class _MasterscreenState extends State<Masterscreen> {
     );
   }
 }
-List pages =[Weekscalculate(),Category(),Todoscreen(),ChatContactScreen(),SettingScreen()];
+List pages =[Weekscalculate(),Category(),Todoscreen(),ChatsMenue(),SettingScreen()];

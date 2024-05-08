@@ -11,23 +11,44 @@ import '../../../data/repo/moduls/birth/nutrition/WeaningResponse.dart';
 import '../../../data/repo/moduls/login/LoginBody.dart';
 import '../../../data/repo/moduls/login/LoginResponse.dart';
 import '../../../data/repo/moduls/todo/TaskResponse.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Mainprovider extends ChangeNotifier {
   DateTime date = DateTime.now();
   int month = 1;
   String categ = 'exercise';
-  DateTime selectdate = DateTime.now();
-  List<TaskResponse> tasklist = [];
-  int issueid = 1;
-  int userid = 1;
-  late int taskid;
-  String babyname = '';
-  String appLanguage = 'en';
-  List<WeaningResponse> weninglist = [];
-  List<BottleResponse> bottlelist = [];
-  List<BrestFeedingResponse> brestlist = [];
-  List<ChildGrothResponse> childgrothlist = [];
-  List<TipsResponse> tipslist = [];
+  DateTime selectdate = DateTime.now() ;
+  List <TaskResponse> tasklist =[];
+  int issueid =1 ;
+  int userid =1;
+  late int taskid  ;
+  String babyname ='';
+  List<WeaningResponse> weninglist=[];
+  List<BottleResponse> bottlelist=[];
+  List<BrestFeedingResponse> brestlist=[];
+  List<ChildGrothResponse> childgrothlist=[];
+  List<TipsResponse> tipslist=[];
+  SharedPreferences? prefs;
+  static String lang = "/en";
+  static String login_messagekey ='login1key';
+  static String login_idkey ='login2key';
+  static String login_namekey ='login3key';
+  static String login_emailkey ='login4key';
+  static String login_phonekey ='login5key';
+  static String login_createdkey ='login6key';
+  static String login_updatedkey ='login7key';
+  late LoginResponse loginResponse ;
+  late int outheruserid;
+
+
+  void setoutheruserid (int id){
+    outheruserid = id;
+  }
+
+  int getoutheruserid (){
+    return outheruserid;
+  }
+
 
   void setbabyname(String s) {
     babyname = s;
@@ -49,12 +70,11 @@ class Mainprovider extends ChangeNotifier {
     month = monthnum;
   }
 
-  int getmonth() {
-    return month;
-  }
-
-  void setuserid(int userid) {
-    userid = userid;
+ int getmonth(){
+   return month;
+ }
+  void setuserid (int id){
+    userid = id;
   }
 
   int getuserid() {
@@ -140,8 +160,8 @@ class Mainprovider extends ChangeNotifier {
     }
   }
 
-  Future<List<WeaningResponse>> getweaning(int month) async {
-    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_weaning/$month");
+   Future<List<WeaningResponse>> getweaning (int month)async{
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_weaning/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     List<WeaningResponse> weaningResponse =
@@ -149,10 +169,8 @@ class Mainprovider extends ChangeNotifier {
     weninglist = weaningResponse;
     return weaningResponse;
   }
-
-  Future<List<BottleResponse>> getbottle(int month) async {
-    Uri url =
-        Uri.parse("https://gradhub.hwnix.com/api/get_BottleFeeding/$month");
+  Future<List<BottleResponse>> getbottle (int month)async{
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_BottleFeeding/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     List<BottleResponse> bottleResponse =
@@ -160,10 +178,8 @@ class Mainprovider extends ChangeNotifier {
     bottlelist = bottleResponse;
     return bottleResponse;
   }
-
-  Future<List<BrestFeedingResponse>> getbrest(int month) async {
-    Uri url =
-        Uri.parse("https://gradhub.hwnix.com/api/get_BreastFeeding/$month");
+  Future<List<BrestFeedingResponse>> getbrest (int month)async{
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_BreastFeeding/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     List<BrestFeedingResponse> brestFeedingResponse = jsonResponse
@@ -173,8 +189,8 @@ class Mainprovider extends ChangeNotifier {
     return brestFeedingResponse;
   }
 
-  Future<List<ChildGrothResponse>> getchildgroth(int month) async {
-    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_ChildGrowth/$month");
+  Future<List<ChildGrothResponse>> getchildgroth (int month)async{
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_ChildGrowth/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     List<ChildGrothResponse> childGrothResponse =
@@ -183,119 +199,105 @@ class Mainprovider extends ChangeNotifier {
     return childGrothResponse;
   }
 
-  Future<List<TipsResponse>> gettips(int month) async {
-    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_tips/$month");
+  Future<List<TipsResponse>> gettips (int month)async{
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_tips/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     List<TipsResponse> tipsResponse =
         jsonResponse.map((json) => TipsResponse.fromJson(json)).toList();
     tipslist = tipsResponse;
     print(tipsResponse);
-    return tipsResponse;
+    return tipsResponse ;
+
   }
-}
-/*
-
- SharedPreferences? prefs;
-  static String logintypekey ='login1key';
-  static String loginnamekey ='login2key';
-  static String loginemailkey ='login3key';
-  static String loginaddresskey ='login4key';
-  static String loginidkey ='login5key';
-  static String loginphone1key ='login6key';
-  static String loginphonenum2key ='login7key';
-  static String logintypeidkey ='login8key';
-
-
-Future<void> setlogintype(String loginrespons) async{
-  await prefs!.setString(logintypekey, loginrespons);
-}
-String? getlogintype(){
-  return prefs!.getString(logintypekey);
-}
-
-
-Future<void> setloginid(int loginrespons) async{
-  await prefs!.setInt(loginidkey, loginrespons);
-}
-int? getloginid(){
-  return prefs!.getInt(loginidkey);
-}
-
-
-Future<void> setloginname(String loginrespons) async{
-  await prefs!.setString(loginnamekey, loginrespons);
-}
-String? getloginname(){
-  return prefs!.getString(loginnamekey);
-}
-
-
-Future<void> setloginemail(String loginrespons) async{
-  await prefs!.setString(loginemailkey, loginrespons);
-}
-String? getloginemail(){
-  return prefs!.getString(loginemailkey);
-}
-
-
-Future<void> setloginaddress(String loginrespons) async{
-  await prefs!.setString(loginaddresskey, loginrespons);
-}
-
-String? getloginaddress(){
-  return prefs!.getString(loginaddresskey);
-}
-
-
-Future<void> setloginphonenum1(String loginrespons) async{
-  await prefs!.setString(loginphone1key, loginrespons);
-}
-String? getloginphonenum1(){
-  return prefs!.getString(loginphone1key);
-}
-
-
-Future<void> setloginphonenum2(String loginrespons) async{
-  await prefs!.setString(loginphonenum2key, loginrespons);
-}
-String? getloginphonenum2(){
-  return prefs!.getString(loginphonenum2key);
-}
-
-
-Future<void> setlogintypeid(int loginrespons) async{
-  await prefs!.setInt(logintypeidkey, loginrespons);
-}
-int? getlogintypeid(){
-  return prefs!.getInt(logintypeidkey);
-}
 
 
 
-Future<void> loading() async{
-  prefs = await SharedPreferences.getInstance();
 
-  if (getloginphonenum1() != null){
-    String s =getloginphonenum1()!;
-    //final jsonMap = Map<String,dynamic>.from(json.decode(s));
-    //var b = SharedResponse.fromJson(jsonMap);
-    //var b =  SharedResponse.fromJson(jsonDecode(s));
-    print('$s=======================================================================');
-    //print(b.toJson().toString());
-    LoginResponse lo = LoginResponse(type: getlogintype(),
+
+  Future<void> setloginmesage(String loginrespons) async{
+    await prefs!.setString(login_messagekey, loginrespons);
+  }
+  String? getloginmessage(){
+    return prefs!.getString(login_messagekey);
+  }
+
+
+  Future<void> setloginid(int loginrespons) async{
+    await prefs!.setInt(login_idkey, loginrespons);
+  }
+  int? getloginid(){
+    return prefs!.getInt(login_idkey);
+  }
+
+
+  Future<void> setloginname(String loginrespons) async{
+    await prefs!.setString(login_namekey, loginrespons);
+  }
+  String? getloginname(){
+    return prefs!.getString(login_namekey);
+  }
+
+
+  Future<void> setloginemail(String loginrespons) async{
+    await prefs!.setString(login_emailkey, loginrespons);
+  }
+  String? getloginemail(){
+    return prefs!.getString(login_emailkey);
+  }
+
+  Future<void> setloginphone(String loginrespons) async{
+    await prefs!.setString(login_phonekey, loginrespons);
+  }
+  String? getloginphone(){
+    return prefs!.getString(login_phonekey);
+  }
+
+
+  Future<void> setlogincreated(String loginrespons) async{
+    await prefs!.setString(login_createdkey, loginrespons);
+  }
+  String? getlogincreted() {
+    return prefs!.getString(login_createdkey);
+  }
+
+  Future<void> setloginupdated(String loginrespons) async{
+    await prefs!.setString(login_updatedkey, loginrespons);
+  }
+  String? getloginupdated() {
+    return prefs!.getString(login_updatedkey);
+  }
+
+  setuserinfo(LoginResponse userinfo){
+    loginResponse=userinfo;
+  }
+  LoginResponse getloginResponse(){
+    return loginResponse;
+  }
+
+  Future<void> loading() async{
+    prefs = await SharedPreferences.getInstance();
+
+    if (getloginphone() != null){
+      String s =getloginphone()!;
+      //final jsonMap = Map<String,dynamic>.from(json.decode(s));
+      //var b = SharedResponse.fromJson(jsonMap);
+      //var b =  SharedResponse.fromJson(jsonDecode(s));
+      print('$s=======================================================================');
+      //print(b.toJson().toString());
+      LoginResponse lo = LoginResponse(message: getloginmessage(),
         user: User(
-            name: getloginname(),
-            address:getloginaddress() ,
-            id:getloginid() ,
-            email: getloginemail() ,
-            phonenum1:getloginphonenum1() ,
-            phonenum2: getloginphonenum2(),
-            typeId: getlogintypeid()
+          id: getloginid(),
+          email: getloginemail(),
+          createdAt: getlogincreted(),
+          updatedAt: getloginupdated(),
+          name: getloginname(),
+          phone: getloginphone()
         )
-    );
-    setuserinfo(lo);
-    setuserid(getloginid()!);
+      );
+      setuserinfo(lo);
+      setuserid(getloginid()!);
+    }
   }
+
 }
-*/

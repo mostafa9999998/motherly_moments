@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/date_biker/date%20piker%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/before%20birth/baby%20info.dart';
+import 'package:motherly_moments/ui/view/login/login_screen.dart';
 import 'package:motherly_moments/ui/view/select_screen/selectmodel.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -20,6 +21,17 @@ class Selectscreen extends StatelessWidget {
           child: Column(
             children: [
               Text(AppLocalizations.of(context)!.select,style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
+              Row(
+                children: [
+                  Spacer(),
+                  IconButton(onPressed: () => Navigator.pushReplacementNamed(context, Loginscreen.loginroutename),
+                      icon:Icon( Icons.logout)),
+                  SizedBox(
+                    width: 5,
+                  ),
+                ],
+              ),
+              Text('Select',style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
               SizedBox(height:  MediaQuery.of(context).size.height*.17,),
               Row(
                 children: [

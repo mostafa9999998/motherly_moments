@@ -4,6 +4,8 @@ import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:motherly_moments/data/repo/moduls/baby%20groth/categoriesResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/birth/IssuesResponse.dart';
+import 'package:motherly_moments/data/repo/moduls/chat/chatbot/BotMessageBody.dart';
+import 'package:motherly_moments/data/repo/moduls/chat/chatbot/BotResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/login/LoginResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/pregnancy%20weeks/WeeksResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/todo/AddtaskResponse.dart';
@@ -13,6 +15,7 @@ import '../../moduls/birth date/BirthDateRespnse.dart';
 import '../../moduls/birth/IssusesNameResponse.dart';
 import '../../moduls/birth/nutrition/WeaningResponse.dart';
 import '../../moduls/category_video/ExerciseResponse.dart';
+import '../../moduls/chat/DoctorsResponse.dart';
 import '../../moduls/login/LoginBody.dart';
 import '../../moduls/register/RegisterBody.dart';
 import '../../moduls/register/RegisterResponse.dart';
@@ -23,9 +26,11 @@ import '../../moduls/todo/UpdateResponse.dart';
 
 class Apimanager{
  late final userid ;
+ static String apikey = "https://gradhub.hwnix.com";
+ static String lang = "/en";
  static Future<BabygrothResponse> getcategorydesc(int month ,String categ) async{
    try{
-     Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_${categ}_${month}");
+     Uri url = Uri.parse("$apikey/api/get_${categ}_${month}$lang");
      Response response = await get(url);
       print(response.body[0]);
      Map json   = jsonDecode(response.body);
@@ -39,7 +44,7 @@ class Apimanager{
 
  static Future<ExerciseResponse> getcategoryvediodesc(int month ,String categ) async{
    try{
-     Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_${categ}/${month}");
+     Uri url = Uri.parse("$apikey/api/get_${categ}/${month}$lang");
      Response response = await get(url);
      print(response.body[0]);
      Map json   = jsonDecode(response.body);
@@ -51,9 +56,22 @@ class Apimanager{
    }
  }
 
+ static Future<LoginResponse> loginresponse(String email,String password) async {
+   Uri url = Uri.parse("$apikey/api/login");
+   // I am connected to a mobile network.
+   LoginBody loginBody = LoginBody(
+     email: email,
+     password: password,
+   ) ;
+   var response = await post(url,body: loginBody.toJson());
+
+   var b = LoginResponse.fromJson(jsonDecode(response.body));
+   return b ;
+
+ }
 
  static Future<bool> register(String name,String email,String phone,String password) async {
-   Uri url = Uri.parse("https://gradhub.hwnix.com/api/register");
+   Uri url = Uri.parse("$apikey/api/register");
    final connectivityResult = await (Connectivity().checkConnectivity());
    if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi ) {
      // I am connected to a mobile network.
@@ -75,7 +93,7 @@ class Apimanager{
  }
 
  static Future<bool> login(String email,String password) async {
-   Uri url = Uri.parse("https://gradhub.hwnix.com/api/login");
+   Uri url = Uri.parse("$apikey/api/login");
    final connectivityResult = await (Connectivity().checkConnectivity());
    if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi ) {
      // I am connected to a mobile network.
@@ -101,7 +119,7 @@ class Apimanager{
 
  static Future<WeeksResponse> Weeks(int day ,int month,int year) async{
    try{
-     Uri url = Uri.parse("https://gradhub.hwnix.com/api/calculateWeeksAndDaysPregrency/${day}-${month}-${year}");
+     Uri url = Uri.parse("$apikey/api/calculateWeeksAndDaysPregrency/${day}-${month}-${year}");
      Response response = await get(url);
      Map json   = jsonDecode(response.body);
      WeeksResponse weeksResponse= WeeksResponse.fromJson(json);
@@ -114,7 +132,7 @@ class Apimanager{
 
 
  static Future<bool> addtask( String title,String content,String userId,DateTime dueDate) async {
-   Uri url = Uri.parse("https://gradhub.hwnix.com/api/addList");
+   Uri url = Uri.parse("$apikey/api/addList");
    final connectivityResult = await (Connectivity().checkConnectivity());
    if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi ) {
      // I am connected to a mobile network.
@@ -134,7 +152,7 @@ class Apimanager{
    }
  }
  static Future<bool> updatetask( int taskid, String title,String content) async {
-   Uri url = Uri.parse("https://gradhub.hwnix.com/api/updatellist/$taskid");
+   Uri url = Uri.parse("$apikey/api/updatellist/$taskid");
    final connectivityResult = await (Connectivity().checkConnectivity());
    if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi ) {
      // I am connected to a mobile network.
@@ -159,7 +177,7 @@ class Apimanager{
 
  static Future<bool> deletetask(int taskid) async{
    try{
-     Uri url = Uri.parse("https://gradhub.hwnix.com/api/deleteList/$taskid");
+     Uri url = Uri.parse("$apikey/api/deleteList/$taskid");
      Response response = await delete(url);
      Map json   = jsonDecode(response.body);
      DeleteResponse deleteResponse= DeleteResponse.fromJson(json);
@@ -172,7 +190,7 @@ class Apimanager{
 
 
  static Future<BirthDateRespnse> birthdate(DateTime birhday) async {
-   Uri url = Uri.parse("https://gradhub.hwnix.com/api/calculateAge");
+   Uri url = Uri.parse("$apikey/api/calculateAge");
    final connectivityResult = await (Connectivity().checkConnectivity());
    if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi ) {
      // I am connected to a mobile network.
@@ -193,7 +211,7 @@ class Apimanager{
    }
  }
 static Future<List<IssuesResponse>> getissues (int issue_id)async{
-  Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_issue/$issue_id");
+  Uri url = Uri.parse("$apikey/api/get_issue/$issue_id$lang");
   Response response = await get(url);
   List<dynamic> jsonResponse = jsonDecode(response.body);
   List<IssuesResponse> issuesResponse = jsonResponse.map((json) => IssuesResponse.fromJson(json)).toList();
@@ -201,7 +219,7 @@ static Future<List<IssuesResponse>> getissues (int issue_id)async{
 }
 
  static Future<List<WeaningResponse>> getweaning (int month)async{
-   Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_weaning/$month");
+   Uri url = Uri.parse("$apikey/api/get_weaning/$month$lang");
    Response response = await get(url);
    List<dynamic> jsonResponse = jsonDecode(response.body);
    List<WeaningResponse> weaningResponse = jsonResponse.map((json) => WeaningResponse.fromJson(json)).toList();
@@ -209,26 +227,32 @@ static Future<List<IssuesResponse>> getissues (int issue_id)async{
  }
 
  static Future<List<IssusesNameResponse>> getissuesname ()async{
-   Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_issues");
+   Uri url = Uri.parse("$apikey/api/get_issues$lang");
    Response response = await get(url);
    List<dynamic> jsonResponse = jsonDecode(response.body);
    List<IssusesNameResponse> issusesNameResponse = jsonResponse.map((json) => IssusesNameResponse.fromJson(json)).toList();
    return issusesNameResponse ;
  }
 
+ static Future<List<DoctorsResponse>> getdoctors ()async{
+   Uri url = Uri.parse("$apikey/api/get_doc");
+   Response response = await get(url);
+   List<dynamic> jsonResponse = jsonDecode(response.body);
+   List<DoctorsResponse> doctorsResponse = jsonResponse.map((json) => DoctorsResponse.fromJson(json)).toList();
+   return doctorsResponse ;
+ }
+
+ static Future<BotResponse> sendtobot(String messag) async {
+   Uri url = Uri.parse("$apikey/api/sendai");
+   // I am connected to a mobile network.
+   BotMessageBody loginBody = BotMessageBody(
+     message: messag
+   ) ;
+   var response = await post(url,body: loginBody.toJson());
+
+   var b = BotResponse.fromJson(jsonDecode(response.body));
+   return b ;
+
+ }
+
 }
-
-
-
-/* static Future<List<TaskResponse>> gettasks(int userid) async{
-   try{
-     Uri url = Uri.parse("https://gradhub.hwnix.com/api/getListById/$userid");
-     Response response = await get(url);
-     List<dynamic> jsonResponse = jsonDecode(response.body);
-     List<TaskResponse> taskList = jsonResponse.map((json) => TaskResponse.fromJson(json)).toList();
-     return taskList;
-
-   } catch(e){
-     throw e ;
-   }
- }*/

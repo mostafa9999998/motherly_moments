@@ -35,7 +35,7 @@ class Weekscalculate extends StatelessWidget {
                       ),
                       margin:  EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width * 0.1,vertical:MediaQuery.of(context).size.height * 0.1 ),
                       width: MediaQuery.of(context).size.width * 0.8,
-                      height: MediaQuery.of(context).size.height * 0.35,
+                      height: MediaQuery.of(context).size.height * 0.37,
                       padding: EdgeInsets.symmetric(horizontal:MediaQuery.of(context).size.width * 0.01,vertical:MediaQuery.of(context).size.height * 0.02 ),
                       child: Center(
                         child: Column(
