@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:motherly_moments/ui/view/Chat/Chat%20contact%20list/chat%20contact%20screen.dart';
 import 'package:motherly_moments/ui/view/Chat/Chat%20screen/Chat%20screen.dart';
 import 'package:motherly_moments/ui/view/Chat/chat%20bot/chatbotscreen.dart';
@@ -17,7 +18,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/we
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/vaccinations/vaccination%20screen.dart';
 import 'package:motherly_moments/ui/view/display%20wedget/display%20wedget.dart';
 import 'package:motherly_moments/ui/view/first_screens/first.dart';
-import 'package:motherly_moments/ui/view/first_screens/second.dart';
+import 'package:motherly_moments/ui/view/first_screens/second.dart' ;
 import 'package:motherly_moments/ui/view/first_screens/third.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_newpass.dart';
@@ -37,6 +38,7 @@ import 'ui/view/pregnancy/home_screen/category_screen/categories/food/foodscreen
 import 'ui/view/pregnancy/home_screen/category_screen/categories/selected month/selected month screen.dart';
 import 'ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitaminesscreen.dart';
 import 'ui/view/pregnancy/home_screen/master_bar.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 
 void main() async{
@@ -45,18 +47,26 @@ void main() async{
 
   Mainprovider provider = Mainprovider();
   runApp(ChangeNotifierProvider(
-    create:(context) =>provider,
-      child: const MyApp()));
+      create: (context) => provider, child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+  var providerr = Provider.of<Mainprovider>(context);
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(providerr.appLanguage),
       routes: {
         RegisterScreen.regroutename : (_)=> RegisterScreen(),
         Loginscreen.loginroutename : (_)=> Loginscreen(),

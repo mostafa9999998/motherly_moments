@@ -1,0 +1,29 @@
+{ 
+    
+"home":"الصفحة الرئيسية" ,
+"insights": "أفكار",
+"todolist":"قائمه المهامات",
+"chating"  :"المحادثات",
+"setting"  :"الاعدادات",
+"language" :"اللغة",
+"theme" :"النمط",
+"english" :"الأنجليزية",
+"arabic" :"العربيه",
+"light" :"مضئ",
+"dark" :"داكن",
+"select" :"اختر",
+"babygrowth":"نمو الجنين",
+"bodychanges":"تغيرات الجسم",
+"food":"غذاء",
+"vitamines":"فيتامينات",
+"exercises":"تدريبات",
+"courses" :"كورسات",
+"bregnancy" :"حمل",
+"birth" :"ولادة",
+"periodTracker":"متعقب الدورة الشهرية",
+"periodQuestion":" بدأت دورتك الشهرية الأخيرة؟",
+"selectperioddate" :"حدد تواريخ دورتك لتسجيلها",
+"next":"التالى"
+
+
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/baby_weeks.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/calculating.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../../view_model/provider/main provider.dart';
 
@@ -29,13 +30,13 @@ class _DatebikerscreenState extends State<Datebikerscreen> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,
             ),
-            Text('Period Tracker',
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 21),textAlign: TextAlign.center),
+            Text(AppLocalizations.of(context)!.periodTracker,
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 21,color:Color(0xff8461D5), ),textAlign: TextAlign.center,),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.05,
             ),
             Text(
-                'When did your Last period begin?',
+                AppLocalizations.of(context)!.periodQuestion,
                 style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
                 textAlign: TextAlign.center),
             SizedBox(
@@ -47,7 +48,7 @@ class _DatebikerscreenState extends State<Datebikerscreen> {
 
               },
               child: Text(
-                  'Select the dates of your cycle to log them',
+                  AppLocalizations.of(context)!.selectperioddate,
                   style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600,color: Colors.blue),
                   textAlign: TextAlign.center),
             ),
@@ -68,7 +69,7 @@ class _DatebikerscreenState extends State<Datebikerscreen> {
                   Navigator.pushReplacementNamed(context,Babyweeksscreen.babyweeksname);
                 },
                 child: Text(
-                  'Next',
+                  AppLocalizations.of(context)!.next,
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,

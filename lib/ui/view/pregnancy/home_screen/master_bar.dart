@@ -6,6 +6,8 @@ import 'package:motherly_moments/ui/view/pregnancy/home_screen/todo/todo_screen.
 
 import '../../Chat/Chat contact list/chat contact screen.dart';
 import '../../Setting/setting screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class Masterscreen extends StatefulWidget {
   const Masterscreen({super.key});
@@ -27,23 +29,23 @@ class _MasterscreenState extends State<Masterscreen> {
         items: [
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage('assets/images/home.png')),
-            label: 'Home',
+            label: AppLocalizations.of(context)!.home,
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage('assets/images/insights.png')),
-            label: 'Insights',
+            label: AppLocalizations.of(context)!.insights,
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage('assets/images/todoicon.png')),
-            label: 'To do list',
+            label: AppLocalizations.of(context)!.todolist,
           ),
           BottomNavigationBarItem(
             icon: ImageIcon(AssetImage('assets/images/chaticon.png')),
-            label: 'Chating',
+            label: AppLocalizations.of(context)!.chating,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
-            label: 'Setting',
+            label: AppLocalizations.of(context)!.setting,
           ),
 
         ],
