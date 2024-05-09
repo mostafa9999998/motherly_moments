@@ -1,8 +1,8 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:motherly_moments/data/repo/apis/Api%20manager/Api%20manager.dart';
-import 'package:motherly_moments/data/repo/moduls/chat/chatbot/BotResponse.dart';
 import 'package:provider/provider.dart';
 import '../../../view_model/provider/main provider.dart';
 import '../../../view_model/provider/message provider.dart';
@@ -17,6 +17,7 @@ class ChatbotScreen extends StatefulWidget {
 }
 
 class _ChatbotScreenState extends State<ChatbotScreen> {
+  String m='';
   @override
   Widget build(BuildContext context) {
     TextEditingController messagecontroller = TextEditingController();
@@ -24,10 +25,12 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
     Mainprovider mainprovider = Provider.of(context);
     void sendmessage() async {
       if (messagecontroller.text.isNotEmpty) {
-        await messageProvider.sendmessagetobot(
-            messagecontroller.text, '${mainprovider.userid}',true);
-       var response =await Apimanager.sendtobot(messagecontroller.text);
+        m = messagecontroller.text;
         messagecontroller.clear();
+        await messageProvider.sendmessagetobot(
+            m, '${mainprovider.userid}',true);
+       var response =await Apimanager.sendtobot(m);
+
         await messageProvider.sendmessagetobot(
             response.output??'null', '${mainprovider.userid}',false);
       }
@@ -45,7 +48,7 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
         child: Column(
           children: [
             Container(
-                height: MediaQuery.of(context).size.height * .75,
+                height: MediaQuery.of(context).size.height * .79,
                 //color: Colors.orange,
                 child: StreamBuilder<QuerySnapshot<BotMessageResponse>>(
                   stream: messageProvider.getMessagefrombot(
@@ -74,9 +77,10 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                   },
                 )),
             Container(
+              height: MediaQuery.of(context).size.height * .09,
               padding: EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.width * .03,
-                  vertical: MediaQuery.of(context).size.height * .03
+                  vertical: MediaQuery.of(context).size.height * .01
               ),
               // height: MediaQuery.of(context).size.height * .1,
               child: Row(
@@ -119,25 +123,34 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
   }
 
   Widget buildmessageitem(BotMessageResponse msg,) {
+   var date = DateTime.fromMicrosecondsSinceEpoch(msg.createdAt!);
 
     if (msg.issender! ) {
       return Container(
-        //width: 100,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Container(
-              margin: const EdgeInsets.only(
-                  left: 8.0, right: 5.0, top: 8.0, bottom: 2.0),
-              padding: const EdgeInsets.only(
-                  left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
-              decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Color(0xFF7CE994),
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              child: Text(
-                msg.message??"",
-                textAlign: TextAlign.center,
+            Expanded(
+              child: Container(
+                margin:  EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * .2, right: 5.0, top: 8.0, bottom: 4.0),
+                padding: const EdgeInsets.only(
+                    left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
+                decoration: const BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Color(0xFF7CE994),
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),topLeft: Radius.circular(10),bottomRight: Radius.circular(10))),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                        msg.message??"",style: TextStyle(fontWeight: FontWeight.w800,)
+                      //textAlign: TextAlign.center,
+                    ),
+                    Text('${date.hour} : ${date.minute}                                                    ',style: TextStyle(fontWeight: FontWeight.w700,color: Color(
+                        0xec4d4b4b)),)
+                  ],
+                ),
               ),
             ),
             CircleAvatar(
@@ -150,7 +163,6 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
       );
     }else {
       return Container(
-        //width: 100,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -159,23 +171,28 @@ class _ChatbotScreenState extends State<ChatbotScreen> {
                   'Bot'
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(
-                  left: 8.0, right: 5.0, top: 8.0, bottom: 2.0),
-              padding: const EdgeInsets.only(
-                  left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
-              decoration: const BoxDecoration(
-                  shape: BoxShape.rectangle,
-                  color: Color(0xFF7CE994),
-                  borderRadius: BorderRadius.all(Radius.circular(10.0))),
-              child: AutoSizeText(
-                msg.message??"",
-                textAlign: TextAlign.center,
-                //softWrap: true,
-                maxLines: 1,
-               overflow: TextOverflow.ellipsis,
-
-               // maxLines: null,
+            Expanded(
+              child: Container(
+                margin:  EdgeInsets.only(
+                    left: 8.0, right:MediaQuery.of(context).size.width * .2, top: 8.0, bottom: 2.0),
+                padding: const EdgeInsets.only(
+                    left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
+                decoration: const BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Color(0xFFE17364),
+                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),topRight: Radius.circular(10),bottomRight: Radius.circular(10))),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                        msg.message??"",style: TextStyle(fontWeight: FontWeight.w800,)
+                      //textAlign: TextAlign.center,
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * .0005,),
+                    Text('                                                 ${date.hour} : ${date.minute}',style: TextStyle(fontWeight: FontWeight.w700,color: Color(
+                        0xec4d4b4b)),)
+                  ],
+                ),
               ),
             ),
 
