@@ -31,7 +31,7 @@ class Selectscreen extends StatelessWidget {
                   ),
                 ],
               ),
-              Text('Select',style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
+              Text(AppLocalizations.of(context)!.select,style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
               SizedBox(height:  MediaQuery.of(context).size.height*.17,),
               Row(
                 children: [

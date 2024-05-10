@@ -46,7 +46,7 @@ class languageBottomSheet extends StatelessWidget {
               AppLocalizations.of(context)!.arabic,
               style: TextStyle(
                 fontSize: 20,
-                color: Color.fromARGB(255, 228, 224, 236),
+                color: Color.fromARGB(255, 107, 86, 150),
                 fontWeight: FontWeight.bold,
               ),
             ),

@@ -1,8 +1,9 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/selected%20month/selected%20month%20screen.dart';
 import 'package:motherly_moments/ui/view/select_screen/Select_screen.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Bodychangehlist {
   int  id;
   String title;
@@ -15,62 +16,62 @@ class Bodychangehlist {
         required this.imagepath,
         required this.screenname,
         required this.desc});
-  static List<Bodychangehlist> categrylist() {
+  static List<Bodychangehlist> categrylist(BuildContext context) {
     return [
       Bodychangehlist(
           id: 1,
-          title: '1 Month: Fertilization & missed\n period',
+          title: AppLocalizations.of(context)!.bodychm1,
           imagepath: 'assets/images/body month1.png',
           screenname: 'bodyChange',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc: AppLocalizations.of(context)!.bodychdesm),
       Bodychangehlist(
           id: 2,
-          title: '2 Month: Fertilization & missed\n period',
+          title: AppLocalizations.of(context)!.bodychm2,
           imagepath: 'assets/images/body month1.png',
           screenname: 'bodyChange',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc: AppLocalizations.of(context)!.bodychdesm),
       Bodychangehlist(
           id: 3,
-          title: '3 Month: Fertilization & missed\n period',
+          title: AppLocalizations.of(context)!.bodychm3,
           imagepath: 'assets/images/body month1.png',
           screenname: 'bodyChange',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc: AppLocalizations.of(context)!.bodychdesm),
       Bodychangehlist(
           id: 4,
-          title: '4 Month: Fertilization & missed\n period',
+          title:AppLocalizations.of(context)!.bodychm4,
           imagepath: 'assets/images/body month1.png',
           screenname: 'bodyChange',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc: AppLocalizations.of(context)!.bodychdesm),
       Bodychangehlist(
           id: 5,
-          title: '5 Month: Fertilization & missed\n period',
+          title:AppLocalizations.of(context)!.bodychm5,
           imagepath: 'assets/images/body month1.png',
           screenname: 'bodyChange',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc: AppLocalizations.of(context)!.bodychdesm),
       Bodychangehlist(
           id: 6,
-          title: '6 Month: Fertilization & missed\n period',
+          title: AppLocalizations.of(context)!.bodychm6,
           imagepath: 'assets/images/body month1.png',
           screenname: 'bodyChange',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc: AppLocalizations.of(context)!.bodychdesm),
       Bodychangehlist(
           id: 7,
-          title: '7 Month: Fertilization & missed\n period',
+          title: AppLocalizations.of(context)!.bodychm7,
           imagepath: 'assets/images/body month1.png',
           screenname: 'bodyChange',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc: AppLocalizations.of(context)!.bodychdesm),
       Bodychangehlist(
           id: 8,
-          title: '8 Month: Fertilization & missed\n period',
+          title:AppLocalizations.of(context)!.bodychm8,
           imagepath: 'assets/images/body month1.png',
           screenname: 'bodyChange',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc: AppLocalizations.of(context)!.bodychdesm),
       Bodychangehlist(
           id: 9,
-          title: '9 Month: Fertilization & missed\n period',
+          title: AppLocalizations.of(context)!.bodychm9,
           imagepath: 'assets/images/body month1.png',
           screenname: 'bodyChange',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc:AppLocalizations.of(context)!.bodychdesm ),
     ];
   }
 }

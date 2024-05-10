@@ -14,10 +14,13 @@ class NutritionScreen extends StatefulWidget {
 }
 
 class _NutritionScreenState extends State<NutritionScreen> {
-  var babygrothlist = Babygrothlist.categrylist();
- var list =  Nutrition.categrylist();
+ 
+
+  
   @override
   Widget build(BuildContext context) {
+    var babygrothlist = Babygrothlist.categrylist(context);
+    var list =  Nutrition.categrylist();
     Mainprovider provider = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -57,16 +60,16 @@ class _NutritionScreenState extends State<NutritionScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * .03,
               ),
-              Row(children: [showwedjetmonth(0),],) ,
-              Row(children: [ SizedBox(width: MediaQuery.of(context).size.width*.25,),showwedjetmonth(1),],) ,
-              Row(children: [SizedBox(width: MediaQuery.of(context).size.width*.45,),showwedjetmonth(2),],) ,
+              //Row(children: [showwedjetmonth(0),],) ,
+             // Row(children: [ SizedBox(width: MediaQuery.of(context).size.width*.25,),showwedjetmonth(1),],) ,
+              //Row(children: [SizedBox(width: MediaQuery.of(context).size.width*.45,),showwedjetmonth(2),],) ,
             ],
           ),
         ),
       ),
     );
-  }
-  showwedjetmonth(int i) {
-    return Nutritionstyle(nutrition: list[i] ,);
-  }
+   }
+  // showwedjetmonth(int i) {
+  //   return Nutritionstyle(nutrition: list[i] ,);
+  // }
 }

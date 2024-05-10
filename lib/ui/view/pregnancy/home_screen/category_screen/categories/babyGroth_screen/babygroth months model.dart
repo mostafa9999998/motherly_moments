@@ -1,8 +1,11 @@
 
+// import 'dart:js';
+
+import 'package:flutter/cupertino.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/selected%20month/selected%20month%20screen.dart';
 
 import '../../../../../select_screen/Select_screen.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Babygrothlist {
   int  id;
   String title;
@@ -15,62 +18,62 @@ class Babygrothlist {
       required this.imagepath,
       required this.screenname,
       required this.desc});
-  static List<Babygrothlist> categrylist() {
+  static List<Babygrothlist> categrylist(BuildContext context) {
     return [
       Babygrothlist(
           id: 1,
-          title: 'What Happens at 1 Month',
+          title: AppLocalizations.of(context)!.monthQ1,
           imagepath: 'assets/images/baby month1.png',
           screenname: 'babyGrowth',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc: AppLocalizations.of(context)!.monthDes),
       Babygrothlist(
           id: 2,
-          title: 'What Happens at 2 Month',
+          title:  AppLocalizations.of(context)!.monthQ2,
           imagepath: 'assets/images/baby month1.png',
           screenname: 'babyGrowth',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc:  AppLocalizations.of(context)!.monthDes),
       Babygrothlist(
           id: 3,
-          title: 'What Happens at 3 Month',
+          title:  AppLocalizations.of(context)!.monthQ3,
           imagepath: 'assets/images/baby month1.png',
           screenname: 'babyGrowth',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc:  AppLocalizations.of(context)!.monthDes),
       Babygrothlist(
           id: 4,
-          title: 'What Happens at 4 Month',
+          title:  AppLocalizations.of(context)!.monthQ4,
           imagepath: 'assets/images/baby month1.png',
           screenname: 'babyGrowth',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc:  AppLocalizations.of(context)!.monthDes),
       Babygrothlist(
           id: 5,
-          title: 'What Happens at 5 Month',
+          title:  AppLocalizations.of(context)!.monthQ5,
           imagepath: 'assets/images/baby month1.png',
           screenname: 'babyGrowth',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc:  AppLocalizations.of(context)!.monthDes),
       Babygrothlist(
           id: 6,
-          title: 'What Happens at 6 Month',
+          title:  AppLocalizations.of(context)!.monthQ6,
           imagepath: 'assets/images/baby month1.png',
           screenname: 'babyGrowth',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc:  AppLocalizations.of(context)!.monthDes),
       Babygrothlist(
           id: 7,
-          title: 'What Happens at 7 Month',
+          title:  AppLocalizations.of(context)!.monthQ7,
           imagepath: 'assets/images/baby month1.png',
           screenname: 'babyGrowth',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc:  AppLocalizations.of(context)!.monthDes),
       Babygrothlist(
           id: 8,
-          title: 'What Happens at 8 Month',
+          title:  AppLocalizations.of(context)!.monthQ8,
           imagepath: 'assets/images/baby month1.png',
           screenname: 'babyGrowth',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc:  AppLocalizations.of(context)!.monthDes),
       Babygrothlist(
           id: 9,
-          title: 'What Happens at 9 Month',
+          title:  AppLocalizations.of(context)!.monthQ9,
           imagepath: 'assets/images/baby month1.png',
           screenname: 'babyGrowth',
-          desc: 'It might sound starnge, but at 1th month\n pre..'),
+          desc:  AppLocalizations.of(context)!.monthDes),
     ];
   }
 }

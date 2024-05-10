@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babygroth%20list%20style.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babygroth%20months%20model.dart';
@@ -11,10 +12,11 @@ class Babygroth extends StatefulWidget {
 }
 
 class _BabygrothState extends State<Babygroth> {
-  var babygrothlist = Babygrothlist.categrylist();
-
+ 
   @override
   Widget build(BuildContext context) {
+     var babygrothlist = Babygrothlist.categrylist(context);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -28,6 +30,7 @@ class _BabygrothState extends State<Babygroth> {
             ],
           ),
           SingleChildScrollView(
+
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -59,15 +62,22 @@ class _BabygrothState extends State<Babygroth> {
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         color: Color(0xffa19393),
                       ),
-                      showwedjetmonth(0),
-                      showwedjetmonth(1),
-                      showwedjetmonth(2),
-                      showwedjetmonth(3),
-                      showwedjetmonth(4),
-                      showwedjetmonth(5),
-                      showwedjetmonth(6),
-                      showwedjetmonth(7),
-                      showwedjetmonth(8),
+                       Container(
+                        child: ListView.builder(shrinkWrap: true,
+                        itemCount:babygrothlist.length ,
+                          itemBuilder: (context,index){
+                           return Babygrothmonths(babygrothlist: babygrothlist[index]);
+                        }),
+                       )
+                      // showwedjetmonth(0),
+                      // showwedjetmonth(1),
+                      // showwedjetmonth(2),
+                      // showwedjetmonth(3),
+                      // showwedjetmonth(4),
+                      // showwedjetmonth(5),
+                      // showwedjetmonth(6),
+                      // showwedjetmonth(7),
+                      // showwedjetmonth(8),
                     ],
                   ),
                 ),
@@ -78,7 +88,7 @@ class _BabygrothState extends State<Babygroth> {
       ),
     );
   }
-   showwedjetmonth(int i) {
-  return Babygrothmonths(babygrothlist: babygrothlist[i]);
-  }
+  //  showwedjetmonth(int i) {
+  // return Babygrothmonths(babygrothlist: babygrothlist[i]);
+  // }
 }

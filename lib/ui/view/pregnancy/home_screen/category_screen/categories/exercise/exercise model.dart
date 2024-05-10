@@ -1,3 +1,6 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class Exerciseslist {
   int  id;
   String title;
@@ -10,29 +13,29 @@ class Exerciseslist {
         required this.imagepath,
         required this.screenname,
         required this.desc});
-  static List<Exerciseslist> categrylist() {
+  static List<Exerciseslist> categrylist(BuildContext context) {
     return [
       Exerciseslist(
           id: 1,
-          title: 'Exercise for first Trimester ',
+          title:AppLocalizations.of(context)!.extopic1,
           imagepath: 'assets/images/exercisemonth1.png',
           screenname: 'exercise',
           desc: 'The first thrimester is the time when\n the baby'),
       Exerciseslist(
           id: 2,
-          title: '10 min Exercise',
+          title:AppLocalizations.of(context)!.extopic2,
           imagepath: 'assets/images/exercisemonth1.png',
           screenname: 'exercise',
           desc: 'The first thrimester is the time when\n the baby'),
       Exerciseslist(
           id: 3,
-          title: 'Yoga',
+          title: AppLocalizations.of(context)!.extopic3,
           imagepath: 'assets/images/exercisemonth1.png',
           screenname: 'exercise',
           desc: 'The first thrimester is the time when\n the baby'),
       Exerciseslist(
           id: 4,
-          title: 'Exercise for secod Trimester',
+          title:AppLocalizations.of(context)!.extopic4,
           imagepath: 'assets/images/exercisemonth1.png',
           screenname: 'exercise',
           desc: 'The first thrimester is the time when\n the baby'),

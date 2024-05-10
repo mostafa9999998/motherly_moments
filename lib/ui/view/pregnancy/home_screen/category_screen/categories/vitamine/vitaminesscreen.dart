@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitamine%20model.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitamine%20style.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Vitamines_screen extends StatelessWidget {
    Vitamines_screen({super.key});
   static String vitaminename = 'vitamine';
-  var list = Vitaminelist.vitaminelist();
+  
   @override
   Widget build(BuildContext context) {
+    var list = Vitaminelist.vitaminelist(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -28,7 +29,7 @@ class Vitamines_screen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * .28,
                 ),
                 Text(
-                  '  Vitamines .',
+                  AppLocalizations.of(context)!.vitamintitel,
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.white),
                 ),
                 SizedBox(
@@ -44,10 +45,17 @@ class Vitamines_screen extends StatelessWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .01,
                       ),
-                      showwedjetmonth(0),
-                      showwedjetmonth(1),
-                      showwedjetmonth(2),
-                      showwedjetmonth(3),
+                      Container(
+                        child: ListView.builder(shrinkWrap: true,
+                        itemCount:list.length ,
+                          itemBuilder: (context,index){
+                           return Vitaminestyle(vitaminelist: list[index],);
+                        }),
+                       )
+                     // showwedjetmonth(0),
+                      // showwedjetmonth(1),
+                      // showwedjetmonth(2),
+                      // showwedjetmonth(3),
 
                     ],
                   ),
@@ -61,7 +69,7 @@ class Vitamines_screen extends StatelessWidget {
     );
   }
 
-  showwedjetmonth(int i) {
-  return Vitaminestyle(vitaminelist: list[i],);
-  }
+  // showwedjetmonth(int i) {
+  // return Vitaminestyle(vitaminelist: list[i],);
+  // }
 }
