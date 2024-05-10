@@ -10,6 +10,7 @@ class ChatScreen extends StatelessWidget {
   static String ChatScreenname = 'ChatScreen';
   @override
   Widget build(BuildContext context) {
+
     TextEditingController messagecontroller = TextEditingController();
     MessageProvider messageProvider = MessageProvider();
     Mainprovider mainprovider = Provider.of(context);
@@ -33,7 +34,7 @@ class ChatScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-                height: MediaQuery.of(context).size.height * .75,
+                height: MediaQuery.of(context).size.height * .79,
                 //color: Colors.orange,
                 child: StreamBuilder<QuerySnapshot<MessageResponse>>(
                   stream: messageProvider.getMessage(
@@ -54,7 +55,7 @@ class ChatScreen extends StatelessWidget {
                         //physics: const BouncingScrollPhysics(),
                         itemCount: messageslist.length, //messageList.length,
                         itemBuilder: (context, index) {
-                          return buildmessageitem(messageslist[index],'${mainprovider.userid}');
+                          return buildmessageitem(messageslist[index],'${mainprovider.userid}', context);
                         },
                         reverse: true,
                       );
@@ -62,9 +63,10 @@ class ChatScreen extends StatelessWidget {
                   },
                 )),
             Container(
+              height: MediaQuery.of(context).size.height * .09,
               padding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width * .03,
-                vertical: MediaQuery.of(context).size.height * .03
+                vertical: MediaQuery.of(context).size.height * .01
               ),
              // height: MediaQuery.of(context).size.height * .1,
               child: Row(
@@ -107,39 +109,46 @@ class ChatScreen extends StatelessWidget {
   }
 
 
-  Widget buildmessageitem(MessageResponse msg, String userid) {
-
+  Widget buildmessageitem(MessageResponse msg, String userid,BuildContext context) {
+    var date = DateTime.fromMicrosecondsSinceEpoch(msg.createdAt!);
      if (msg.senderId == userid ) {
-        return Container(
-          //width: 100,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Container(
-                margin: const EdgeInsets.only(
-                    left: 8.0, right: 5.0, top: 8.0, bottom: 2.0),
-                padding: const EdgeInsets.only(
-                    left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
-                decoration: const BoxDecoration(
-                    shape: BoxShape.rectangle,
-                    color: Color(0xFF7CE994),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                child: Text(
-                  msg.message!,
-                  textAlign: TextAlign.center,
-                ),
-              ),
-              CircleAvatar(
-                child: Text(
-                    'S'
-                ),
-              ),
-            ],
-          ),
-        );
-      }else {
        return Container(
-         //width: 100,
+         child: Row(
+           mainAxisAlignment: MainAxisAlignment.end,
+           children: [
+             Expanded(
+               child: Container(
+                 margin:  EdgeInsets.only(
+                     left: MediaQuery.of(context).size.width * .2, right: 5.0, top: 8.0, bottom: 4.0),
+                 padding: const EdgeInsets.only(
+                     left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
+                 decoration: const BoxDecoration(
+                     shape: BoxShape.rectangle,
+                     color: Color(0xFF7CE994),
+                     borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),topLeft: Radius.circular(10),bottomRight: Radius.circular(10))),
+                 child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.end,
+                   children: [
+                     Text(
+                         msg.message??"",style: TextStyle(fontWeight: FontWeight.w800,)
+                       //textAlign: TextAlign.center,
+                     ),
+                     Text('${date.hour} : ${date.minute}                                                    ',style: TextStyle(fontWeight: FontWeight.w700,color: Color(
+    0xec4d4b4b)),)
+                   ],
+                 ),
+               ),
+             ),
+             CircleAvatar(
+               child: Text(
+                   'S'
+               ),
+             ),
+           ],
+         ),
+       );
+     }else {
+       return Container(
          child: Row(
            mainAxisAlignment: MainAxisAlignment.start,
            children: [
@@ -148,18 +157,28 @@ class ChatScreen extends StatelessWidget {
                    'R'
                ),
              ),
-             Container(
-               margin: const EdgeInsets.only(
-                   left: 8.0, right: 5.0, top: 8.0, bottom: 2.0),
-               padding: const EdgeInsets.only(
-                   left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
-               decoration: const BoxDecoration(
-                   shape: BoxShape.rectangle,
-                   color: Color(0xFF7CE994),
-                   borderRadius: BorderRadius.all(Radius.circular(10.0))),
-               child: Text(
-                 msg.message!,
-                 textAlign: TextAlign.center,
+             Expanded(
+               child: Container(
+                 margin:  EdgeInsets.only(
+                     left: 8.0, right:MediaQuery.of(context).size.width * .2, top: 8.0, bottom: 2.0),
+                 padding: const EdgeInsets.only(
+                     left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
+                 decoration: const BoxDecoration(
+                     shape: BoxShape.rectangle,
+                     color: Color(0xFFE17364),
+                     borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),topRight: Radius.circular(10),bottomRight: Radius.circular(10))),
+                 child: Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                   children: [
+                     Text(
+                       msg.message??"",style: TextStyle(fontWeight: FontWeight.w800,)
+                       //textAlign: TextAlign.center,
+                     ),
+                     SizedBox(height: MediaQuery.of(context).size.height * .0005,),
+                     Text('                                                ${date.hour} : ${date.minute}',style: TextStyle(fontWeight: FontWeight.w700,color: Color(
+                         0xec4d4b4b)),)
+                   ],
+                 ),
                ),
              ),
 

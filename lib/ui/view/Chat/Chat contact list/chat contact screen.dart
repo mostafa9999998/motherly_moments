@@ -11,6 +11,13 @@ static String ChatContactScreenname = 'ChatContactScreen';
      //List<Contacts> contacts = Contacts.categrylist();
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Doctors',textAlign: TextAlign.center,),
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon:Icon( Icons.arrow_back,size: 40,),
+        ),
+      ),
       body: FutureBuilder(
           future: Apimanager.getdoctors(),
           builder: (context, snapshot) {

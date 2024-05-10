@@ -20,7 +20,6 @@ class Selectscreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical:  MediaQuery.of(context).size.height*.17,horizontal:  MediaQuery.of(context).size.width*.05),
           child: Column(
             children: [
-              Text(AppLocalizations.of(context)!.select,style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
               Row(
                 children: [
                   Spacer(),
