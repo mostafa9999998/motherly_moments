@@ -216,7 +216,7 @@ class Mainprovider extends ChangeNotifier {
     return tipsResponse;
   }
 
-  Future<void> setloginmesage(String loginrespons) async {
+  Future<void> setloginmesage(String loginrespons) async {  
     await prefs!.setString(login_messagekey, loginrespons);
   }
 

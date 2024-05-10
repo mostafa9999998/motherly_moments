@@ -73,13 +73,21 @@
 "pselectg":"Please select gender.",
 "selectbirth":"Select your baby's birthday",
 "seemils":"See my baby milestones",
-"babycatgeroytitel":"“ Wish you have a safe\n birth “",
+"babycatgeroytitel":"“ Wish you have a safe\n healthy life “",
 "childgrowth":"Child groth",
 "tipsandactivities":"Tips and activities",
 "nutrition":"Nutrition",
 "vaccinations":"Vaccinations",
 "commonissues":"Common issues",
-"welcomback":"Welcome Back"
+"welcomback":"Welcome Back",
+"nutritiontitel":"    Take a look on these Nutrition",
+"weaning":"Weaning",
+"breastFeeding":"Breast Feeding",
+"bottleFeeding":"Bottle Feeding",
+"weekbottel1" :"1-6 months",
+"weekbottel6" :"6-12 months",
+"weekbottel12" :"12-18 months",
+"weekbottel18" :"18-24 months"
 
 
 

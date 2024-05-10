@@ -77,10 +77,19 @@
 "babycatgeroytitel":"“أتمنى لك ولادة\n أمنه",
 "childgrowth":"نمو الطفل",
 "tipsandactivities":"نصائح وأنشطة",
-"nutrition":"تغذية",
+"nutrition":"التغذية",
 "vaccinations":"التطعيمات",
 "commonissues":"المشاكل الشائعة",
-"welcomback":"مرحباً بك مرة أخرى"
+"welcomback":"مرحباً بك مرة أخرى",
+"nutritiontitel":"  ألق نظرة على هذه التغذية ",
+"weaning":"الفطام",
+"breastFeeding":"الرضاعه الطبيعيه",
+"bottleFeeding":"الرضاعة بالزجاجة",
+"weekbottel1" :"1-6 أشهر",
+"weekbottel6" :"اشهر 6-12",
+"weekbottel12" :"أشهر 12-18",
+"weekbottel18" :"أشهر 18-24"
+
 
 
 

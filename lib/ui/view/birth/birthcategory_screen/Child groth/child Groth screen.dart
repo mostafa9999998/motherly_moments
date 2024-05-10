@@ -39,13 +39,8 @@ static String ChildGrothScreenname ='ChildGrothScreen';
           children: [
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-      //         child: ListView.builder(
-      //   scrollDirection: Axis.horizontal,
-      //   itemCount: list.length,
-      //   itemBuilder: (context, index) {
-      //   return ChildWeekTap(childgrothMonthmodel:list[index] ,);
-      //   },
-      // ),
+             
+        
               child: Row(
                 children: [
                   showtaps(0),

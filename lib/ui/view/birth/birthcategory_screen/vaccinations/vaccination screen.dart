@@ -3,7 +3,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/vaccinations
 import 'package:provider/provider.dart';
 
 import '../../../../view_model/provider/main provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class VaccinationScreen extends StatelessWidget {
   const VaccinationScreen({super.key});
 static String VaccinationScreenname ='VaccinationScreen';
@@ -16,7 +16,7 @@ static String VaccinationScreenname ='VaccinationScreen';
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
-        title: Text("Vaccinations",
+        title: Text(AppLocalizations.of(context)!.vaccinations,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         leading: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(width: 15),

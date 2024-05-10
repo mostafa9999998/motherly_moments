@@ -4,7 +4,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/we
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/weaning/weektap.dart';
 import 'package:provider/provider.dart';
 import '../../../../../view_model/provider/main provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class WeaningScreen extends StatelessWidget {
   const WeaningScreen({super.key});
 static String weaningScreenname ='WeaningScreen';
@@ -17,7 +17,7 @@ static String weaningScreenname ='WeaningScreen';
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
-        title: Text("Weaning",
+        title: Text(AppLocalizations.of(context)!.weaning,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         leading: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(width: 15),
@@ -40,10 +40,10 @@ static String weaningScreenname ='WeaningScreen';
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  showtaps(0),
-                  showtaps(1),
-                  showtaps(2),
-                  showtaps(3),
+                  showtaps(0,context),
+                  showtaps(1,context),
+                  showtaps(2,context),
+                  showtaps(3,context),
                 ],
               ),
             ),
@@ -81,8 +81,8 @@ static String weaningScreenname ='WeaningScreen';
     );
   }
 
-  showtaps(int i) {
-    var list=WeaningMonthmodel.categrylist();
+  showtaps(int i,BuildContext context) {
+    var list=WeaningMonthmodel.categrylist(context);
    return WeekTap(weaningMonthmodel:list[i] ,);
   }
 }

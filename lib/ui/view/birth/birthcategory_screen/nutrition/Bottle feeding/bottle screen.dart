@@ -4,7 +4,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Bo
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Bottle%20feeding/bottleweektap.dart';
 import 'package:provider/provider.dart';
 import '../../../../../view_model/provider/main provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class BottleScreen extends StatelessWidget {
   const BottleScreen({super.key});
 static String BottleScreenname ='BottleScreen';
@@ -17,7 +17,7 @@ static String BottleScreenname ='BottleScreen';
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
-        title: Text("Bottle Feeding",
+        title: Text(AppLocalizations.of(context)!.bottleFeeding,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         leading: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(width: 15),
@@ -40,10 +40,10 @@ static String BottleScreenname ='BottleScreen';
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  showtaps(0),
-                  showtaps(1),
-                  showtaps(2),
-                  showtaps(3),
+                  showtaps(0,context),
+                  showtaps(1,context),
+                  showtaps(2,context),
+                  showtaps(3,context),
                 ],
               ),
             ),
@@ -66,8 +66,8 @@ static String BottleScreenname ='BottleScreen';
     );
   }
 
-  showtaps(int i) {
-    var list=Bottlefeeding.categrylist();
+  showtaps(int i,BuildContext context) {
+    var list=Bottlefeeding.categrylist(context);
    return BottleWeekTap(bottlefeeding: list[i] ,);
   }
 }
