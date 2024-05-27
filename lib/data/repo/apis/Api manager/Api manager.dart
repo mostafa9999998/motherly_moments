@@ -4,6 +4,7 @@ import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:motherly_moments/data/repo/moduls/baby%20groth/categoriesResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/birth/IssuesResponse.dart';
+import 'package:motherly_moments/data/repo/moduls/chat/AddFriendBody.dart';
 import 'package:motherly_moments/data/repo/moduls/chat/FriendsResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/chat/chatbot/BotMessageBody.dart';
 import 'package:motherly_moments/data/repo/moduls/chat/chatbot/BotResponse.dart';
@@ -263,6 +264,22 @@ static Future<List<IssuesResponse>> getissues (int issue_id)async{
    Map json   = jsonDecode(response.body);
    FriendsResponse friendsResponse= FriendsResponse.fromJson(json);
    return friendsResponse ;
+ }
+
+
+ static Future addfriend(int userid,int reciver) async {
+   Uri url = Uri.parse("$apikey/api/addfriend");
+   final connectivityResult = await (Connectivity().checkConnectivity());
+   if (connectivityResult == ConnectivityResult.mobile || connectivityResult == ConnectivityResult.wifi ) {
+     // I am connected to a mobile network.
+     AddFriendBody addFriendBody = AddFriendBody(
+       userId: '$userid',
+       friendId: '$reciver',
+     );
+     var response = await post(url, body: addFriendBody.toJson());
+     print(response.toString());
+     //var b = LoginResponse.fromJson(jsonDecode(response.body));
+   }
  }
 
 }

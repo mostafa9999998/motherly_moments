@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/data/repo/apis/Api%20manager/Api%20manager.dart';
 import 'package:motherly_moments/ui/view_model/provider/main%20provider.dart';
 import 'package:provider/provider.dart';
 import '../../../../data/repo/moduls/chat/MessageResponse.dart';
@@ -19,6 +20,8 @@ class ChatScreen extends StatelessWidget {
         await messageProvider.sendmessage(
             messagecontroller.text, '${mainprovider.userid}', '${mainprovider.outheruserid}');
         messagecontroller.clear();
+        Apimanager.addfriend(mainprovider.userid, mainprovider.outheruserid);
+        Apimanager.addfriend( mainprovider.outheruserid,mainprovider.userid);
       }
     }
 
