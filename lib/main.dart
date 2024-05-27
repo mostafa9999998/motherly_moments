@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:motherly_moments/ui/view/Chat/Chat%20contact%20list/chat%20contact%20screen.dart';
+import 'package:motherly_moments/ui/view/Chat/Chat%20contact%20list/Chat%20select%20screen.dart';
 import 'package:motherly_moments/ui/view/Chat/Chat%20screen/Chat%20screen.dart';
 import 'package:motherly_moments/ui/view/Chat/chat%20bot/chatbotscreen.dart';
 import 'package:motherly_moments/ui/view/befor_prgnancy/baby_weeks.dart';
@@ -102,7 +102,7 @@ class MyApp extends StatelessWidget {
         ChatScreen.ChatScreenname : (_) => ChatScreen(),
         DisplayWedget.diplayname : (_) => DisplayWedget(),
         ChatbotScreen.ChatbotScreenname : (_) => ChatbotScreen(),
-        ChatContactScreen.ChatContactScreenname : (_)=>ChatContactScreen()
+        ChatSelectScreen.ChatselectScreenname : (_)=>ChatSelectScreen()
       },
       initialRoute:DisplayWedget.diplayname ,
     );

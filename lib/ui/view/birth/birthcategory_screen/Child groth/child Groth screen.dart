@@ -71,7 +71,7 @@ static String ChildGrothScreenname ='ChildGrothScreen';
   }
 
   showtaps(int i) {
-    var list=ChildgrothMonthmodel.categrylist();
+    var list = ChildgrothMonthmodel.categrylist();
    return ChildWeekTap(childgrothMonthmodel:list[i] ,);
   }
 }

@@ -4,6 +4,7 @@ import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:motherly_moments/data/repo/moduls/baby%20groth/categoriesResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/birth/IssuesResponse.dart';
+import 'package:motherly_moments/data/repo/moduls/chat/FriendsResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/chat/chatbot/BotMessageBody.dart';
 import 'package:motherly_moments/data/repo/moduls/chat/chatbot/BotResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/login/LoginResponse.dart';
@@ -253,6 +254,15 @@ static Future<List<IssuesResponse>> getissues (int issue_id)async{
    var b = BotResponse.fromJson(jsonDecode(response.body));
    return b ;
 
+ }
+
+
+ static Future<FriendsResponse> getfriends (int userid)async{
+   Uri url = Uri.parse("$apikey/api/getfriend/$userid");
+   Response response = await get(url);
+   Map json   = jsonDecode(response.body);
+   FriendsResponse friendsResponse= FriendsResponse.fromJson(json);
+   return friendsResponse ;
  }
 
 }
