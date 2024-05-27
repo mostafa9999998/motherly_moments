@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/courses/courses%20model.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/courses/courses%20style.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Courses_screen extends StatefulWidget {
    Courses_screen({super.key,});
@@ -13,12 +13,13 @@ class Courses_screen extends StatefulWidget {
 }
 
 class _Courses_screenState extends State<Courses_screen> {
-  var list = Courseslist.categrylist();
+  
 
 
 
   @override
   Widget build(BuildContext context) {
+    var list = Courseslist.categrylist(context);
     return Scaffold(
       body:  Stack(
         children: [
@@ -39,7 +40,7 @@ class _Courses_screenState extends State<Courses_screen> {
                   height: MediaQuery.of(context).size.height * .28,
                 ),
                 Text(
-                  '  Courses.',
+                  AppLocalizations.of(context)!.coursetitel,
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.white),
                 ),
                 SizedBox(
@@ -55,10 +56,17 @@ class _Courses_screenState extends State<Courses_screen> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .01,
                       ),
-                      showwedjetmonth(0),
-                      showwedjetmonth(1),
-                      showwedjetmonth(2),
-                      showwedjetmonth(3),
+                      Container(
+                        child: ListView.builder(shrinkWrap: true,
+                        itemCount:list.length ,
+                          itemBuilder: (context,index){
+                           return Coursesstyle(courseslist: list[index]);
+                        }),
+                       )
+                      // showwedjetmonth(0),
+                      // showwedjetmonth(1),
+                      // showwedjetmonth(2),
+                      // showwedjetmonth(3),
                     ],
                   ),
                 ),
@@ -73,8 +81,8 @@ class _Courses_screenState extends State<Courses_screen> {
     );
   }
 
-  showwedjetmonth(int i) {
-    return Coursesstyle(courseslist: list[i]);
-  }
+  // showwedjetmonth(int i) {
+  //   return Coursesstyle(courseslist: list[i]);
+  // }
 
 }

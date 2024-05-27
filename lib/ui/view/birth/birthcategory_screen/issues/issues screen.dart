@@ -15,11 +15,12 @@ class CommonIssuesScreen extends StatefulWidget {
 }
 
 class _CommonIssuesScreenState extends State<CommonIssuesScreen> {
-  var babygrothlist = Babygrothlist.categrylist();
+  
  var list =  CommonIssues.categrylist();
   @override
   Widget build(BuildContext context) {
     Mainprovider provider = Provider.of(context);
+    var babygrothlist = Babygrothlist.categrylist(context);
 
     return Scaffold(
       appBar: AppBar(

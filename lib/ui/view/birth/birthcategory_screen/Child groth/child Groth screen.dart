@@ -10,6 +10,7 @@ class ChildGrothScreen extends StatelessWidget {
 static String ChildGrothScreenname ='ChildGrothScreen';
   @override
   Widget build(BuildContext context) {
+    // var list=ChildgrothMonthmodel.categrylist(context);
     Mainprovider provider = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -38,6 +39,8 @@ static String ChildGrothScreenname ='ChildGrothScreen';
           children: [
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
+             
+        
               child: Row(
                 children: [
                   showtaps(0),

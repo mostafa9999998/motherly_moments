@@ -1,13 +1,17 @@
+// import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/exercise/exercise%20model.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/exercise/exercise%20style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Exercises_screen extends StatelessWidget {
    Exercises_screen({super.key});
   static String exercisname = 'exercise';
- var list = Exerciseslist.categrylist();
+ 
   @override
   Widget build(BuildContext context) {
+    var list = Exerciseslist.categrylist(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -28,7 +32,7 @@ class Exercises_screen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * .28,
                 ),
                 Text(
-                  '  How to make your body healthy while pregnant.',
+                  AppLocalizations.of(context)!.exerisetitel,
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.white),
                 ),
                 SizedBox(
@@ -44,10 +48,17 @@ class Exercises_screen extends StatelessWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .01,
                       ),
-                      showwedjetmonth(0),
-                      showwedjetmonth(1),
-                      showwedjetmonth(2),
-                      showwedjetmonth(3),
+                      Container(
+                        child: ListView.builder(shrinkWrap: true,
+                        itemCount:list.length ,
+                          itemBuilder: (context,index){
+                           return Exercisesstyle(exerciseslist: list[index],);
+                        }),
+                       )
+                      // showwedjetmonth(0),
+                      // showwedjetmonth(1),
+                      // showwedjetmonth(2),
+                      // showwedjetmonth(3),
                       /*showwedjetmonth(4),
                       showwedjetmonth(5),
                       showwedjetmonth(6),
@@ -67,7 +78,7 @@ class Exercises_screen extends StatelessWidget {
     );
   }
 
-  showwedjetmonth(int i) {
-    return Exercisesstyle(exerciseslist: list[i],);
-  }
+  //showwedjetmonth(int i) {
+   // return Exercisesstyle(exerciseslist: list[i],);
+  //}
 }

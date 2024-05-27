@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/food/food%20moel.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/food/food%20style.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Food_screen extends StatelessWidget {
    Food_screen({super.key});
   static String foodname = 'food';
-  var list = Foodlist.foodlist();
+  
   @override
   Widget build(BuildContext context) {
+    var list = Foodlist.foodlist(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -28,7 +30,7 @@ class Food_screen extends StatelessWidget {
                   height: MediaQuery.of(context).size.height * .28,
                 ),
                 Text(
-                  '  How to eat safely while pregnant',
+                  AppLocalizations.of(context)!.foodtitel,
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.white),
                 ),
                 SizedBox(
@@ -44,9 +46,16 @@ class Food_screen extends StatelessWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .01,
                       ),
-                      showwedjetmonth(0),
-                      showwedjetmonth(1),
-                      showwedjetmonth(2),
+                      Container(
+                        child: ListView.builder(shrinkWrap: true,
+                        itemCount:list.length ,
+                          itemBuilder: (context,index){
+                           return Foodsstyle(foodlist: list[index],);
+                        }),
+                       )
+                      // showwedjetmonth(0),
+                      // showwedjetmonth(1),
+                      // showwedjetmonth(2),
 
                     ],
                   ),
@@ -61,7 +70,7 @@ class Food_screen extends StatelessWidget {
     );
   }
 
-  showwedjetmonth(int i) {
-   return Foodsstyle(foodlist: list[i],);
-  }
+  // showwedjetmonth(int i) {
+  //  return Foodsstyle(foodlist: list[i],);
+  // }
 }

@@ -4,7 +4,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/nu
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babygroth%20months%20model.dart';
 import 'package:provider/provider.dart';
 import '../../../../view_model/provider/main provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class NutritionScreen extends StatefulWidget {
   NutritionScreen({super.key});
   static String nutritionname = 'nutrition';
@@ -14,10 +14,12 @@ class NutritionScreen extends StatefulWidget {
 }
 
 class _NutritionScreenState extends State<NutritionScreen> {
-  var babygrothlist = Babygrothlist.categrylist();
- var list =  Nutrition.categrylist();
+ 
+
+  
   @override
   Widget build(BuildContext context) {
+    var babygrothlist = Babygrothlist.categrylist(context);
     Mainprovider provider = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
@@ -25,7 +27,7 @@ class _NutritionScreenState extends State<NutritionScreen> {
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
-        title: Text("Nutrition",
+        title: Text(AppLocalizations.of(context)!.nutrition,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         leading: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(width: 15),
@@ -50,23 +52,25 @@ class _NutritionScreenState extends State<NutritionScreen> {
                 height: MediaQuery.of(context).size.height * .08,
               ),
               Text(
-                '     Take a look on these Nutrition',
+             AppLocalizations.of(context)!.nutritiontitel,
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * .03,
               ),
-              Row(children: [showwedjetmonth(0),],) ,
-              Row(children: [ SizedBox(width: MediaQuery.of(context).size.width*.25,),showwedjetmonth(1),],) ,
-              Row(children: [SizedBox(width: MediaQuery.of(context).size.width*.45,),showwedjetmonth(2),],) ,
+              Row(children: [showwedjetmonth(0,context),],) ,
+             Row(children: [ SizedBox(width: MediaQuery.of(context).size.width*.25,),showwedjetmonth(1,context),],) ,
+              Row(children: [SizedBox(width: MediaQuery.of(context).size.width*.45,),showwedjetmonth(2,context),],) ,
             ],
           ),
         ),
       ),
     );
-  }
-  showwedjetmonth(int i) {
+   }
+  showwedjetmonth(int i,BuildContext context) {
+  var list =  Nutrition.categrylist(context);
+
     return Nutritionstyle(nutrition: list[i] ,);
   }
 }

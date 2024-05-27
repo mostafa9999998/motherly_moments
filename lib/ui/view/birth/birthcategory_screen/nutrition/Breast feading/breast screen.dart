@@ -4,7 +4,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Br
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/Breast%20feading/breast%20question%20style.dart';
 import 'package:provider/provider.dart';
 import '../../../../../view_model/provider/main provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class BreastScreen extends StatelessWidget {
   const BreastScreen({super.key});
 static String BreastScreenname ='BreastScreen';
@@ -17,7 +17,7 @@ static String BreastScreenname ='BreastScreen';
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
-        title: Text("Breast Feeding",
+        title: Text(AppLocalizations.of(context)!.breastFeeding,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         leading: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(width: 15),
@@ -40,10 +40,10 @@ static String BreastScreenname ='BreastScreen';
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  showtaps(0),
-                  showtaps(1),
-                  showtaps(2),
-                  showtaps(3),
+                  showtaps(0,context),
+                  showtaps(1,context),
+                  showtaps(2,context),
+                  showtaps(3,context),
                 ],
               ),
             ),
@@ -81,8 +81,8 @@ static String BreastScreenname ='BreastScreen';
     );
   }
 
-  showtaps(int i) {
-    var list=BreastFeedingMonthmodel.categrylist();
+  showtaps(int i,BuildContext context) {
+    var list=BreastFeedingMonthmodel.categrylist(context);
    return BreastWeekTap(breastFeedingMonthmodel: list[i] ,);
   }
 }

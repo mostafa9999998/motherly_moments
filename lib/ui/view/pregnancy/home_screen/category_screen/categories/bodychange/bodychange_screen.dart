@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/bodychange/bodychange%20model.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/bodychange/bodychange%20style.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Bodychange extends StatefulWidget {
    Bodychange({super.key});
   static String bodychangename = 'body';
@@ -11,10 +11,11 @@ class Bodychange extends StatefulWidget {
 }
 
 class _BodychangeState extends State<Bodychange> {
-   var bodychangelist =Bodychangehlist.categrylist();
-
+   
   @override
   Widget build(BuildContext context) {
+    var bodychangelist =Bodychangehlist.categrylist(context);
+
     return Scaffold(
       body: Stack(
         children: [
@@ -35,7 +36,7 @@ class _BodychangeState extends State<Bodychange> {
                   height: MediaQuery.of(context).size.height * .28,
                 ),
                 Text(
-                  'Your Changes body: Up to 9 Months',
+                  AppLocalizations.of(context)!.bodychangeT,
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.white),
                 ),
                 SizedBox(
@@ -49,7 +50,7 @@ class _BodychangeState extends State<Bodychange> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                          '''Common discomforts like breast tenderness, feeling very tired, peeing more often, heartburn, nausea, and vomiting usually get worse. Your body produces extra blood during pregnancy, and your heart beats faster and harder than usual to carry the extra blood.'''),
+                        AppLocalizations.of(context)!.bodyChangehint),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .01,
                       ),
@@ -59,15 +60,22 @@ class _BodychangeState extends State<Bodychange> {
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         color: Color(0xffa19393),
                       ),
-                      showwedjetmonth(0),
-                      showwedjetmonth(1),
-                      showwedjetmonth(2),
-                      showwedjetmonth(3),
-                      showwedjetmonth(4),
-                      showwedjetmonth(5),
-                      showwedjetmonth(6),
-                      showwedjetmonth(7),
-                      showwedjetmonth(8),
+                      Container(
+                        child: ListView.builder(shrinkWrap: true,
+                        itemCount:bodychangelist.length ,
+                          itemBuilder: (context,index){
+                           return Bodychangemonths(bodychangehlist: bodychangelist[index],); 
+                        }),
+                       )
+                      // showwedjetmonth(0),
+                      // showwedjetmonth(1),
+                      // showwedjetmonth(2),
+                      // showwedjetmonth(3),
+                      // showwedjetmonth(4),
+                      // showwedjetmonth(5),
+                      // showwedjetmonth(6),
+                      // showwedjetmonth(7),
+                      // showwedjetmonth(8),
                     ],
                   ),
                 ),
@@ -80,7 +88,7 @@ class _BodychangeState extends State<Bodychange> {
     );
   }
 
-  showwedjetmonth(int i) {
-   return Bodychangemonths(bodychangehlist: bodychangelist[i],);
-  }
+  // showwedjetmonth(int i) {
+  //  return Bodychangemonths(bodychangehlist: bodychangelist[i],);
+  // }
 }

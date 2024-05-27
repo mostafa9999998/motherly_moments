@@ -5,6 +5,7 @@ import 'package:motherly_moments/ui/view/birth/BirthMaster_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../../view_model/provider/main provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BabyInfoScreen extends StatefulWidget {
    BabyInfoScreen({super.key});
@@ -20,15 +21,16 @@ class _BabyInfoScreenState extends State<BabyInfoScreen> {
 
    DateTime selectdate = DateTime.now();
 
-   final List<String> genderItems = [
-     'Male',
-     'Female',
-   ];
+   
 
    String? selectedValue;
 
    @override
   Widget build(BuildContext context) {
+    final List<String> genderItems = [
+     AppLocalizations.of(context)!.male,
+     AppLocalizations.of(context)!.female,
+   ];
      Mainprovider provider = Provider.of(context);
     return Scaffold(
       body: Container(
@@ -38,18 +40,18 @@ class _BabyInfoScreenState extends State<BabyInfoScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text('Add Baby info',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),textAlign: TextAlign.center),
+                Text(AppLocalizations.of(context)!.babytitel,style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),textAlign: TextAlign.center),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .05,
                 ),
                 TextFormField(
                   decoration: InputDecoration(
-                    hintText: "what's your baby's name?"
+                    hintText: AppLocalizations.of(context)!.babyQ
                   ),
                   controller: babyname,
                   validator: (value) {
                     if (value! .isEmpty || value.trim().isEmpty){
-                      return "please enter the baby name ";
+                      return AppLocalizations.of(context)!.babyname;
                     }
                   },
                 ),
@@ -67,8 +69,8 @@ class _BabyInfoScreenState extends State<BabyInfoScreen> {
                     ),
                     // Add more decoration..
                   ),
-                  hint: const Text(
-                    'Select Your Gender',
+                  hint: Text(
+                    AppLocalizations.of(context)!.genderQ,
                     style: TextStyle(fontSize: 14),
                   ),
                   items: genderItems
@@ -84,7 +86,7 @@ class _BabyInfoScreenState extends State<BabyInfoScreen> {
                       .toList(),
                   validator: (value) {
                     if (value == null) {
-                      return 'Please select gender.';
+                      return AppLocalizations.of(context)!.pselectg;
                     }
                     return null;
                   },
@@ -123,7 +125,7 @@ class _BabyInfoScreenState extends State<BabyInfoScreen> {
                     selectcalender(context,provider);
 
                   },
-                  child: Text("Select your baby's birthday",
+                  child: Text(AppLocalizations.of(context)!.selectbirth,
                       style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600,color: Colors.blue),
                       textAlign: TextAlign.center),
                 ),
@@ -138,7 +140,7 @@ class _BabyInfoScreenState extends State<BabyInfoScreen> {
                       Navigator.pushReplacementNamed(context, BirthMasterscreen.birthmastername);}
                     },
                     child: Text(
-                      'See my baby milestones',
+                      AppLocalizations.of(context)!.seemils,
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 20,
