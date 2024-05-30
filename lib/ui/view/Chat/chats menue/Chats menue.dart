@@ -11,7 +11,7 @@ class ChatsMenue extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          SizedBox(height: MediaQuery.of(context).size.height*.1,),
+          SizedBox(height: MediaQuery.of(context).size.height*.07,),
           Text('Select Chat',textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 28),),
           SizedBox(height: MediaQuery.of(context).size.height*.03,),
           InkWell(

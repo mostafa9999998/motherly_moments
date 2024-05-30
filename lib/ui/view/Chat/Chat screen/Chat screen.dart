@@ -34,6 +34,7 @@ class ChatScreen extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             Container(
@@ -44,7 +45,12 @@ class ChatScreen extends StatelessWidget {
                       '${mainprovider.userid}', '${mainprovider.outheruserid}'),
                   builder: (context, asynSnapShot) {
                     if (asynSnapShot.hasError) {
-                      return Center(child: Text(asynSnapShot.error.toString()));
+                      return Center(child: Container(
+                          decoration: BoxDecoration(
+                            color: Color(0x4dffffff),
+                            borderRadius: BorderRadius.circular(15)
+                          ),
+                          child: Text(asynSnapShot.error.toString())));
                     } else if (asynSnapShot.connectionState ==
                         ConnectionState.waiting) {
                       return Center(
@@ -75,7 +81,7 @@ class ChatScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    width: MediaQuery.of(context).size.width * .8,
+                    width: MediaQuery.of(context).size.width * .79,
                     child: TextFormField(
                       controller: messagecontroller,
                       decoration: InputDecoration(
@@ -96,11 +102,24 @@ class ChatScreen extends StatelessWidget {
                     ),
                   ),
                   //SizedBox(width: 5,),
-                  IconButton(
-                    onPressed: () {
-                      sendmessage();
-                    },
-                    icon: Icon(Icons.send,color: Colors.blue,),
+                  Expanded(
+                    child: Container(
+                      margin: EdgeInsets.all(5),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),
+                          color: Color(0xff8461D5)
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          sendmessage();
+                        },
+                        child: Center(
+                          child: Container(
+                              height: 25,
+                              child: Image.asset('assets/images/sendmessage.png')),
+                        ),
+                      ),
+                    ),
                   )
                 ],
               ),
@@ -127,26 +146,30 @@ class ChatScreen extends StatelessWidget {
                      left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
                  decoration: const BoxDecoration(
                      shape: BoxShape.rectangle,
-                     color: Color(0xFF7CE994),
+                     color: Color(0xEA3B3153),
                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),topLeft: Radius.circular(10),bottomRight: Radius.circular(10))),
                  child: Column(
                    crossAxisAlignment: CrossAxisAlignment.end,
                    children: [
                      Text(
-                         msg.message??"",style: TextStyle(fontWeight: FontWeight.w800,)
+                         msg.message??"",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400,color: Colors.white)
                        //textAlign: TextAlign.center,
                      ),
-                     Text('${date.hour} : ${date.minute}                                                    ',style: TextStyle(fontWeight: FontWeight.w700,color: Color(
-    0xec4d4b4b)),)
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.start,
+                       children: [
+                         Text('  ${date.hour} : ${date.minute}',style: TextStyle(fontWeight: FontWeight.w300,color: Colors.white),),
+                       ],
+                     )
                    ],
                  ),
                ),
              ),
-             CircleAvatar(
-               child: Text(
-                   'S'
-               ),
-             ),
+             // CircleAvatar(
+             //   child: Text(
+             //       'S'
+             //   ),
+             // ),
            ],
          ),
        );
@@ -163,23 +186,27 @@ class ChatScreen extends StatelessWidget {
              Expanded(
                child: Container(
                  margin:  EdgeInsets.only(
-                     left: 8.0, right:MediaQuery.of(context).size.width * .2, top: 8.0, bottom: 2.0),
+                     left: 8.0, right:MediaQuery.of(context).size.width * .1, top: 8.0, bottom: 2.0),
                  padding: const EdgeInsets.only(
                      left: 5.0, right: 5.0, top: 9.0, bottom: 9.0),
                  decoration: const BoxDecoration(
                      shape: BoxShape.rectangle,
-                     color: Color(0xFFE17364),
+                     color: Color(0xFF895FD3),
                      borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10),topRight: Radius.circular(10),bottomRight: Radius.circular(10))),
                  child: Column(
                    crossAxisAlignment: CrossAxisAlignment.start,
                    children: [
                      Text(
-                       msg.message??"",style: TextStyle(fontWeight: FontWeight.w800,)
+                       msg.message??"",style: TextStyle(fontSize: 20,fontWeight: FontWeight.w400,color: Colors.white)
                        //textAlign: TextAlign.center,
                      ),
                      SizedBox(height: MediaQuery.of(context).size.height * .0005,),
-                     Text('                                                ${date.hour} : ${date.minute}',style: TextStyle(fontWeight: FontWeight.w700,color: Color(
-                         0xec4d4b4b)),)
+                     Row(
+                       mainAxisAlignment: MainAxisAlignment.end,
+                       children: [
+                         Text('${date.hour} : ${date.minute}  ',style: TextStyle(fontWeight: FontWeight.w300,color: Colors.white),),
+                       ],
+                     )
                    ],
                  ),
                ),

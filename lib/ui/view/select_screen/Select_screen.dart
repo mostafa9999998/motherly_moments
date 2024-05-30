@@ -20,16 +20,16 @@ class Selectscreen extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical:  MediaQuery.of(context).size.height*.17,horizontal:  MediaQuery.of(context).size.width*.05),
           child: Column(
             children: [
-              Row(
-                children: [
-                  Spacer(),
-                  IconButton(onPressed: () => Navigator.pushReplacementNamed(context, Loginscreen.loginroutename),
-                      icon:Icon( Icons.logout)),
-                  SizedBox(
-                    width: 5,
-                  ),
-                ],
-              ),
+              // Row(
+              //   children: [
+              //     Spacer(),
+              //     IconButton(onPressed: () => Navigator.pushReplacementNamed(context, Loginscreen.loginroutename),
+              //         icon:Icon( Icons.logout)),
+              //     SizedBox(
+              //       width: 5,
+              //     ),
+              //   ],
+              // ),
               Text(AppLocalizations.of(context)!.select,style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
               SizedBox(height:  MediaQuery.of(context).size.height*.17,),
               Row(

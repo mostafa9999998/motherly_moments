@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:motherly_moments/ui/view/Setting/langauge_bottom_sheet.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../login/login_screen.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -10,6 +12,7 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+  SharedPreferences? prefs;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,7 +20,9 @@ class _SettingScreenState extends State<SettingScreen> {
       child: Column(
         crossAxisAlignment:CrossAxisAlignment.stretch,
         children: [
-          
+          SizedBox(
+            height: 30,
+          ),
           Text(
             AppLocalizations.of(context)!.language,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),
           ),
@@ -52,6 +57,39 @@ class _SettingScreenState extends State<SettingScreen> {
                       color: Colors.white,
                     )
                   ]),
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          InkWell(
+            onTap: ()  {
+               //prefs!.remove('login5key');
+              Navigator.pushReplacementNamed(context, Loginscreen.loginroutename);
+            },
+            child: Container(
+              padding: EdgeInsets.all(10),
+
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Color(0xff797486),
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.grey.withOpacity(.5),
+                        spreadRadius: 1,
+                        blurRadius: 7,
+                        offset: Offset(5.0,8.0)
+                    )
+                  ]
+              ),
+              child: Text(
+                AppLocalizations.of(context)!.logout,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+
+                ),
+              ),
             ),
           )
         ],
