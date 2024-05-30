@@ -18,7 +18,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/we
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/vaccinations/vaccination%20screen.dart';
 import 'package:motherly_moments/ui/view/display%20wedget/display%20wedget.dart';
 import 'package:motherly_moments/ui/view/first_screens/first.dart';
-import 'package:motherly_moments/ui/view/first_screens/second.dart' ;
+import 'package:motherly_moments/ui/view/first_screens/second.dart';
 import 'package:motherly_moments/ui/view/first_screens/third.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_newpass.dart';
@@ -40,8 +40,7 @@ import 'ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitami
 import 'ui/view/pregnancy/home_screen/master_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
@@ -55,8 +54,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-  var providerr = Provider.of<Mainprovider>(context);
-    
+    var providerr = Provider.of<Mainprovider>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [
@@ -68,43 +67,43 @@ class MyApp extends StatelessWidget {
       supportedLocales: AppLocalizations.supportedLocales,
       locale: Locale(providerr.appLanguage),
       routes: {
-        RegisterScreen.regroutename : (_)=> RegisterScreen(),
-        Loginscreen.loginroutename : (_)=> Loginscreen(),
-        Welcomescreen1.welcom1name : (_) => Welcomescreen1(),
-        Welcomescreen2.welcom2name : (_) => Welcomescreen2(),
-        Welcomescreen3.welcom3name : (_) => Welcomescreen3(),
-        Emailscreen.emailroutename : (_) => Emailscreen(),
-        Otpscreen.otproutename : (_) => Otpscreen(),
-        Newpassscreen.newpassroutename : (_) => Newpassscreen(),
-        Masterscreen.mastername : (_) => Masterscreen(),
-        Bodychange.bodychangename : (_) => Bodychange(),
-        Babygroth.babagrothname : (_) => Babygroth(),
-        Courses_screen.coursesename :(_) => Courses_screen(),
-        Vitamines_screen.vitaminename :(_) => Vitamines_screen(),
-        Exercises_screen.exercisname : (_) => Exercises_screen(),
-        Food_screen.foodname : (_) => Food_screen(),
-        Selectscreen.selectname : (_) => Selectscreen(),
-        Babyweeksscreen.babyweeksname : (_) => Babyweeksscreen(),
-        Datebikerscreen.datepikername : (_) => Datebikerscreen(),
-        Selecctedmonthscreen.selectedmonthname : (_) => Selecctedmonthscreen(),
-        SelectmonthscreenV.selectedmonthvname : (_) => SelectmonthscreenV(),
-        BirthMasterscreen.birthmastername : (_) => BirthMasterscreen(),
-        BabyInfoScreen.babyInfoScreenname : (_) => BabyInfoScreen(),
-        CommonIssuesScreen.issuesname :(_) => CommonIssuesScreen(),
-        NutritionScreen.nutritionname : (_)=> NutritionScreen(),
-        IssuesArticle.issuearticlename : (_) => IssuesArticle(),
-        WeaningScreen.weaningScreenname :(_)=> WeaningScreen(),
-        BreastScreen.BreastScreenname : (_) => BreastScreen(),
-        BottleScreen.BottleScreenname : (_) => BottleScreen(),
-        TipsScreen.TipsScreenname : (_) => TipsScreen(),
-        ChildGrothScreen.ChildGrothScreenname : (_) => ChildGrothScreen(),
-        VaccinationScreen.VaccinationScreenname :(_) => VaccinationScreen(),
-        ChatScreen.ChatScreenname : (_) => ChatScreen(),
-        DisplayWedget.diplayname : (_) => DisplayWedget(),
-        ChatbotScreen.ChatbotScreenname : (_) => ChatbotScreen(),
-        ChatContactScreen.ChatContactScreenname : (_)=>ChatContactScreen()
+        RegisterScreen.regroutename: (_) => RegisterScreen(),
+        Loginscreen.loginroutename: (_) => Loginscreen(),
+        Welcomescreen1.welcom1name: (_) => Welcomescreen1(),
+        Welcomescreen2.welcom2name: (_) => Welcomescreen2(),
+        Welcomescreen3.welcom3name: (_) => Welcomescreen3(),
+        Emailscreen.emailroutename: (_) => Emailscreen(),
+        Otpscreen.otproutename: (_) => Otpscreen(),
+        Newpassscreen.newpassroutename: (_) => Newpassscreen(),
+        Masterscreen.mastername: (_) => Masterscreen(),
+        Bodychange.bodychangename: (_) => Bodychange(),
+        Babygroth.babagrothname: (_) => Babygroth(),
+        Courses_screen.coursesename: (_) => Courses_screen(),
+        Vitamines_screen.vitaminename: (_) => Vitamines_screen(),
+        Exercises_screen.exercisname: (_) => Exercises_screen(),
+        Food_screen.foodname: (_) => Food_screen(),
+        Selectscreen.selectname: (_) => Selectscreen(),
+        Babyweeksscreen.babyweeksname: (_) => Babyweeksscreen(),
+        Datebikerscreen.datepikername: (_) => Datebikerscreen(),
+        Selecctedmonthscreen.selectedmonthname: (_) => Selecctedmonthscreen(),
+        SelectmonthscreenV.selectedmonthvname: (_) => SelectmonthscreenV(),
+        BirthMasterscreen.birthmastername: (_) => BirthMasterscreen(),
+        BabyInfoScreen.babyInfoScreenname: (_) => BabyInfoScreen(),
+        CommonIssuesScreen.issuesname: (_) => CommonIssuesScreen(),
+        NutritionScreen.nutritionname: (_) => NutritionScreen(),
+        IssuesArticle.issuearticlename: (_) => IssuesArticle(),
+        WeaningScreen.weaningScreenname: (_) => WeaningScreen(),
+        BreastScreen.BreastScreenname: (_) => BreastScreen(),
+        BottleScreen.BottleScreenname: (_) => BottleScreen(),
+        TipsScreen.TipsScreenname: (_) => TipsScreen(),
+        ChildGrothScreen.ChildGrothScreenname: (_) => ChildGrothScreen(),
+        VaccinationScreen.VaccinationScreenname: (_) => VaccinationScreen(),
+        ChatScreen.ChatScreenname: (_) => ChatScreen(),
+        DisplayWedget.diplayname: (_) => DisplayWedget(),
+        ChatbotScreen.ChatbotScreenname: (_) => ChatbotScreen(),
+        ChatContactScreen.ChatContactScreenname: (_) => ChatContactScreen()
       },
-      initialRoute:DisplayWedget.diplayname ,
+      initialRoute: DisplayWedget.diplayname,
     );
   }
 }

@@ -1,4 +1,5 @@
 {
+ "lang" :"/en"  ,
 "home":"Home" ,
 "insights": "Insights",
 "todolist":"To do list",
@@ -23,6 +24,8 @@
 "periodQuestion":"When did your Last period begin?",
 "selectperioddate" :"Select the dates of your cycle to log them",
 "next":"Next",
+"babygeowthT":"Baby’s Monthly Growth",
+"babygrowthhint":"Your baby's growth and development during the first year is both delightful (Those coos! Those cuddles!) and dizzying (with all the crying and feeding and diapering, you've got your hands full). Here's your guide to your baby's first year and all its major milestones (first smile, giggle, step, words), challenges (colic and teething and diaper rash, oh my!) and more.'''",
 "monthQ1" :"What Happens at 1 Month",
 "monthQ2" :"What Happens at 2 Month",
 "monthQ3" :"What Happens at 3 Month",
@@ -33,7 +36,7 @@
 "monthQ8" :"What Happens at 8 Month",
 "monthQ9" :"What Happens at 9 Month",
 "monthDes" :"It might sou",
-"bodychangeT":"Your Changes body: Up to 9 Months",
+"bodychangeT":"Your  body's changes: Up to 9 Months",
 "bodyChangehint" :"'''Common discomforts like breast tenderness, feeling very tired, peeing more often, heartburn, nausea, and vomiting usually get worse. Your body produces extra blood during pregnancy, and your heart beats faster and harder than usual to carry the extra blood.'''",
 "bodychm1":"1 Month : Fertilization & missed\n period",
 "bodychm2":"2 Month : Fertilization & missed\n period",
@@ -87,10 +90,20 @@
 "weekbottel1" :"1-6 months",
 "weekbottel6" :"6-12 months",
 "weekbottel12" :"12-18 months",
-"weekbottel18" :"18-24 months"
-
-
-
+"weekbottel18" :"18-24 months",
+"tipsmonth1"   :"1-3 months",
+"tipsmonth3"   :"3-6 months",
+"tipsmonth6"   :"6-9 months",
+"tipsmonth9"   :"9-12 months",
+"tipsmonth12"   :"12-15 months",
+"tipsmonth15"   :"15-18 months",
+"tipsmonth18"   :"18-21 months",
+"tipsmonth21"   :"21-24 months",
+"babyweeksT"     :"Your baby is now the size of poppy seed- look at them grow!",
+"babyweeksint": "We’ll help you track their growth and update you on your baby’s weekly milestones",
+"babybuttonhint" :"See my baby milestones",
+"babyweeh0"     :"Your baby at 0 weeks",
+"commonissuehint" :"Take a look on these issues"
 
 
 }

@@ -3,6 +3,7 @@ import 'package:motherly_moments/data/repo/apis/Api%20manager/Api%20manager.dart
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/issues/Issuse%20article/question%20style.dart';
 import 'package:provider/provider.dart';
 import '../../../../../view_model/provider/main provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class IssuesArticle extends StatelessWidget {
   const IssuesArticle({super.key});
@@ -17,7 +18,7 @@ class IssuesArticle extends StatelessWidget {
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
-        title: Text("Common issues",
+        title: Text(AppLocalizations.of(context)!.commonissues,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         leading: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(width: 15),
@@ -38,7 +39,7 @@ class IssuesArticle extends StatelessWidget {
             top:MediaQuery.of(context).size.height * .03 ,
             left:MediaQuery.of(context).size.width * .05 ),
         child: FutureBuilder(
-          future: Apimanager.getissues(provider.getissueid()),
+          future: Apimanager.getissues(provider.getissueid(),AppLocalizations.of(context)!.lang),
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               return ListView.builder(

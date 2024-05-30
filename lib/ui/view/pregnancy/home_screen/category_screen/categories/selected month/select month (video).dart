@@ -4,6 +4,8 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import '../../../../../../../data/repo/apis/Api manager/Api manager.dart';
 import '../../../../../../../data/repo/moduls/category_video/ExerciseResponse.dart';
 import '../../../../../../view_model/provider/main provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class SelectmonthscreenV extends StatefulWidget {
   const SelectmonthscreenV({super.key});
@@ -24,7 +26,7 @@ class _SelectmonthscreenVState extends State<SelectmonthscreenV> {
 
     return  Scaffold(
       appBar: AppBar(
-        title: Text(' Insights',
+        title: Text(AppLocalizations.of(context)!.insights,
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 22,
@@ -32,7 +34,7 @@ class _SelectmonthscreenVState extends State<SelectmonthscreenV> {
         backgroundColor: Color(0xff8362D7),
       ),
       body: FutureBuilder<ExerciseResponse>(
-        future: Apimanager.getcategoryvediodesc(month, categ),
+        future: Apimanager.getcategoryvediodesc(month, categ,AppLocalizations.of(context)!.lang),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(

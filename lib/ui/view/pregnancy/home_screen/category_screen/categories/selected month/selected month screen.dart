@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../../data/repo/apis/Api manager/Api manager.dart';
 import ''
     '../../../../../../../data/repo/moduls/baby groth/categoriesResponse.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Selecctedmonthscreen extends StatelessWidget {
   Selecctedmonthscreen({super.key,});
@@ -24,7 +24,7 @@ class Selecctedmonthscreen extends StatelessWidget {
         backgroundColor: Color(0xff8362D7),
       ),
       body: FutureBuilder<BabygrothResponse>(
-        future: Apimanager.getcategorydesc(month,categ),
+        future: Apimanager.getcategorydesc(month,categ,AppLocalizations.of(context)!.lang),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(

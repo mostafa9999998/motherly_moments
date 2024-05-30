@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babygroth%20list%20style.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babygroth%20months%20model.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Babygroth extends StatefulWidget {
    Babygroth({super.key});
   static String babagrothname = 'groth';
@@ -38,7 +38,7 @@ class _BabygrothState extends State<Babygroth> {
                   height: MediaQuery.of(context).size.height * .28,
                 ),
                 Text(
-                  '    Baby’s Monthly Growth',
+                  AppLocalizations.of(context)!.babygeowthT,
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,color: Colors.white),
                 ),
                 SizedBox(
@@ -52,7 +52,7 @@ class _BabygrothState extends State<Babygroth> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                          '''Your baby's growth and development during the first year is both delightful (Those coos! Those cuddles!) and dizzying (with all the crying and feeding and diapering, you've got your hands full). Here's your guide to your baby's first year and all its major milestones (first smile, giggle, step, words), challenges (colic and teething and diaper rash, oh my!) and more.'''),
+                          AppLocalizations.of(context)!.babygrowthhint),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .01,
                       ),

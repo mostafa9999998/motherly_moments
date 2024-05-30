@@ -115,6 +115,7 @@ class Mainprovider extends ChangeNotifier {
       return;
     }
     appLanguage = newlanguage;
+    // lang="/$newlanguage";
     notifyListeners();
   }
 
@@ -161,62 +162,107 @@ class Mainprovider extends ChangeNotifier {
   }
 
   Future<List<WeaningResponse>> getweaning(int month) async {
+    lang = "/$appLanguage";
     Uri url =
         Uri.parse("https://gradhub.hwnix.com/api/get_weaning/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
-    List<WeaningResponse> weaningResponse =
-        jsonResponse.map((json) => WeaningResponse.fromJson(json)).toList();
-    weninglist = weaningResponse;
-    return weaningResponse;
+    if (lang == "/en") {
+      List<WeaningResponse> weaningResponse =
+          jsonResponse.map((json) => WeaningResponse.fromJson(json)).toList();
+      weninglist = weaningResponse;
+      return weaningResponse;
+    } else {
+      List<WeaningResponse> weaningResponse =
+          jsonResponse.map((json) => WeaningResponse.fromJsonar(json)).toList();
+      weninglist = weaningResponse;
+      return weaningResponse;
+    }
   }
 
   Future<List<BottleResponse>> getbottle(int month) async {
-    Uri url = Uri.parse(
+    Uri url;
+    lang = "/$appLanguage";
+    url = Uri.parse(
         "https://gradhub.hwnix.com/api/get_BottleFeeding/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
-    List<BottleResponse> bottleResponse =
-        jsonResponse.map((json) => BottleResponse.fromJson(json)).toList();
-    bottlelist = bottleResponse;
-    return bottleResponse;
+    if (lang == '/en') {
+      List<BottleResponse> bottleResponse =
+          jsonResponse.map((json) => BottleResponse.fromJson(json)).toList();
+      bottlelist = bottleResponse;
+      return bottleResponse;
+    } else {
+      List<BottleResponse> bottleResponse =
+          jsonResponse.map((json) => BottleResponse.fromJsonar(json)).toList();
+      bottlelist = bottleResponse;
+      return bottleResponse;
+    }
   }
 
   Future<List<BrestFeedingResponse>> getbrest(int month) async {
+    lang = "/$appLanguage";
     Uri url = Uri.parse(
         "https://gradhub.hwnix.com/api/get_BreastFeeding/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
-    List<BrestFeedingResponse> brestFeedingResponse = jsonResponse
-        .map((json) => BrestFeedingResponse.fromJson(json))
-        .toList();
-    brestlist = brestFeedingResponse;
-    return brestFeedingResponse;
+    if (lang == '/en') {
+      List<BrestFeedingResponse> brestFeedingResponse = jsonResponse
+          .map((json) => BrestFeedingResponse.fromJson(json))
+          .toList();
+      brestlist = brestFeedingResponse;
+      return brestFeedingResponse;
+    } else {
+      List<BrestFeedingResponse> brestFeedingResponse = jsonResponse
+          .map((json) => BrestFeedingResponse.fromJsonar(json))
+          .toList();
+      brestlist = brestFeedingResponse;
+      return brestFeedingResponse;
+    }
   }
 
   Future<List<ChildGrothResponse>> getchildgroth(int month) async {
+    lang = "/$appLanguage";
     Uri url =
         Uri.parse("https://gradhub.hwnix.com/api/get_ChildGrowth/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
-    List<ChildGrothResponse> childGrothResponse =
-        jsonResponse.map((json) => ChildGrothResponse.fromJson(json)).toList();
-    childgrothlist = childGrothResponse;
-    return childGrothResponse;
+    if (lang == "/en") {
+      List<ChildGrothResponse> childGrothResponse = jsonResponse
+          .map((json) => ChildGrothResponse.fromJson(json))
+          .toList();
+      childgrothlist = childGrothResponse;
+      return childGrothResponse;
+    } else {
+      List<ChildGrothResponse> childGrothResponse = jsonResponse
+          .map((json) => ChildGrothResponse.fromJsonar(json))
+          .toList();
+      childgrothlist = childGrothResponse;
+      return childGrothResponse;
+    }
   }
 
   Future<List<TipsResponse>> gettips(int month) async {
-    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_tips/$month$lang");
+    lang = "/$appLanguage";
+    Uri url = Uri.parse("https://gradhub.hwnix.com/api/get_tip/$month$lang");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
-    List<TipsResponse> tipsResponse =
-        jsonResponse.map((json) => TipsResponse.fromJson(json)).toList();
-    tipslist = tipsResponse;
-    print(tipsResponse);
-    return tipsResponse;
+    if (lang == "/en") {
+      List<TipsResponse> tipsResponse =
+          jsonResponse.map((json) => TipsResponse.fromJson(json)).toList();
+      tipslist = tipsResponse;
+      print(tipsResponse);
+      return tipsResponse;
+    }else{
+      List<TipsResponse> tipsResponse =
+          jsonResponse.map((json) => TipsResponse.fromJsonar(json)).toList();
+      tipslist = tipsResponse;
+      print(tipsResponse);
+      return tipsResponse;
+    }
   }
 
-  Future<void> setloginmesage(String loginrespons) async {  
+  Future<void> setloginmesage(String loginrespons) async {
     await prefs!.setString(login_messagekey, loginrespons);
   }
 

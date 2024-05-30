@@ -5,7 +5,7 @@ import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/c
 import 'package:provider/provider.dart';
 import '../../../../../data/repo/apis/Api manager/Api manager.dart';
 import '../../../../view_model/provider/main provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class CommonIssuesScreen extends StatefulWidget {
   CommonIssuesScreen({super.key});
   static String issuesname = 'issuesn';
@@ -28,7 +28,7 @@ class _CommonIssuesScreenState extends State<CommonIssuesScreen> {
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
-        title: Text('Common Issues',
+        title: Text(AppLocalizations.of(context)!.commonissues,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         leading: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(width: 15),
@@ -52,7 +52,7 @@ class _CommonIssuesScreenState extends State<CommonIssuesScreen> {
               height: MediaQuery.of(context).size.height * .08,
             ),
             Text(
-              'Take a look on these issues',
+              AppLocalizations.of(context)!.commonissuehint,
               style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold,),
               textAlign: TextAlign.center,
             ),
@@ -61,7 +61,7 @@ class _CommonIssuesScreenState extends State<CommonIssuesScreen> {
             ),
             Expanded(
               child: FutureBuilder(
-                  future: Apimanager.getissuesname(),
+                  future: Apimanager.getissuesname(AppLocalizations.of(context)!.lang),
                   builder: (context, snapshot) {
                     if (snapshot.hasData){
                   return GridView.builder(

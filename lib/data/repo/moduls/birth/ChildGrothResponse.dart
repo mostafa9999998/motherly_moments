@@ -11,6 +11,12 @@ class ChildGrothResponse {
     month = json['month'];
     fullSrc = json['FullSrc'];
   }
+  ChildGrothResponse.fromJsonar(dynamic json) {
+    title = json['title_ar'];
+    description = json['description_ar'];
+    month = json['month'];
+    fullSrc = json['FullSrc'];
+  }
   String? title;
   String? description;
   int? month;
@@ -20,6 +26,14 @@ class ChildGrothResponse {
     final map = <String, dynamic>{};
     map['title'] = title;
     map['description'] = description;
+    map['month'] = month;
+    map['FullSrc'] = fullSrc;
+    return map;
+  }
+  Map<String, dynamic> toJsonar() {
+    final map = <String, dynamic>{};
+    map['title_ar'] = title;
+    map['description_ar'] = description;
     map['month'] = month;
     map['FullSrc'] = fullSrc;
     return map;

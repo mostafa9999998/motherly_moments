@@ -3,7 +3,7 @@ import 'package:motherly_moments/ui/view/pregnancy/home_screen/master_bar.dart';
 import 'package:provider/provider.dart';
 import '../../../data/repo/apis/Api manager/Api manager.dart';
 import '../../view_model/provider/main provider.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class Babyweeksscreen extends StatelessWidget {
   const Babyweeksscreen({super.key});
   static const String babyweeksname = 'babyweeksname';
@@ -29,7 +29,7 @@ class Babyweeksscreen extends StatelessWidget {
                           vertical: MediaQuery.of(context).size.height * .06),
                       child:
                       Center(child: Image.asset('assets/images/Mask Group.png'))),
-                  Text('Your baby at ${snapshot.data!.weeks} weeks',
+                  Text('Your baby at ${snapshot.data!.weeks} weeks', 
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28)),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .05,

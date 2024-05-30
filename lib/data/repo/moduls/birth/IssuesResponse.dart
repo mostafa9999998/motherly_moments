@@ -11,6 +11,12 @@ class IssuesResponse {
     title = json['title'];
     description = json['description'];
   }
+  IssuesResponse.fromJsonar(dynamic json) {
+    id = json['id'];
+    issueId = json['issue_id'];
+    title = json['title_ar'];
+    description = json['description_ar'];
+  }
   int? id;
   int? issueId;
   String? title;
@@ -22,6 +28,14 @@ class IssuesResponse {
     map['issue_id'] = issueId;
     map['title'] = title;
     map['description'] = description;
+    return map;
+  }
+  Map<String, dynamic> toJsonar() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['issue_id'] = issueId;
+    map['title_ar'] = title;
+    map['description_ar'] = description;
     return map;
   }
 

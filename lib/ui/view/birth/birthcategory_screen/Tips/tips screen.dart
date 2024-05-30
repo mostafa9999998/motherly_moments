@@ -4,6 +4,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/Tips/tips%20
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/Tips/tipsweektap.dart';
 import 'package:provider/provider.dart';
 import '../../../../view_model/provider/main provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TipsScreen extends StatelessWidget {
   const TipsScreen({super.key});
@@ -17,7 +18,7 @@ static String TipsScreenname ='TipsScreen';
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
-        title: Text("Tips and activities",
+        title: Text(AppLocalizations.of(context)!.tipsandactivities,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         leading: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(width: 15),
@@ -40,14 +41,14 @@ static String TipsScreenname ='TipsScreen';
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  showtaps(0),
-                  showtaps(1),
-                  showtaps(2),
-                  showtaps(3),
-                  showtaps(4),
-                  showtaps(5),
-                  showtaps(6),
-                  showtaps(7),
+                  showtaps(0,context),
+                  showtaps(1,context),
+                  showtaps(2,context),
+                  showtaps(3,context),
+                  showtaps(4,context),
+                  showtaps(5,context),
+                  showtaps(6,context),
+                  showtaps(7,context),
                 ],
               ),
             ),
@@ -70,8 +71,8 @@ static String TipsScreenname ='TipsScreen';
     );
   }
 
-  showtaps(int i) {
-    var list=TipsMonthmodel.categrylist();
+  showtaps(int i,BuildContext context) {
+    var list=TipsMonthmodel.categrylist(context);
    return TipsWeekTap(tipsMonthmodel:list[i] ,);
   }
 }
