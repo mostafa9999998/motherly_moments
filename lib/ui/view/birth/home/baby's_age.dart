@@ -36,7 +36,7 @@ class BabyAge extends StatelessWidget {
                           vertical: MediaQuery.of(context).size.height * .02
                       ),
                       child:
-                      Center(child: Image.asset('assets/images/babybirth.png'))),
+                      Center(child: Image.asset('assets/images/babyphoto.png'))),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .05,
                   ),
@@ -69,7 +69,7 @@ class BabyAge extends StatelessWidget {
                         vertical: MediaQuery.of(context).size.height * .02
                     ),
                     child:
-                    Center(child: Image.asset('assets/images/babybirth.png'))),
+                    Center(child: Image.asset('assets/images/babyphoto.png'))),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .05,
                 ),

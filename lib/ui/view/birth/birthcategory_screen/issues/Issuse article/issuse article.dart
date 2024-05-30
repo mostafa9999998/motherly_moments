@@ -35,9 +35,10 @@ class IssuesArticle extends StatelessWidget {
         ]),
       ),
       body: Container(
-        padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * .05,
-            top:MediaQuery.of(context).size.height * .03 ,
-            left:MediaQuery.of(context).size.width * .05 ),
+        padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * .05),
+        // padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * .05,
+        //     top:MediaQuery.of(context).size.height * .03 ,
+        //     left:MediaQuery.of(context).size.width * .05 ),
         child: FutureBuilder(
           future: Apimanager.getissues(provider.getissueid(),AppLocalizations.of(context)!.lang),
           builder: (context, snapshot) {

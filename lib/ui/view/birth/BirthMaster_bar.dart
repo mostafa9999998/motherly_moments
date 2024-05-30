@@ -25,7 +25,7 @@ class _BirthMasterscreenState extends State<BirthMasterscreen> {
     Mainprovider provider = Provider.of(context);
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: MediaQuery.of(context).size.width * .22,
+        toolbarHeight: MediaQuery.of(context).size.width * .15,
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
