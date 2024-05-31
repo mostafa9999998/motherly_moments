@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:motherly_moments/ui/cry%20analizer/cryAnalyzerScreen.dart';
+import 'package:motherly_moments/ui/cry%20analizer/result.dart';
 import 'package:motherly_moments/ui/view/Chat/Chat%20contact%20list/Chat%20select%20screen.dart';
 import 'package:motherly_moments/ui/view/Chat/Chat%20screen/Chat%20screen.dart';
 import 'package:motherly_moments/ui/view/Chat/chat%20bot/chatbotscreen.dart';
@@ -18,7 +20,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/nutrition/we
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/vaccinations/vaccination%20screen.dart';
 import 'package:motherly_moments/ui/view/display%20wedget/display%20wedget.dart';
 import 'package:motherly_moments/ui/view/first_screens/first.dart';
-import 'package:motherly_moments/ui/view/first_screens/second.dart';
+import 'package:motherly_moments/ui/view/first_screens/second.dart' ;
 import 'package:motherly_moments/ui/view/first_screens/third.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_email.dart';
 import 'package:motherly_moments/ui/view/forgetpassword/screen_newpass.dart';
@@ -40,10 +42,10 @@ import 'ui/view/pregnancy/home_screen/category_screen/categories/vitamine/vitami
 import 'ui/view/pregnancy/home_screen/master_bar.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-void main() async {
+
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
   Mainprovider provider = Mainprovider();
   runApp(ChangeNotifierProvider(
       create: (context) => provider, child: const MyApp()));
@@ -54,8 +56,8 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    var providerr = Provider.of<Mainprovider>(context);
-
+  var providerr = Provider.of<Mainprovider>(context);
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [
@@ -101,9 +103,12 @@ class MyApp extends StatelessWidget {
         ChatScreen.ChatScreenname : (_) => ChatScreen(),
         DisplayWedget.diplayname : (_) => DisplayWedget(),
         ChatbotScreen.ChatbotScreenname : (_) => ChatbotScreen(),
-        ChatSelectScreen.ChatselectScreenname : (_)=>ChatSelectScreen()
+        ChatSelectScreen.ChatselectScreenname : (_)=>ChatSelectScreen(),
+        CryAnalyzerResult.CryAnalyzerResultname : (_) => CryAnalyzerResult(),
+        CryAnalyzerScreen.CryAnalyzerScreennzme : (_) => CryAnalyzerScreen()
       },
-      initialRoute: DisplayWedget.diplayname,
+      initialRoute:DisplayWedget.diplayname ,
     );
   }
 }
+

@@ -104,7 +104,9 @@
 "babybuttonhint" :"See my baby milestones",
 "babyweeh0"     :"Your baby at 0 weeks",
 "commonissuehint" :"Take a look on these issues",
-"logout" :"Log Out"
+"logout" :"Log Out",
+"cry" :"cry analyzer"
+
 
 
 }

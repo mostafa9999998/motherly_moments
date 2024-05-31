@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:motherly_moments/ui/cry%20analizer/cryAnalyzerScreen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/Child%20groth/child%20Groth%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/Tips/tips%20screen.dart';
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/issues/issues%20screen.dart';
@@ -44,6 +45,11 @@ class BirthCategoryl {
           title:AppLocalizations.of(context)!.commonissues,
           imagepath: 'assets/images/commonissues.png',
           screenname: CommonIssuesScreen.issuesname),
+      BirthCategoryl(
+          id: 6,
+          title:'cry analyzer',
+          imagepath: 'assets/images/babyrecord.png',
+          screenname: CryAnalyzerScreen.CryAnalyzerScreennzme),
     ];
   }
 }
