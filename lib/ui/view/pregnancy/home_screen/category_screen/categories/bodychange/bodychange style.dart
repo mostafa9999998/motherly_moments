@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/bodychange/bodychange%20model.dart';
 
@@ -28,27 +29,26 @@ class Bodychangemonths extends StatelessWidget {
                   bodychangehlist.imagepath,
                   fit: BoxFit.fill,
                 )),
-            SizedBox(
-              // width: MediaQuery.of(context).size.width * 0.015,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.02,
-                ),
-                Text(
-                  bodychangehlist.title,
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Text(
-                  bodychangehlist.desc,
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
-                ),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.02,
+                  ),
+                  Text(
+                    bodychangehlist.title,
+                    style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.01,
+                  ),
+                  Text(
+                    bodychangehlist.desc,
+                    style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+                  ),
+                ],
+              ),
             )
           ],
         ),

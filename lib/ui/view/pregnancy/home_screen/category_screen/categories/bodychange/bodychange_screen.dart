@@ -11,10 +11,9 @@ class Bodychange extends StatefulWidget {
 }
 
 class _BodychangeState extends State<Bodychange> {
-   
+
   @override
   Widget build(BuildContext context) {
-    var bodychangelist =Bodychangehlist.categrylist(context);
 
     return Scaffold(
       body: Stack(
@@ -60,22 +59,15 @@ class _BodychangeState extends State<Bodychange> {
                         margin: EdgeInsets.symmetric(horizontal: 10),
                         color: Color(0xffa19393),
                       ),
-                      Container(
-                        child: ListView.builder(shrinkWrap: true,
-                        itemCount:bodychangelist.length ,
-                          itemBuilder: (context,index){
-                           return Bodychangemonths(bodychangehlist: bodychangelist[index],); 
-                        }),
-                       )
-                      // showwedjetmonth(0),
-                      // showwedjetmonth(1),
-                      // showwedjetmonth(2),
-                      // showwedjetmonth(3),
-                      // showwedjetmonth(4),
-                      // showwedjetmonth(5),
-                      // showwedjetmonth(6),
-                      // showwedjetmonth(7),
-                      // showwedjetmonth(8),
+                      showwedjetmonth(0,context),
+                      showwedjetmonth(1,context),
+                      showwedjetmonth(2,context),
+                      showwedjetmonth(3,context),
+                      showwedjetmonth(4,context),
+                      showwedjetmonth(5,context),
+                      showwedjetmonth(6,context),
+                      showwedjetmonth(7,context),
+                      showwedjetmonth(8,context),
                     ],
                   ),
                 ),
@@ -88,7 +80,8 @@ class _BodychangeState extends State<Bodychange> {
     );
   }
 
-  // showwedjetmonth(int i) {
-  //  return Bodychangemonths(bodychangehlist: bodychangelist[i],);
-  // }
+  showwedjetmonth(int i,BuildContext context) {
+    var bodychangelist =Bodychangehlist.categrylist(context);
+    return Bodychangemonths(bodychangehlist: bodychangelist[i],);
+  }
 }

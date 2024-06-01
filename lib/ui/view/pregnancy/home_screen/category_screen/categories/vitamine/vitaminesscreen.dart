@@ -8,7 +8,6 @@ class Vitamines_screen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    var list = Vitaminelist.vitaminelist(context);
     return Scaffold(
       body: Stack(
         children: [
@@ -45,17 +44,10 @@ class Vitamines_screen extends StatelessWidget {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * .01,
                       ),
-                      Container(
-                        child: ListView.builder(shrinkWrap: true,
-                        itemCount:list.length ,
-                          itemBuilder: (context,index){
-                           return Vitaminestyle(vitaminelist: list[index],);
-                        }),
-                       )
-                     // showwedjetmonth(0),
-                      // showwedjetmonth(1),
-                      // showwedjetmonth(2),
-                      // showwedjetmonth(3),
+                     showwedjetmonth(0,context),
+                      showwedjetmonth(1,context),
+                      showwedjetmonth(2,context),
+                      showwedjetmonth(3, context),
 
                     ],
                   ),
@@ -69,7 +61,8 @@ class Vitamines_screen extends StatelessWidget {
     );
   }
 
-  // showwedjetmonth(int i) {
-  // return Vitaminestyle(vitaminelist: list[i],);
-  // }
+  showwedjetmonth(int i,BuildContext context) {
+    var list = Vitaminelist.vitaminelist(context);
+    return Vitaminestyle(vitaminelist: list[i],);
+  }
 }
