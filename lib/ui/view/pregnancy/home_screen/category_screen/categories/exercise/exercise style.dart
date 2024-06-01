@@ -34,11 +34,9 @@ class Exercisesstyle extends StatelessWidget {
             SizedBox(
                width: MediaQuery.of(context).size.width * 0.015,
             ),
-            Center(
-              child: Text(
-                exerciseslist.title,
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 17),
-              ),
+            Text(
+              exerciseslist.title,
+              style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16,),
             ),
             /*Column(
               crossAxisAlignment: CrossAxisAlignment.start,

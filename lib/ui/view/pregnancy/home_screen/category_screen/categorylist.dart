@@ -1,6 +1,7 @@
 //import 'dart:js';
 
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:motherly_moments/ui/cry%20analizer/cryAnalyzerScreen.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/babyGroth_screen/babyGroth_screen.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/bodychange/bodychange_screen.dart';
 import 'package:motherly_moments/ui/view/pregnancy/home_screen/category_screen/categories/courses/course_screen.dart';
@@ -53,7 +54,12 @@ class Categoryl {
           id: 'courses',
           title:  AppLocalizations.of(context)!.courses,
           imagepath: 'assets/images/course.png',
-          screenname: Courses_screen.coursesename)
+          screenname: Courses_screen.coursesename),
+      Categoryl(
+          id: 'cryanalyzer',
+          title:AppLocalizations.of(context)!.cry,
+          imagepath: 'assets/images/babyrecord.png',
+          screenname: CryAnalyzerScreen.CryAnalyzerScreennzme),
     ];
   }
 }
