@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../data/repo/apis/Api manager/Api manager.dart';
 import '../../../view_model/provider/main provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class BabyAge extends StatelessWidget {
   const BabyAge({super.key});
@@ -40,7 +41,7 @@ class BabyAge extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .05,
                   ),
-                  Text('New born will remind you of important milestones about your baby',
+                  Text(AppLocalizations.of(context)!.birthint,
                       style: TextStyle(fontWeight: FontWeight.w300, fontSize: 22),
                       textAlign: TextAlign.center),
                 ],
@@ -57,7 +58,7 @@ class BabyAge extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .01,
                 ),
-                Text('Your baby is 0 years and 0 months and 0 days old',
+                Text(AppLocalizations.of(context)!.birthweek0,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),textAlign: TextAlign.center),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .04,
@@ -73,7 +74,7 @@ class BabyAge extends StatelessWidget {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * .05,
                 ),
-                Text('New born will remind you of important milestones about your baby',
+                Text(AppLocalizations.of(context)!.birthint,
                     style: TextStyle(fontWeight: FontWeight.w300, fontSize: 22),
                     textAlign: TextAlign.center),
               ],

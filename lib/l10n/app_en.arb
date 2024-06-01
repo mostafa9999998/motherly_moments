@@ -104,7 +104,10 @@
 "babybuttonhint" :"See my baby milestones",
 "babyweeh0"     :"Your baby at 0 weeks",
 "commonissuehint" :"Take a look on these issues",
-"logout" :"Log Out"
+"logout" :"Log Out",
+
+"birthint":"New born will remind you of important milestones about your baby",
+"birthweek0":"Your baby is 0 years and 0 months and 0 days old"
 
 
 }

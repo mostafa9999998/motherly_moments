@@ -258,7 +258,7 @@ class Apimanager {
 
   static Future<List<IssuesResponse>> getissues(
       int issue_id, String langauge) async {
-    Uri url = Uri.parse("$apikey/api/get_issue/$issue_id$lang");
+    Uri url = Uri.parse("$apikey/api/get_issue/$issue_id$langauge");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     if (langauge == "/en") {
@@ -283,7 +283,7 @@ class Apimanager {
 
   static Future<List<IssusesNameResponse>> getissuesname(
       String langauge) async {
-    Uri url = Uri.parse("$apikey/api/get_issues$lang");
+    Uri url = Uri.parse("$apikey/api/get_issues$langauge");
     Response response = await get(url);
     List<dynamic> jsonResponse = jsonDecode(response.body);
     if (langauge == "/en") {

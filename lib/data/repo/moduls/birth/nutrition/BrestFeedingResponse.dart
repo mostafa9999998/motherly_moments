@@ -12,9 +12,9 @@ class BrestFeedingResponse {
     fullSrc = json['FullSrc'];
   }
    BrestFeedingResponse.fromJsonar(dynamic json) {
-    title = json['title'];
+    title = json['title_ar'];
     description = json['description_ar'];
-    month = json['month_ar'];
+    month = json['month'];
     fullSrc = json['FullSrc'];
   }
   String? title;

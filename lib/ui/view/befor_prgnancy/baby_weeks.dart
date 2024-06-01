@@ -34,14 +34,14 @@ class Babyweeksscreen extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .05,
                   ),
-                  Text('Your baby is now the size of poppy seed- look at them grow!',
+                  Text(AppLocalizations.of(context)!.babyweeksT,
                       style: TextStyle(fontWeight: FontWeight.w300, fontSize: 18),
                       textAlign: TextAlign.center),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .03,
                   ),
                   Text(
-                      'We’ll help you track their growth and update you on your baby’s weekly milestones',
+                  AppLocalizations.of(context)!.babyweeksint,
                       style: TextStyle(
                         fontWeight: FontWeight.w300,
                         fontSize: 18,
@@ -56,7 +56,7 @@ class Babyweeksscreen extends StatelessWidget {
                         Navigator.pushReplacementNamed(context, Masterscreen.mastername);
                       },
                       child: Text(
-                        'See my baby milestones',
+                        AppLocalizations.of(context)!.babybuttonhint,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -87,19 +87,19 @@ class Babyweeksscreen extends StatelessWidget {
                           vertical: MediaQuery.of(context).size.height * .06),
                       child:
                       Center(child: Image.asset('assets/images/Mask Group.png'))),
-                  Text('Your baby at 0 weeks',
+                  Text(AppLocalizations.of(context)!.babyweeh0,
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28)),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .05,
                   ),
-                  Text('Your baby is now the size of poppy seed- look at them grow!',
+                  Text( AppLocalizations.of(context)!.babyweeksT,
                       style: TextStyle(fontWeight: FontWeight.w300, fontSize: 18),
                       textAlign: TextAlign.center),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .03,
                   ),
                   Text(
-                      'We’ll help you track their growth and update you on your baby’s weekly milestones',
+                       AppLocalizations.of(context)!.babyweeksint,
                       style: TextStyle(
                         fontWeight: FontWeight.w300,
                         fontSize: 18,
@@ -114,7 +114,7 @@ class Babyweeksscreen extends StatelessWidget {
                         Navigator.pushReplacementNamed(context, Masterscreen.mastername);
                       },
                       child: Text(
-                        'See my baby milestones',
+                         AppLocalizations.of(context)!.babybuttonhint,
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
