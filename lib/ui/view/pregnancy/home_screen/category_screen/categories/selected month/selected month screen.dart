@@ -16,7 +16,7 @@ class Selecctedmonthscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(' Insights',
+        title: Text(AppLocalizations.of(context)!.insights,
             style: TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 22,

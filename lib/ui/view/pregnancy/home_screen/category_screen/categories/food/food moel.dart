@@ -24,19 +24,19 @@ class Foodlist {
           title: AppLocalizations.of(context)!.foodtopic1,
           imagepath: 'assets/images/foodmonth1.png',
           screenname: 'Food',
-          desc: 'The first thrimester is the time when\n the baby'),
+          desc:AppLocalizations.of(context)!.foodtopicdes1),
       Foodlist(
           id: 3,
           title:AppLocalizations.of(context)!.foodtopic2 ,
           imagepath: 'assets/images/foodmonth1.png',
           screenname: 'Food',
-          desc: 'The second thrimester is the time when\n the baby'),
+          desc: AppLocalizations.of(context)!.foodtopicdes2),
       Foodlist(
           id: 6,
           title: AppLocalizations.of(context)!.foodtopic3,
           imagepath: 'assets/images/foodmonth1.png',
           screenname: 'Food',
-          desc: 'The last thrimester is the time when\n the baby'),
+          desc: AppLocalizations.of(context)!.foodtopicdes3),
     ];
   }
 }
