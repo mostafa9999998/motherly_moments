@@ -80,7 +80,7 @@ class CryAnalyzerResult extends StatelessWidget {
                       return  Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(snapshot.data!.predictedClasses??'null',style: TextStyle(color:Color(0xff8461D5) ,fontWeight:FontWeight.w600 ,fontSize: 28),)
+                          Text(snapshot.data!.predictedClasses??'this file type not\n   supported',style: TextStyle(color:Color(0xff8461D5) ,fontWeight:FontWeight.w600 ,fontSize: 28),)
                         ],
                       );
                     }else if (snapshot.hasError){
