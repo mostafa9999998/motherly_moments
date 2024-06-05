@@ -1,13 +1,18 @@
+import 'dart:async';
+import 'dart:io';
 import 'dart:ui';
-
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:motherly_moments/ui/cry%20analizer/result.dart';
+import 'package:motherly_moments/ui/view_model/provider/main%20provider.dart';
+import 'package:provider/provider.dart';
 
 class CryAnalyzerScreen extends StatelessWidget {
   const CryAnalyzerScreen({super.key});
  static const String CryAnalyzerScreennzme = 'CryAnalyzerScreen';
   @override
   Widget build(BuildContext context) {
+    Mainprovider mainprovider=Provider.of(context);
     return Scaffold(
       body: Container(
         child: Column(
@@ -67,7 +72,8 @@ class CryAnalyzerScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * .14
             ),
             InkWell(
-              onTap: () {
+              onTap: () async{
+                mainprovider.file = await pickaudeofile();
                   Navigator.pushNamed(context,CryAnalyzerResult.CryAnalyzerResultname );
               },
               child: Container(
@@ -98,10 +104,24 @@ class CryAnalyzerScreen extends StatelessWidget {
             SizedBox(
                 height: MediaQuery.of(context).size.height * .02
             ),
-            Text('tap to record',style: TextStyle(color:Color(0xff8461D5) ,fontWeight:FontWeight.w600 ,fontSize: 18),)
+            Text('tap to select record',style: TextStyle(color:Color(0xff8461D5) ,fontWeight:FontWeight.w600 ,fontSize: 18),)
           ],
         ),
       ),
     );
+  }
+
+  Future<File> pickaudeofile()async {
+    // FilePickerResult? result = await FilePicker.platform.pickFiles();
+    // if (result != null) {
+    //   File file = File(result.files.single.path!);
+    //   return file;
+    // } else {
+    //   return null;
+    //   // User canceled the picker
+    // }
+    FilePickerResult? result = await FilePicker.platform.pickFiles();
+    File file = File(result!.files.single.path!);
+       return file;
   }
 }

@@ -47,7 +47,7 @@ class BirthCategoryl {
           screenname: CommonIssuesScreen.issuesname),
       BirthCategoryl(
           id: 6,
-          title:'cry analyzer',
+          title:AppLocalizations.of(context)!.cry,
           imagepath: 'assets/images/babyrecord.png',
           screenname: CryAnalyzerScreen.CryAnalyzerScreennzme),
     ];

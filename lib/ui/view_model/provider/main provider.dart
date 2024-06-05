@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ import '../../../data/repo/moduls/todo/TaskResponse.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Mainprovider extends ChangeNotifier {
+  late File file ;
   DateTime date = DateTime.now();
   int month = 1;
   String categ = 'exercise';

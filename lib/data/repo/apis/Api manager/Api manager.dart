@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -11,6 +12,7 @@ import 'package:motherly_moments/data/repo/moduls/chat/AddFriendBody.dart';
 import 'package:motherly_moments/data/repo/moduls/chat/FriendsResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/chat/chatbot/BotMessageBody.dart';
 import 'package:motherly_moments/data/repo/moduls/chat/chatbot/BotResponse.dart';
+import 'package:motherly_moments/data/repo/moduls/cry%20analyzer/CryAnalyzerResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/login/LoginResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/pregnancy%20weeks/WeeksResponse.dart';
 import 'package:motherly_moments/data/repo/moduls/todo/AddtaskResponse.dart';
@@ -343,5 +345,48 @@ class Apimanager {
      //var b = LoginResponse.fromJson(jsonDecode(response.body));
    }
  }
+
+
+  static Future<CryAnalyzerResponse> sendcry(File file) async {
+    Uri url = Uri.parse("https://cera.hyperfinition.com/predict");
+
+    // Create a multipart request
+    final request = MultipartRequest('POST', url);
+
+    // Add the file to the request
+    request.files.add(await MultipartFile.fromPath('file', file.path));
+
+    try {
+      // Send the request and get the response
+      final response = await request.send();
+      if (response.statusCode == 200) {
+        // Read the response body
+        final responseBody = await response.stream.bytesToString();
+        final responseData = jsonDecode(responseBody);
+
+        // Create the CryAnalyzerResponse object
+        final b = CryAnalyzerResponse.fromJson(responseData);
+        return b;
+      } else {
+        // Handle the error
+        throw Exception('Error sending file to API: ${response.statusCode}');
+      }
+    } catch (e) {
+      // Handle any other errors
+      throw Exception('Error sending file to API: $e');
+    }
+  }
+  // static Future<CryAnalyzerResponse> sendcry(File file) async {
+  //   Uri url = Uri.parse("$apikey/api/sendai");
+  //   // I am connected to a mobile network.
+  //   BotMessageBody loginBody = BotMessageBody(message: messag);
+  //   var response = await post(url, body: loginBody.toJson());
+  //
+  //   var b = CryAnalyzerResponse.fromJson(jsonDecode(response.body));
+  //   return b ;
+  //
+  // }
+
+
 
 }
