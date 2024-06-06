@@ -35,10 +35,11 @@ class _LoginscreenState extends State<Loginscreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                SizedBox(height: 100,),
-                Center(child: Image(image:AssetImage('assets/images/logpicture.png'),)),
-                Center(child: Image(image:AssetImage('assets/images/NEWBORN.png'))),
-                SizedBox(height: 27,),
+                SizedBox(height: 40,),
+                Center(child: Container(
+                    height: MediaQuery.of(context).size.height*.3,
+                    width: MediaQuery.of(context).size.width*.99,
+                    child: Image(image:AssetImage('assets/images/Napp_logo.png'),fit: BoxFit.fill,))),
                 Text('Email address',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 22),),
                 Container(
                   child: TextFormField(

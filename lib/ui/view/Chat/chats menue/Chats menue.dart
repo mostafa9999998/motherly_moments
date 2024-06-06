@@ -14,11 +14,11 @@ class ChatsMenue extends StatelessWidget {
           SizedBox(height: MediaQuery.of(context).size.height*.07,),
           Text('Select Chat',textAlign: TextAlign.center,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 28),),
           SizedBox(height: MediaQuery.of(context).size.height*.03,),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, ChatbotScreen.ChatbotScreenname);
-            },
-            child: Center(
+          Center(
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, ChatbotScreen.ChatbotScreenname);
+              },
               child: Container(
                 height: MediaQuery.of(context).size.height*.3,
                 width: MediaQuery.of(context).size.width*.6,
@@ -44,11 +44,11 @@ class ChatsMenue extends StatelessWidget {
             ),
           ),
           SizedBox(height: MediaQuery.of(context).size.height*.05,),
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, ChatSelectScreen.ChatselectScreenname);
-            },
-            child: Center(
+          Center(
+            child: InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, ChatSelectScreen.ChatselectScreenname);
+              },
               child: Container(
                 height: MediaQuery.of(context).size.height*.3,
                 width: MediaQuery.of(context).size.width*.6,

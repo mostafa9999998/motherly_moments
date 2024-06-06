@@ -33,19 +33,23 @@ class FriendsResponse {
 class Friends {
   Friends({
       this.friendName, 
-      this.friendId,});
+      this.friendId, 
+      this.image,});
 
   Friends.fromJson(dynamic json) {
     friendName = json['friend_name'];
     friendId = json['friend_id'];
+    image = json['image'];
   }
   String? friendName;
   int? friendId;
+  String? image;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['friend_name'] = friendName;
     map['friend_id'] = friendId;
+    map['image'] = image;
     return map;
   }
 

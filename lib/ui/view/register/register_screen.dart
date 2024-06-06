@@ -25,14 +25,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: Form(
         key: formkey,
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 28,horizontal: 20),
+          padding: EdgeInsets.symmetric(vertical: 20,horizontal: 20),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
                children: [
-                 Center(child: Image(image:AssetImage('assets/images/logpicture.png'),)),
-                 Center(child: Image(image:AssetImage('assets/images/NEWBORN.png'))),
-                 SizedBox(height: 10,),
+                 Center(child: Container(
+                     height: MediaQuery.of(context).size.height*.25,
+                     width: MediaQuery.of(context).size.width*.99,
+                     child: Image(image:AssetImage('assets/images/Napp_logo.png'),fit: BoxFit.fill,))),
                  Textform(title: 'Full Name', hint: 'name',controller: namecontroller,
                  validator: (value) {
                    if (value!.isEmpty || value.trim().isEmpty){

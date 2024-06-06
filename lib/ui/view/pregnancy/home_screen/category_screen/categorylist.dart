@@ -55,11 +55,6 @@ class Categoryl {
           title:  AppLocalizations.of(context)!.courses,
           imagepath: 'assets/images/course.png',
           screenname: Courses_screen.coursesename),
-      Categoryl(
-          id: 'cryanalyzer',
-          title:AppLocalizations.of(context)!.cry,
-          imagepath: 'assets/images/babyrecord.png',
-          screenname: CryAnalyzerScreen.CryAnalyzerScreennzme),
     ];
   }
 }

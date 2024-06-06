@@ -30,7 +30,7 @@ class FriendStyle extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(150),
-                  image:DecorationImage(image: AssetImage('assets/images/avatar-icon-human.jpg'),fit: BoxFit.fill)
+                  image:DecorationImage(image: NetworkImage(friendsResponse.image??""),fit: BoxFit.fill)
                 ),
                   width: MediaQuery.of(context).size.width * 0.18,
                   height: MediaQuery.of(context).size.width * 0.18,
