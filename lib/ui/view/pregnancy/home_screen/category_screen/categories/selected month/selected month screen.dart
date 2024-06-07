@@ -43,7 +43,7 @@ class Selecctedmonthscreen extends StatelessWidget {
                     borderRadius: BorderRadius.circular(25),
                     color: Colors.yellow,
                   ),
-                  child: Text(snapshot.error.toString()),
+                  child: Text('Some thing went Wrong'),
                 ),
                   ElevatedButton(onPressed: () {}, child: Text('Try Again'))
                 ]

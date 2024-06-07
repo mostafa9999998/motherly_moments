@@ -29,7 +29,7 @@ class Babyweeksscreen extends StatelessWidget {
                           vertical: MediaQuery.of(context).size.height * .06),
                       child:
                       Center(child: Image.asset('assets/images/Mask Group.png'))),
-                  Text('Your baby at ${snapshot.data!.weeks} weeks', 
+                  Text('${AppLocalizations.of(context)!.babyweektext1}  ${AppLocalizations.of(context)!.weeks}${snapshot.data!.weeks}',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28)),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .05,

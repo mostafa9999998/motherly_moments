@@ -4,6 +4,7 @@ import 'package:motherly_moments/ui/view/birth/birthcategory_screen/Child%20grot
 import 'package:motherly_moments/ui/view/birth/birthcategory_screen/Child%20groth/childweektap.dart';
 import 'package:provider/provider.dart';
 import '../../../../view_model/provider/main provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ChildGrothScreen extends StatelessWidget {
   const ChildGrothScreen({super.key});
@@ -18,7 +19,7 @@ static String ChildGrothScreenname ='ChildGrothScreen';
         elevation: 0.01,
         backgroundColor: Colors.white,
         leadingWidth: MediaQuery.of(context).size.width * .23,
-        title: Text("Child Groth",
+        title: Text(AppLocalizations.of(context)!.childgrowth,
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
         leading: Row(mainAxisAlignment: MainAxisAlignment.end, children: [
           SizedBox(width: 15),
@@ -43,14 +44,14 @@ static String ChildGrothScreenname ='ChildGrothScreen';
         
               child: Row(
                 children: [
-                  showtaps(0),
-                  showtaps(1),
-                  showtaps(2),
-                  showtaps(3),
-                  showtaps(4),
-                  showtaps(5),
-                  showtaps(6),
-                  showtaps(7),
+                  showtaps(0,context),
+                  showtaps(1,context),
+                  showtaps(2,context),
+                  showtaps(3,context),
+                  showtaps(4,context),
+                  showtaps(5,context),
+                  showtaps(6,context),
+                  showtaps(7,context),
                 ],
               ),
             ),
@@ -73,8 +74,8 @@ static String ChildGrothScreenname ='ChildGrothScreen';
     );
   }
 
-  showtaps(int i) {
-    var list = ChildgrothMonthmodel.categrylist();
+  showtaps(int i,BuildContext context) {
+    var list = ChildgrothMonthmodel.categrylist(context);
    return ChildWeekTap(childgrothMonthmodel:list[i] ,);
   }
 }

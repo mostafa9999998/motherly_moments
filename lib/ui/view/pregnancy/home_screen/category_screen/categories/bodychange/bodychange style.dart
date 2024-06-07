@@ -46,6 +46,7 @@ class Bodychangemonths extends StatelessWidget {
                   Text(
                     bodychangehlist.desc,
                     style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+                    maxLines: 2,
                   ),
                 ],
               ),

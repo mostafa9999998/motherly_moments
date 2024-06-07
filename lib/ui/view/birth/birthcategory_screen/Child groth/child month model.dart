@@ -1,41 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class ChildgrothMonthmodel{
   int id ;
   String weekname;
   ChildgrothMonthmodel({required this.id,required this.weekname});
-  static List<ChildgrothMonthmodel> categrylist() {
+  static List<ChildgrothMonthmodel> categrylist(BuildContext context) {
     return [
       ChildgrothMonthmodel(
           id:1 ,
-          weekname:'1-3 months'
+          weekname:AppLocalizations.of(context)!.tipsmonth1
       ),
       ChildgrothMonthmodel(
           id:3 ,
-          weekname:'3-6 months'
+          weekname:AppLocalizations.of(context)!.tipsmonth3
       ),
       ChildgrothMonthmodel(
           id:6 ,
-          weekname:'6-9 months'
+          weekname:AppLocalizations.of(context)!.tipsmonth6
       ),
       ChildgrothMonthmodel(
           id:9 ,
-          weekname:'9-12 months'
+          weekname:AppLocalizations.of(context)!.tipsmonth9
       ),
       ChildgrothMonthmodel(
           id:12 ,
-          weekname:'12-15 months'
+          weekname:AppLocalizations.of(context)!.tipsmonth12
       ),
       ChildgrothMonthmodel(
           id:15 ,
-          weekname:'15-18 months'
+          weekname:AppLocalizations.of(context)!.tipsmonth15
       ),
       ChildgrothMonthmodel(
           id:18 ,
-          weekname:'18-21 months'
+          weekname:AppLocalizations.of(context)!.tipsmonth18
       ),
       ChildgrothMonthmodel(
           id:21 ,
-          weekname:'21-24 months'
+          weekname:AppLocalizations.of(context)!.tipsmonth21
       ),
     ];
   }

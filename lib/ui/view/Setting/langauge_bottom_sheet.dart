@@ -15,44 +15,57 @@ class languageBottomSheet extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              InkWell(
-                onTap: () {
+          InkWell(
+            onTap: () {
               providerr.changeLanguage('en');
             },
-                child: Text(
-                  AppLocalizations.of(context)!.english,
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Color(0xff8461D5),
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              Icon(
-                Icons.check,
-                size: 30,
-                color: Color(0xff8461D5),
-              )
-            ],
+            child: providerr.appLanguage=='en' ?
+            getSelectedItemwidget( AppLocalizations.of(context)!.english,context):
+            getunSelectedItemwidget( AppLocalizations.of(context)!.english,context)
           ),
           InkWell(
             onTap: () {
               providerr.changeLanguage('ar');
             },
-            child: Text(
-              AppLocalizations.of(context)!.arabic,
-              style: TextStyle(
-                fontSize: 20,
-                color: Color.fromARGB(255, 107, 86, 150),
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            child: providerr.appLanguage=='ar' ?
+            getSelectedItemwidget( AppLocalizations.of(context)!.arabic,context):
+            getunSelectedItemwidget( AppLocalizations.of(context)!.arabic,context)
           )
         ],
       ),
     );
   }
+
+  Widget getSelectedItemwidget(String text, BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          text,
+          style: TextStyle(
+            fontSize: 20,
+            color: Color(0xff8461D5),
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Icon(
+          Icons.check,
+          size: 30,
+          color: Color(0xff8461D5),
+        )
+      ],
+    );
+  }
+
+  Widget getunSelectedItemwidget(String text, BuildContext context) {
+    return
+      Text(text,
+        style: TextStyle(
+          fontSize: 20,
+          color: Color.fromARGB(255, 20, 18, 22),
+          fontWeight: FontWeight.bold,
+        ),
+      );
+  }
+
 }

@@ -60,6 +60,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                      keyboardtype: TextInputType.phone,controller:phonecontroller ,validator: (value) {
                      if (value!.isEmpty || value.trim().isEmpty){
                        return "your phone number can't be empty";
+                     }else if (value.length < 11){
+                       return'phone shoud be at least 11 Characters';
                      }
                    },),
                  Textformpass(title: 'Password', hint: 'Your password',iconpath: 'assets/images/eye password logo.png',

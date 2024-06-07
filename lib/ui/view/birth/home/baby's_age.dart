@@ -25,7 +25,7 @@ class BabyAge extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .01,
                   ),
-                  Text('Your baby is${snapshot.data!.years}years and ${snapshot.data!.months} months and ${snapshot.data!.days} days old',
+                  Text('${AppLocalizations.of(context)!.yourbabyis}${snapshot.data!.years}${AppLocalizations.of(context)!.yearsand} ${snapshot.data!.months} ${AppLocalizations.of(context)!.monthsand} ${snapshot.data!.days} ${AppLocalizations.of(context)!.daysold}',
                       style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),textAlign: TextAlign.center),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * .04,

@@ -107,9 +107,9 @@
 "breastFeeding":"الرضاعه الطبيعيه",
 "bottleFeeding":"الرضاعة الصناعية",
 "weekbottel1" :"1-6 أشهر",
-"weekbottel6" :"اشهر 6-12",
-"weekbottel12" :"أشهر 12-18",
-"weekbottel18" :"أشهر 18-24",
+"weekbottel6" :"6-12 أشهر",
+"weekbottel12" :"12-18 أشهر",
+"weekbottel18" :"18-21 أشهر",
 "tipsmonth1"   :"1-3 أشهر",
 "tipsmonth3"   :"3-6 أشهر",
 "tipsmonth6"   :"6-9 أشهر",
@@ -122,11 +122,21 @@
 "babyweeksint": "سنساعدك على تتبع نموه وإطلاعك على مراحل نمو طفلك الأسبوعية",
 "babybuttonhint" :"شاهد معالم طفلي الرضيع",
 "babyweeh0"     :"طفلك في الأسبوع 0 من الحمل",
-"commonissuehint" :"خذ نظرة على هذه المشاكل",
+"commonissuehint" :"الق نظرة على هذه المشاكل",
 "logout" :"تسجيل الخروج",
 "birthint":"سيذكرك نيو بورن بمعالم مهمة عن طفلك",
 "birthweek0":"طفلك يبلغ من العمر 0 سنة و 0 شهر و 0 يوم",
-"cry" :"محلل البكاء"
+"cry" :"محلل البكاء",
+"babyweektext1":"طفلك عند",
+"weeks":"الاسبوع",
+"yourbabyis":"طفلك يبلغ ",
+"yearsand" :"سنه",
+"monthsand":"شهر",
+"daysold":"يوما",
+"weekbttel1" :"6-8 اشهر",
+"weekbttel6" :"8-12 اشهر",
+"weekbttel12" :"سنة",
+"weekbttel18" :"سنتين"
 
 
 

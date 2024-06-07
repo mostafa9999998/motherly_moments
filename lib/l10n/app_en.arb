@@ -18,7 +18,7 @@
 "vitamines":"Vitamines",
 "exercises":"Exercises",
 "courses" :"Courses",
-"bregnancy" :"Bregnancy",
+"bregnancy" :"Pregnancy",
 "birth" :"Birth",
 "periodTracker" :"Period Tracker",
 "periodQuestion":"When did your Last period begin?",
@@ -81,11 +81,11 @@
 "foodtopicdes1":"Focusing on folic acid-rich foods \n for neural development.",
 "foodtopicdes2":"Prioritizing calcium-rich foods \n for bone growth",
 "foodtopicdes3":"Incorporating protein-rich foods \n for growth and preparation for childbirth",
-"vitamintitel":"  Vitamines .",
+"vitamintitel":"  Vitamins .",
 "vitamintopic1":"omega3 ",
 "vitamintopic2":"zinc ",
 "vitamintopic3":"iron ",
-"vitamintopic4":"viitamin c ",
+"vitamintopic4":"vitamin c ",
 "female":"Female",
 "male":"Male",
 "babytitel":" Baby info",
@@ -96,7 +96,7 @@
 "selectbirth":"Select your baby's birthday",
 "seemils":"See my baby milestones",
 "babycatgeroytitel":"“ Wish you have a safe\n healthy life “",
-"childgrowth":"Child groth",
+"childgrowth":"Child growth",
 "tipsandactivities":"Tips and activities",
 "nutrition":"Nutrition",
 "vaccinations":"Vaccinations",
@@ -126,9 +126,16 @@
 "logout" :"Log Out",
 "birthint":"New born will remind you of important milestones about your baby",
 "birthweek0":"Your baby is 0 years and 0 months and 0 days old",
-"cry" :"cry analyzer"
-
-
-
+"cry" :"cry analyzer",
+"babyweektext1":"Your baby at",
+"weeks":"week",
+"yourbabyis" : "Your baby is",
+"yearsand" : "years and",
+"monthsand" : "months and",
+"daysold" : "days old",
+"weekbttel1" :"6-8 months",
+"weekbttel6" :"8-12 months",
+"weekbttel12" :"one year",
+"weekbttel18" :"Two year"
 
 }

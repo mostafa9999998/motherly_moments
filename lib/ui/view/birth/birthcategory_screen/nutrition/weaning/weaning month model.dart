@@ -8,19 +8,19 @@ class WeaningMonthmodel{
     return [
       WeaningMonthmodel(
           id:1 ,
-          weekname:AppLocalizations.of(context)!.weekbottel1
+          weekname:AppLocalizations.of(context)!.weekbttel1
       ),
       WeaningMonthmodel(
           id:6 ,
-          weekname:AppLocalizations.of(context)!.weekbottel6
+          weekname:AppLocalizations.of(context)!.weekbttel6
       ),
       WeaningMonthmodel(
           id:12 ,
-          weekname:AppLocalizations.of(context)!.weekbottel12
+          weekname:AppLocalizations.of(context)!.weekbttel12
       ),
       WeaningMonthmodel(
           id:18 ,
-          weekname:AppLocalizations.of(context)!.weekbottel18
+          weekname:AppLocalizations.of(context)!.weekbttel18
       ),
     ];
   }

@@ -34,7 +34,7 @@ class _BabyInfoScreenState extends State<BabyInfoScreen> {
      Mainprovider provider = Provider.of(context);
     return Container(
       decoration: BoxDecoration(
-        image: DecorationImage(image: AssetImage('assets/images/background pic.png'),fit: BoxFit.fill)
+        image: DecorationImage(image: AssetImage('assets/images/lbackground.png'),fit: BoxFit.fill)
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
