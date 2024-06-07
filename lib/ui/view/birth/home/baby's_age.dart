@@ -16,6 +16,11 @@ class BabyAge extends StatelessWidget {
       future:  Apimanager.birthdate(date),
       builder: (context, snapshot) {
         if (snapshot.hasData){
+          if(snapshot.data!.years == null){
+            snapshot.data!.years = 0;
+            snapshot.data!.months = 0;
+            snapshot.data!.days = 0;
+          }
           return  Container(
               padding: EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.width * .05,

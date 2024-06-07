@@ -7,6 +7,7 @@
 "setting"  :"Settings",
 "language" :"Language",
 "theme" :"Themeimg",
+"englishh" :"English",
 "english" :"English",
 "arabic" :"Arabic",
 "light" :"Light",
@@ -15,11 +16,11 @@
 "babygrowth":"Baby growth",
 "bodychanges":"Body changes",
 "food":"Food",
-"vitamines":"Vitamines",
+"vitamines":"Vitamins",
 "exercises":"Exercises",
 "courses" :"Courses",
 "bregnancy" :"Pregnancy",
-"birth" :"Birth",
+"birth" :"New born",
 "periodTracker" :"Period Tracker",
 "periodQuestion":"When did your Last period begin?",
 "selectperioddate" :"Select the dates of your cycle to log them",
@@ -96,7 +97,7 @@
 "selectbirth":"Select your baby's birthday",
 "seemils":"See my baby milestones",
 "babycatgeroytitel":"“ Wish you have a safe\n healthy life “",
-"childgrowth":"Child growth",
+"childgrowth":"Child Milestones",
 "tipsandactivities":"Tips and activities",
 "nutrition":"Nutrition",
 "vaccinations":"Vaccinations",
@@ -136,6 +137,7 @@
 "weekbttel1" :"6-8 months",
 "weekbttel6" :"8-12 months",
 "weekbttel12" :"one year",
-"weekbttel18" :"Two year"
+"weekbttel18" :"Two year",
+"titlepregnancy0" :"“ Wish you have a safe\n pregnance “"
 
 }

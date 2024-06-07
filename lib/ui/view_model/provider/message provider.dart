@@ -19,9 +19,7 @@ static String c2 ='messages';
       senderId: userid,
       receiverId: receverid,
       message: message,
-      createdAt: date,
-    );
-
+      createdAt: date,);
     List<String> ids = [userid,receverid ];
     ids.sort();
     String chatroomid = ids.join("_");
@@ -30,9 +28,7 @@ static String c2 ='messages';
         .collection(c1)
         .doc(chatroomid)
         .collection(c2)
-        .add(newMessage.toJson());
-  }
-
+        .add(newMessage.toJson());}
   Stream<QuerySnapshot<MessageResponse>> getMessage(String userid, String receverid) {
     List<String> ids = [userid,receverid ];
     ids.sort();
@@ -45,8 +41,7 @@ static String c2 ='messages';
          fromFirestore: ((snapshot, options)=> MessageResponse.fromJson(snapshot.data()!)),
         toFirestore: ((message, options) => message.toJson()),)
         .orderBy('created_at', descending: true)
-        .snapshots();
-  }
+        .snapshots();}
 
   Future<void> sendmessagetobot(
       String message, String userid,bool issender ) async {

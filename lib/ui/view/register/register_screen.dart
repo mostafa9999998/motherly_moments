@@ -42,7 +42,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                  },),
 
 
-                 Textform(title: 'Email adress', hint: 'you@example.com',
+                 Textform(title: 'Email address', hint: 'you@example.com',
                      keyboardtype: TextInputType.emailAddress,controller: emailcontroller ,validator:(value) {
                      if (value!.isEmpty || value.trim().isEmpty){
                        return "e-mail can't be empty";
@@ -56,7 +56,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                    }, ),
 
 
-                 Textform(title: 'Phone number', hint: '0111111111',
+                 Textform(title: 'Phone number', hint: 'phone number',
                      keyboardtype: TextInputType.phone,controller:phonecontroller ,validator: (value) {
                      if (value!.isEmpty || value.trim().isEmpty){
                        return "your phone number can't be empty";
@@ -66,6 +66,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                    },),
                  Textformpass(title: 'Password', hint: 'Your password',iconpath: 'assets/images/eye password logo.png',
                      valiedstring: "password can't be empty",controller: passwordcontroller),
+
                  Container(
                    width: MediaQuery.sizeOf(context).width*0.9,
                     height:MediaQuery.sizeOf(context).width*0.15 ,
@@ -126,7 +127,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
       if(await R){
         hideLoading(context);
-        showsucsses(context, 'User added successfully');
+        //showsucsses(context, 'User added successfully');
+        Navigator.pushReplacementNamed(context, Loginscreen.loginroutename);
       } else{
         hideLoading(context);
         showerror(context, 'Email already exists');

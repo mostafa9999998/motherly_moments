@@ -22,8 +22,8 @@ class Foodsstyle extends StatelessWidget {
         child: Row(
           children: [
             Container(
-                width: MediaQuery.of(context).size.width * 0.25,
-                height: MediaQuery.of(context).size.height * 0.3,
+                width: MediaQuery.of(context).size.width * 0.22,
+                height: MediaQuery.of(context).size.height * 0.25,
                 child: Image.asset(
                   foodlist.imagepath,
                   fit: BoxFit.fill,
@@ -31,24 +31,30 @@ class Foodsstyle extends StatelessWidget {
             SizedBox(
               // width: MediaQuery.of(context).size.width * 0.015,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.03,
-                ),
-                Text(
-                  foodlist.title,
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.01,
-                ),
-                Text(
-                  foodlist.desc,
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
-                ),
-              ],
+            Expanded(
+              child: Row(
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.03,
+                      ),
+                      Text(
+                        foodlist.title,
+                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.01,
+                      ),
+                      Text(
+                        foodlist.desc,
+                        style: TextStyle(fontWeight: FontWeight.w300, fontSize: 12),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             )
           ],
         ),

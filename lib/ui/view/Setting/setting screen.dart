@@ -44,7 +44,7 @@ class _SettingScreenState extends State<SettingScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.english,
+                      AppLocalizations.of(context)!.englishh,
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,

@@ -39,10 +39,10 @@ class _TextformpassState extends State<Textformpass> {
                 return 'password shoud be at least 8 Characters';
               }
               bool emailValid = RegExp(
-                      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+[A-Z0-9]+")
+                  r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-])[A-Za-z\d!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]{8,}$')
                   .hasMatch(value);
               if (!emailValid) {
-                return "Password must have an uppercase or number";
+                return "Password must be at least 8 characters long, include an uppercase letter, a number, and a special character.";
               }
             },
             decoration: InputDecoration(

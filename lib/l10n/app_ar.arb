@@ -7,8 +7,9 @@
 "setting"  :"الاعدادات",
 "language" :"اللغة",
 "theme" :"النمط",
+"englishh" :"العربية",
 "english" :"الأنجليزية",
-"arabic" :"العربيه",
+"arabic" :"العربية",
 "light" :"مضئ",
 "dark" :"داكن",
 "select" :"اختر",
@@ -95,7 +96,7 @@
 "pselectg":"الرجاء اختيار جنس المولود ",
 "selectbirth":"اختر تاريخ ميلاد طفلك",
 "seemils":"رؤية معالم طفلي",
-"babycatgeroytitel":"“أتمنى ان تكونى حصلتى على ولادة\n أمنه",
+"babycatgeroytitel":"“أتمنى ان تكونى حصلتى على ولادة\n أمنه“",
 "childgrowth":"نمو الطفل",
 "tipsandactivities":"نصائح وأنشطة",
 "nutrition":"التغذية",
@@ -136,9 +137,8 @@
 "weekbttel1" :"6-8 اشهر",
 "weekbttel6" :"8-12 اشهر",
 "weekbttel12" :"سنة",
-"weekbttel18" :"سنتين"
-
-
+"weekbttel18" :"سنتين",
+"titlepregnancy0" :"“ نتمنى لك حملا \n آمنا “"
 
 
 

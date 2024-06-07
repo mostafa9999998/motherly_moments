@@ -29,7 +29,7 @@ class _CategoryState extends State<Category> {
           left: MediaQuery.of(context).size.height*.02 ),
       child: Column(
         children: [
-          Text('“ Wish you have a safe\n pregnance “',style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
+          Text(AppLocalizations.of(context)!.titlepregnancy0,style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
           Expanded(
             child: GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
